@@ -4,9 +4,9 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 First, install this extensions in Visual Studio Code:
 
-*CSS Peek
-*ES7+ React/Redux/React-Native snippets
-*Tailwind CSS IntelliSense
+* CSS Peek
+* ES7+ React/Redux/React-Native snippets
+* Tailwind CSS IntelliSense
 
 Second, to install nextJS write in console:
 
