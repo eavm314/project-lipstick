@@ -2,7 +2,19 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-First, run the development server:
+First, install this extensions in Visual Studio Code:
+
+*CSS Peek
+*ES7+ React/Redux/React-Native snippets
+*Tailwind CSS IntelliSense
+
+Second, to install nextJS write in console:
+
+```bash
+npm install
+```
+
+Third, run the development server:
 
 ```bash
 npm run dev
