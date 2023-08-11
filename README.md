@@ -8,13 +8,20 @@ First, install this extensions in Visual Studio Code:
 * ES7+ React/Redux/React-Native snippets
 * Tailwind CSS IntelliSense
 
-Second, to install nextJS write in console:
+Second, clone the repository:
+
+```bash
+git clone https://github.com/eavm314/project-lipstick.git
+```
+
+Third, install nextJS.\
+To install nextJS write in console:
 
 ```bash
 npm install
 ```
 
-Third, run the development server:
+Fourth, run the development server:
 
 ```bash
 npm run dev
