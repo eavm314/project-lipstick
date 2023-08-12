@@ -1,4 +1,4 @@
-import "./fonts.css"
+import "../globals.css"
 
 export const Component = ({ n, nombre }) => {
   return (
