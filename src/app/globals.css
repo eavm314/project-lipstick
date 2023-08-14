@@ -124,21 +124,35 @@ em*1.892 etc (VER GUIA EN FIGMA EN SECCION 'CODIGO')
 
 }
 
-/*TEXTO BASICO------------------------------------------------------------------------*/
+/*CONFIGURACION EM*/
 
-.brand-name{
-  color: var(--primary-100);
-  font-family: var(--titulo-font), serif;
-  font-weight: var(--weight-bold);
+body{
+  font-size: 16px;
 }
 
+div{
+  font-size:1em;
+}
+
+input[type="text"] {
+  width: 1rem;
+}
+
+textarea {
+  width: 1rem;
+}
+
+/*TEXTO BASICO------------------------------------------------------------------------*/
+
 .titulo{
+  display:flex;
   color: var(--text-color-default);
   font-family: var(--titulo-font), serif;
   font-weight: var(--weight-semi-bold);
 }
 
 .subtitulo{
+  display:flex;
   color: var(--text-color-default);
   font-family: var(--subtitulo-font), serif;
   font-weight: var(--weight-bold);
@@ -146,6 +160,7 @@ em*1.892 etc (VER GUIA EN FIGMA EN SECCION 'CODIGO')
 }
 
 .texto-parrafo{
+  display:flex;
   color: var(--text-color-default);
   font-family: var(--texto-font), sans-serif;
   font-weight: var(--weight-regular);
@@ -256,7 +271,7 @@ em*1.892 etc (VER GUIA EN FIGMA EN SECCION 'CODIGO')
   display: flex;
   border:none;
   color: var(--primary-100);
-  padding: 1rem 2rem;
+  padding: 1em 2rem;
   justify-content:center;
   align-items: center;
   gap: 0.625rem;
@@ -275,4 +290,68 @@ em*1.892 etc (VER GUIA EN FIGMA EN SECCION 'CODIGO')
   background-color: var(--sec-a-400);
   color: var(--primary-100);
   transition: 50ms
+}
+
+/*ELEMENTOS ESPECIFICOS PARA TIENDA------------------------------------------------------------------------*/
+
+.boton-producto{
+  display:flex;
+  padding: 1.25em 1.25em;
+  background-color: var(--gris-200);
+  transition-duration: 350ms;
+  gap: 1em;
+}
+
+.boton-producto:hover{
+  background-color: var(--gris-400);
+}
+
+.boton-producto:active{
+  background-color: var(--gris-300);
+}
+
+.conjunto-productos{
+  display:flex;
+  gap:2.5em;
+}
+
+/*BOXES PARA IMÁGENES-------------------------------------------------------------------------------*/
+
+.imagen-producto-tienda{
+  width: 9.75em;
+  height: 9.75em;
+  flex-shrink: 0
+}
+
+/*BOXES LAYOUTS-----------------------------------------------------------*/
+/*GLOBAL*/
+
+.brand-name{
+  display:flex;
+  background-color: var(--primary-def);
+  padding: 1.25rem;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  color: var(--primary-100);
+  font-family: var(--titulo-font), serif;
+  font-weight: var(--weight-bold);
+  font-size: 3.25em
+}
+
+.navigation-bar{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.75rem;
+  background-color: var(--transicion-800);
+  gap:7.25em;
+}
+
+.texto-navigation-bar{
+  font-family: var(--texto-font), sans-serif;
+  font-weight: var(--weight-semi-bold);
+  font-size: 1.25em;
+  display: flex;
+  color: var(--primary-100);
 }

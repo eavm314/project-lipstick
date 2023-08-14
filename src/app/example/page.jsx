@@ -21,12 +21,10 @@ const ExamplePage = () => {
     return(
         <div className="bg-emerald-800 md:bg-yellow-500">
             
-            <h1 className="texto-precio-producto-pagina-individual">ExampleHola123456789</h1>
-            
             {nums.filter((num)=> num%2==0).map((num) => <Component n={num} nombre={data.nombre}/>)}
             <button
                 style={{fontSize: (em*1)}}
-                className="boton-advertencia"
+                className="boton-producto"
                 onClick={()=>{setCont(cont+1)}}
                 // onClick={()=>{cont++}}
             >
