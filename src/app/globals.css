@@ -168,6 +168,14 @@ textarea {
   letter-spacing: var(--paragraph-letter-spacing);
 }
 
+.texto-normal-semibold{
+  color: var(--text-color-default);
+  font-family: var(--texto-font), sans-serif;
+  font-weight: var(--weight-semi-bold);
+  align-items: left;
+  text-align: left;
+}
+
 /*TEXTO ESPECIFICO------------------------------------------------------------------------*/
 
 .texto-precio-producto-tienda{
@@ -175,6 +183,7 @@ textarea {
   font-family: var(--subtitulo-font), serif;
   font-weight: var(--weight-medium);
   font-variant-numeric: var(--numbers-cormorant-garamond);
+  text-align: left;
 }
 
 .texto-precio-producto-pagina-individual{
@@ -184,6 +193,13 @@ textarea {
   font-variant-numeric: var(--numbers-cormorant-garamond);
 }
 
+.texto-tags-producto-tienda{
+  color: var(--text-color-default);
+  font-family: var(--texto-font), sans-serif;
+  font-weight: var(--weight-light);
+  font-style: italic;
+  text-align: left;
+}
 /*BOTONES------------------------------------------------------------------------*/
 
 .boton-primario{
@@ -296,10 +312,14 @@ textarea {
 
 .boton-producto{
   display:flex;
-  padding: 1.25em 1.25em;
+  flex-wrap: wrap;
+  padding: 1.25rem 1.25rem;
   background-color: var(--gris-200);
   transition-duration: 350ms;
-  gap: 1em;
+  align-items: center;
+  gap: 0.75rem;
+  flex-direction: column;
+  object-fit: contain;
 }
 
 .boton-producto:hover{
@@ -311,8 +331,14 @@ textarea {
 }
 
 .conjunto-productos{
+  align-items: center;
+  align-content: center;
+  justify-content: left;
   display:flex;
-  gap:2.5em;
+  flex-wrap: wrap;
+  flex: 1 1 content;
+  gap:2.5rem;
+  max-width: calc(5*9.75em + 4*2.5rem + 10*1.25em);
 }
 
 /*BOXES PARA IMÁGENES-------------------------------------------------------------------------------*/
@@ -320,7 +346,8 @@ textarea {
 .imagen-producto-tienda{
   width: 9.75em;
   height: 9.75em;
-  flex-shrink: 0
+  flex-shrink: 0;
+  object-fit: cover;
 }
 
 /*BOXES LAYOUTS-----------------------------------------------------------*/
