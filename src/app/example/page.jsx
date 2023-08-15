@@ -12,7 +12,7 @@ import '../globals.css'
 const ExamplePage = () => {
     const [cont, setCont] = useState(2);
     // let cont = 2;
-    const nums = [1,2,3,4,5,6];
+    const nums = [1,2,3,4,5,6,7,8];
     const data = {
         nombre: "producto 1",
         precio: 21,
