@@ -7,7 +7,6 @@ import {
   faCircleStop
 } from "@fortawesome/free-solid-svg-icons";
 import '../globals.css'
-import './tienda.css'
 import { BotonProducto } from "./ComponentesTienda";
 
 const dataPrueba = {
@@ -19,7 +18,7 @@ const dataPrueba = {
   textoBoton: "Comprar"
 }
 
-const TiendaPage = () => {
+const QRPage = () => {
   const [cont, setCont] = useState(2);
   const nums = [1, 2, 3, 4, 5, 6, 7, 8];
   const em = 16;
@@ -34,4 +33,4 @@ const TiendaPage = () => {
   )
 }
 
-export default TiendaPage;
+export default QRPage;
