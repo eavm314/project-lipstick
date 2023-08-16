@@ -1,8 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500;6..96,600;6..96,700;6..96,800&family=Cormorant+Garamond:wght@400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
+/*:root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
@@ -24,4 +26,354 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+}*/
+
+/*
+
+GUIA PARA EL  CODIGO:
+
+siempre crear:
+
+const em=16
+
+siempre importar:
+
+import "../globals.css" o import "../../globals.css" si hay que salir dos folders
+
+Para darle los tamaños correspondientes a los distintos textos:
+
+em*1
+em*1.892 etc (VER GUIA EN FIGMA EN SECCION 'CODIGO')
+
+<button style={{fontSize: (em*factorDeConversion)}}>
+
+*/
+
+:root {
+
+  --text-color-default: #000000;
+
+  --primary-def: #262626;
+  --primary-100: #F9F8F7;
+  --primary-200: #dedede;
+  --primary-300: #909090;
+  --primary-400: #525252;
+
+  --transicion-800: #323232;
+  --transicion-700: #4B4B4B;
+  --transicion-750: #656565;
+  --transicion-600: #757575;
+  --transicion-500: #929292;
+  --transicion-400: #B9B9B9;
+  --transicion-300: #D0D0D0;
+  --transicion-200: #E4E4E4;
+  --transicion-100: #EFEFEF;
+  --transicion-50: #F5F5F5;
+
+  --sec-r-400: #F4B8D0;
+  --sec-r-300: #F4B8D0;
+  --sec-r-200: #FADCE8;
+  --sec-r-100: #FCEDF3;
+  --sec-r-200-a: rgba(var(--sec-a-300),0.5);
+  --sec-r-100-a: rgba(var(--sec-a-300),0.25);
+
+  --sec-b-400: #D7A27E;
+  --sec-b-300: #FEE0CC;
+  --sec-b-200: #FFEEE3;
+  --sec-b-100: #FEF7F2;
+  --sec-b-200-a: rgba(var(--sec-b-300),0.5);
+  --sec-b-100-a: rgba(var(--sec-a-300),0.25);
+
+  --sec-m-400: #78534B;
+  --sec-m-300: #BA8E84;
+  --sec-m-200: #DDC7C2;
+  --sec-m-100: #EDE2E0;
+  --sec-m-200-a: rgba(var(--sec-m-300),0.5);
+  --sec-m-100-a: rgba(var(--sec-m-300),0.25);
+
+  --sec-a-400: #7D1F1F;
+  --sec-a-300: #BD2222;
+  --sec-a-200: #D17575;
+  --sec-a-100: #B67878;
+
+  --gris-900: #5E5451 ;
+  --gris-800: #766C69 ;
+  --gris-700: #978B88 ;
+  --gris-600: #B6ADAA ;
+  --gris-500: #C8C2C0 ;
+  --gris-400: #DAD5D3 ;
+  --gris-300: #E8E3E1 ;
+  --gris-200: #EFECEA ;
+  --gris-100: #F5F3F1 ;
+
+  --titulo-font: 'Bodoni Moda';
+  --subtitulo-font: 'Cormorant Garamond';
+  --texto-font: 'Plus Jakarta Sans';
+
+  --weight-extra-bold: 800;
+  --weight-bold: 700;
+  --weight-semi-bold: 600;
+  --weight-medium: 500;
+  --weight-regular: 400;
+  --weight-light: 300;
+
+  --paragraph-line-height: 2;
+  --paragraph-letter-spacing: 0.025em;
+
+  --numbers-cormorant-garamond: lining-nums proportional-nums;
+
+}
+
+/*CONFIGURACION EM*/
+
+body{
+  font-size: 16px;
+}
+
+div{
+  font-size:1em;
+}
+
+input[type="text"] {
+  width: 1rem;
+}
+
+textarea {
+  width: 1rem;
+}
+
+.background{
+  flex:1;
+  background-color: var(--primary-100);
+}
+
+/*TEXTO BASICO------------------------------------------------------------------------*/
+
+.titulo{
+  display:flex;
+  color: var(--text-color-default);
+  font-family: var(--titulo-font), serif;
+  font-weight: var(--weight-semi-bold);
+}
+
+.subtitulo{
+  display:flex;
+  color: var(--text-color-default);
+  font-family: var(--subtitulo-font), serif;
+  font-weight: var(--weight-semi-bold);
+  font-variant-numeric: var(--numbers-cormorant-garamond);
+}
+
+.texto-parrafo{
+  display:flex;
+  color: var(--text-color-default);
+  font-family: var(--texto-font), sans-serif;
+  font-weight: var(--weight-regular);
+  line-height: var(--paragraph-line-height);
+  letter-spacing: var(--paragraph-letter-spacing);
+}
+
+.texto-normal-semibold{
+  color: var(--text-color-default);
+  font-family: var(--texto-font), sans-serif;
+  font-weight: var(--weight-semi-bold);
+  align-items: left;
+  text-align: left;
+}
+
+/*TEXTO ESPECIFICO------------------------------------------------------------------------*/
+
+.texto-precio-producto-tienda{
+  color: var(--text-color-default);
+  font-family: var(--subtitulo-font), serif;
+  font-weight: var(--weight-medium);
+  font-variant-numeric: var(--numbers-cormorant-garamond);
+  text-align: left;
+}
+
+.texto-tags-producto-tienda{
+  color: var(--text-color-default);
+  font-family: var(--texto-font), sans-serif;
+  font-weight: var(--weight-light);
+  font-style: italic;
+  text-align: left;
+}
+
+/*BOTONES------------------------------------------------------------------------*/
+
+.boton-primario{
+  background-color: var(--primary-def);
+  display: flex;
+  border:none;
+  color: var(--primary-100);
+  padding: 1rem 2rem;
+  justify-content:center;
+  align-items: center;
+  gap: 0.625rem;
+  transition-duration: 350ms;
+  flex-shrink:0;
+  font-family: var(--texto-font);
+  font-weight: var(--weight-light);
+}
+
+.boton-primario:hover{
+  background-color: var(--primary-100);
+  color: var(--primary-def);
+}
+
+.boton-primario:active{
+  background-color: var(--primary-400);
+  color: var(--primary-100);
+  transition: 50ms
+}
+
+.boton-secundario{
+  background-color: var(--primary-100);
+  display: flex;
+  border: 0.09375em solid var(--primary-def);
+  color: var(--primary-def);
+  padding: 1rem 2rem;
+  justify-content:center;
+  align-items: center;
+  gap: 0.625rem;
+  transition-duration: 350ms;
+  flex-shrink:0;
+  font-family: var(--texto-font);
+  font-weight: var(--weight-light);
+}
+
+.boton-secundario:hover{
+  background-color: var(--primary-def);
+  color: var(--primary-100);
+  border: 0.09375em solid var(--transicion-300);
+}
+
+.boton-secundario:active{
+  background-color: var(--transicion-300);
+  color: var(--primary-def);
+  border: 0.09375em solid var(--primary-def);
+  transition: 50ms
+}
+
+.boton-terciario{
+  background-color: var(--gris-200);
+  display: flex;
+  border:none;
+  color: var(--primary-def);
+  padding: 1rem 2rem;
+  justify-content:center;
+  align-items: center;
+  gap: 0.625rem;
+  transition-duration: 350ms;
+  flex-shrink:0;
+  font-family: var(--texto-font);
+  font-weight: var(--weight-light);
+}
+
+.boton-terciario:hover{
+  background-color: var(--gris-800);
+  color: var(--primary-100);
+}
+
+.boton-terciario:active{
+  background-color: var(--gris-900);
+  color: var(--primary-100);
+  transition: 50ms
+}
+
+.boton-advertencia{
+  background-color: var(--sec-a-300);
+  display: flex;
+  border:none;
+  color: var(--primary-100);
+  padding: 1em 2rem;
+  justify-content:center;
+  align-items: center;
+  gap: 0.625rem;
+  transition-duration: 350ms;
+  flex-shrink:0;
+  font-family: var(--texto-font);
+  font-weight: var(--weight-light);
+}
+
+.boton-advertencia:hover{
+  background-color: var(--primary-100);
+  color: var(--sec-a-300);
+}
+
+.boton-advertencia:active{
+  background-color: var(--sec-a-400);
+  color: var(--primary-100);
+  transition: 50ms
+}
+
+/*ELEMENTOS ESPECIFICOS PARA TIENDA------------------------------------------------------------------------*/
+
+.boton-producto{
+  display:flex;
+  flex-wrap: wrap;
+  padding: 1.25rem 1.25rem;
+  background-color: var(--gris-200);
+  transition-duration: 350ms;
+  align-items: center;
+  gap: 0.75rem;
+  flex-direction: column;
+  object-fit: contain;
+}
+
+.boton-producto:hover{
+  background-color: var(--gris-400);
+}
+
+.conjunto-productos{
+  align-items: center;
+  align-content: center;
+  justify-content: left;
+  display:flex;
+  flex-wrap: wrap;
+  flex: 1 1 content;
+  gap:2.5rem;
+  max-width: calc(5*9.75em + 4*2.5rem + 10*1.25em);
+}
+
+/*BOXES PARA IMÁGENES-------------------------------------------------------------------------------*/
+
+.imagen-producto-tienda{
+  width: 9.75em;
+  height: 9.75em;
+  flex-shrink: 0;
+  object-fit: cover;
+}
+
+/*BOXES LAYOUTS-----------------------------------------------------------*/
+/*GLOBAL*/
+
+.brand-name{
+  display:flex;
+  background-color: var(--primary-def);
+  padding: 1.25rem;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  color: var(--primary-100);
+  font-family: var(--titulo-font), serif;
+  font-weight: var(--weight-bold);
+  font-size: 3.25em
+}
+
+.navigation-bar{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.75rem;
+  background-color: var(--transicion-800);
+  gap:7.25em;
+}
+
+.texto-navigation-bar{
+  font-family: var(--texto-font), sans-serif;
+  font-weight: var(--weight-semi-bold);
+  font-size: 1.25em;
+  display: flex;
+  color: var(--primary-100);
 }
