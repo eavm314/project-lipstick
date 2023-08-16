@@ -17,7 +17,7 @@ const dataPrueba = {
 export default function ViewItem() {
   return (
     <div style={{ display: "flex", alignItems: "center", justifyContent: "center", backgroundColor: "#f7f8f9" }}>
-      <FontAwesomeIcon icon={faAngleLeft} color="#000000" size="3x" style={{ padding: 10 }} />
+      {/* <FontAwesomeIcon icon={faAngleLeft} color="#000000" size="3x" style={{ padding: 10 }} /> */}
       <div style={{ paddingTop: 13 }}>
         <div style={{ flexDirection: 'row-reverse' }}>
           <FontAwesomeIcon icon={faXmark} color="#D0d0d0" size="2xl" style={{ padding: 10, paddingLeft: 1000 }} />
@@ -53,7 +53,7 @@ export default function ViewItem() {
 
       </div>
 
-      <FontAwesomeIcon icon={faAngleRight} color="#000000" size="3x" style={{ padding: 10 }} />
+      {/* <FontAwesomeIcon icon={faAngleRight} color="#000000" siscze="3x" style={{ padding: 10 }} /> */}
     </div>
   )
 }
