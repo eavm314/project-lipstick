@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleLeft, faAngleRight, faXmark } from "@fortawesome/free-solid-svg-icons";
 import Stars from "../resources/stars";
 import "../../globals.css"
+import "../resources/paginaIndividual.css"
 
 const dataPrueba = {
   imagen: "lipstickPrueba",
@@ -14,26 +15,25 @@ const dataPrueba = {
   textoBoton: "Comprar"
 }
 
+const em = 16;
+
 export default function ViewItem() {
   return (
-    <div style={{ display: "flex", alignItems: "center", justifyContent: "center", backgroundColor: "#f7f8f9" }}>
+    <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: (2*em), background:'var(--gris-400)', padding:(1.25*em)}}>
       {/* <FontAwesomeIcon icon={faAngleLeft} color="#000000" size="3x" style={{ padding: 10 }} /> */}
-      <div style={{ paddingTop: 13 }}>
-        <div style={{ flexDirection: 'row-reverse' }}>
-          <FontAwesomeIcon icon={faXmark} color="#D0d0d0" size="2xl" style={{ padding: 10, paddingLeft: 1000 }} />
-        </div>
+      <div style={{ paddingTop: 0.75*em }}>
+        
 
         <view style={{ display: "flex" }}>
-          <img src="/lipstickPrueba.jpg" height="402" width="402" />
-          <div style={{ width: 581, height: 402, paddingLeft: 32 }}>
-            <p className="tituloItemIndividual" style={{ fontSize: 32, width: 554, height: 68 }}>{dataPrueba.nombre}</p>
-            <div style={{ display: "flex", paddingTop: 30 }}>
-              <view style={{ borderColor: "#000", borderWidth: 1, alignItems: "center", justifyContent: "center", padding: 4, margin: 5 }}>
-                <p className="texto-tags-pagina-individual">Lipstick</p>
-              </view>
-              <view style={{ borderColor: "#000", borderWidth: 1, alignItems: "center", justifyContent: "center", padding: 4, margin: 5 }}>
-                <p className="texto-tags-pagina-individual">Hidratacion</p>
-              </view>
+          <div className="imagen-producto-individual">
+            <img src={"/lipstickPrueba.jpg"} alt="" />
+          </div>
+          <div className="box-datos">
+            <p className="tituloItemIndividual" style={{ fontSize: 2*em}}>{dataPrueba.nombre}</p>
+            <div style={{ display: "flex", gap: (0.75*em)}}>
+              {dataPrueba.tags.map((tag, index) => <view style={{ display: "flex", borderColor: "#000", borderWidth: 0.5, alignItems: "center", justifyContent: "center", maxHeight: (1.75*em), padding: (0.25*em)}}>
+                <p className="texto-tags-pagina-individual" style={{ fontSize: 1*em}}>{tag}</p>
+              </view>)}
             </div>
             <p className="texto-precio-producto-pagina-individual" style={{ fontSize: 24, marginTop: 5 }}>$ {dataPrueba.precio}</p>
             <p className="texto-cuerpo-pagina-individual" style={{ fontSize: 16, marginTop: 5, width: 424, height: 115, lineHeight: 2 }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
@@ -44,7 +44,7 @@ export default function ViewItem() {
                 className="boton-primario"
               //TODO: llevar a producto individual
               >
-                Añadir al Carrito
+                Comprar
               </button>
             </view>
           </div>

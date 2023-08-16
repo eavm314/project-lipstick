@@ -142,6 +142,11 @@ textarea {
   width: 1rem;
 }
 
+.background{
+  flex:1;
+  background-color: var(--primary-100);
+}
+
 /*TEXTO BASICO------------------------------------------------------------------------*/
 
 .titulo{
@@ -149,14 +154,6 @@ textarea {
   color: var(--text-color-default);
   font-family: var(--titulo-font), serif;
   font-weight: var(--weight-semi-bold);
-}
-
-.tituloItemIndividual{
-  display:flex;
-  color: var(--text-color-default);
-  font-family: var(--titulo-font), serif;
-  font-weight: var(--weight-bold);
-  font-variant-numeric: var(--numbers-cormorant-garamond);
 }
 
 .subtitulo{
@@ -365,6 +362,13 @@ textarea {
 .imagen-producto-tienda{
   width: 9.75em;
   height: 9.75em;
+  flex-shrink: 0;
+  object-fit: cover;
+}
+
+.imagen-producto-individual{
+  width: 25em;
+  height: 25em;
   flex-shrink: 0;
   object-fit: cover;
 }
