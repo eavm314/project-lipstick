@@ -13,17 +13,15 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body>
+    <div>
       <div className="brand-name">{metadata.brandName}</div>
-            <div className="navigation-bar">
-                <p className="texto-navigation-bar">Todos</p>
-                <p className="texto-navigation-bar">Ojos</p>
-                <p className="texto-navigation-bar">Cabello</p>
-                <p className="texto-navigation-bar">Uñas</p>
-            </div>
+      <div className="navigation-bar">
+        <p className="texto-navigation-bar">Todos</p>
+        <p className="texto-navigation-bar">Ojos</p>
+        <p className="texto-navigation-bar">Cabello</p>
+        <p className="texto-navigation-bar">Uñas</p>
+      </div>
       {children}
-      </body>
-    </html>
+    </div>
   )
 }
