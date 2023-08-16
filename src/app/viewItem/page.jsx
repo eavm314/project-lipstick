@@ -17,15 +17,13 @@ export default function ItemPage() {
   const em = 16;
 
   return (
-    <div style={{ flex: 1, backgroundColor: "var(--primary-100)", display:"flex", flexDirection: "column", justifyContent: "center", alignItems: 'center', padding: 4*em, gap: 4*em}}>
+    <div style={{ flex: 1, backgroundColor: "var(--primary-100)", display:"flex", flexDirection: "column", justifyContent: "center", alignItems: 'center', padding: 4*em, gap: 2.5*em}}>
       <ViewItem />
       <div>
-        <div style={{ display: "flex", alignItems: "center", alignContent: "center", justifyContent: "center" }}>
           <div className="conjunto-productos">
             {nums.map((num, index) => <BotonProducto key={index} imagen={dataPrueba.imagen} categoria={dataPrueba.categoria}
               tags={dataPrueba.tags} nombre={dataPrueba.nombre} precio={dataPrueba.precio} textoBoton={dataPrueba.textoBoton} />)}
           </div>
-        </div>
       </div>
     </div>
 
