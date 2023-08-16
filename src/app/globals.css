@@ -151,11 +151,19 @@ textarea {
   font-weight: var(--weight-semi-bold);
 }
 
+.tituloItemIndividual{
+  display:flex;
+  color: var(--text-color-default);
+  font-family: var(--titulo-font), serif;
+  font-weight: var(--weight-bold);
+  font-variant-numeric: var(--numbers-cormorant-garamond);
+}
+
 .subtitulo{
   display:flex;
   color: var(--text-color-default);
   font-family: var(--subtitulo-font), serif;
-  font-weight: var(--weight-bold);
+  font-weight: var(--weight-semi-bold);
   font-variant-numeric: var(--numbers-cormorant-garamond);
 }
 
@@ -191,6 +199,21 @@ textarea {
   font-family: var(--subtitulo-font), serif;
   font-weight: var(--weight-bold);
   font-variant-numeric: var(--numbers-cormorant-garamond);
+}
+
+.texto-tags-pagina-individual{
+  color: var(--text-color-default);
+  font-family: var(--texto-font), sans-serif;
+  font-weight: var(--weight-light);
+  font-style: italic;
+  text-align: center;
+}
+
+.texto-cuerpo-pagina-individual{
+  color: var(--text-color-default);
+  font-family: var(--texto-font), sans-serif;
+  font-weight: var(--weight-regular);
+  text-align: left;
 }
 
 .texto-tags-producto-tienda{
