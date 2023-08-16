@@ -25,7 +25,7 @@ export const BotonProducto = ({ imagen, categoria, tags, nombre, precio, textoBo
             </p>
 
             <button
-                style={{fontSize: (em*1)}}
+                style={{fontSize: 16}}
                 className="boton-primario"
                 //TODO: llevar a producto individual
             >
