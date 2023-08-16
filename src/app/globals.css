@@ -301,3 +301,13 @@ textarea {
   display: flex;
   color: var(--primary-100);
 }
+
+.texto-navigation-bar:hover{
+  color: var(--primary-300);
+  text-decoration: underline;
+}
+
+.texto-navigation-bar:active, .texto-navigation-bar:focus{
+  color: var(--primary-100);
+  text-decoration: underline;
+}
