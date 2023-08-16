@@ -349,10 +349,6 @@ textarea {
   background-color: var(--gris-400);
 }
 
-.boton-producto:active{
-  background-color: var(--gris-300);
-}
-
 .conjunto-productos{
   align-items: center;
   align-content: center;
