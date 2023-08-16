@@ -1,5 +1,5 @@
 import "../globals.css"
-
+import './tienda.css'
 const em = 16;
 
 export const BotonProducto = ({ imagen, categoria, tags, nombre, precio, textoBoton }) => {
