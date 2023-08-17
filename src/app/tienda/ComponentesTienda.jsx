@@ -6,7 +6,10 @@ export const BotonProducto = ({ imagen, categoria, tags, nombre, precio, textoBo
   return (
     <div className="boton-producto">
       <div className="imagen-producto-tienda">
-        <img src={"/" + imagen + ".jpg"} alt="" />
+        <img 
+        className="w-full h-full"
+          src={imagen} 
+          alt={nombre} />
       </div>
 
       <p className="texto-normal-semibold"
@@ -21,7 +24,7 @@ export const BotonProducto = ({ imagen, categoria, tags, nombre, precio, textoBo
 
       <p className="texto-precio-producto-tienda"
         style={{ fontSize: (em * 1.5), width: (9.75 * em) }}>
-        ${precio}
+        ${precio.toFixed(2)}
       </p>
 
       <button

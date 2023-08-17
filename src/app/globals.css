@@ -312,6 +312,7 @@ textarea {
 .texto-navigation-bar:hover{
   color: var(--primary-300);
   text-decoration: underline;
+  cursor: pointer;
 }
 
 .texto-navigation-bar:active, .texto-navigation-bar:focus{
