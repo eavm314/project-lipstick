@@ -8,6 +8,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import '../globals.css'
 import './qr.css'
+import Link from "next/link";
 
 const instrucciones = ["Ingrese a su aplicacíon de su Banco en su dispositivo móvil.",
   "Ingrese a la opción de Pago QR en su aplicación.",
@@ -57,9 +58,12 @@ const QRPage = () => {
             </button>
           </div>
           <div className="box-botones">
-            <button className="boton-secundario">
+            <Link
+              href={"/tienda"}
+              className="boton-secundario"
+            >
               Descargar QR
-            </button>
+            </Link>
             <button disabled className="boton-terciario">
               Compartir QR
             </button>
