@@ -142,6 +142,7 @@ textarea {
 
 .texto-parrafo{
   display:flex;
+  text-align: left;
   color: var(--text-color-default);
   font-family: var(--texto-font), sans-serif;
   font-weight: var(--weight-regular);
@@ -236,6 +237,12 @@ textarea {
 .boton-terciario:active{
   background-color: var(--gris-900);
   color: var(--primary-100);
+  transition: 50ms
+}
+
+.boton-terciario:disabled, button[disabled]{
+  background-color: var(--gris-500);
+  color: var(--gris-800);
   transition: 50ms
 }
 
