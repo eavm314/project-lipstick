@@ -9,6 +9,7 @@ import {
 import '../globals.css'
 import './tienda.css'
 import { BotonProducto } from "./ComponentesTienda";
+import Link from "next/link";
 
 const dataPrueba = {
   imagen: "lipstickPrueba",
@@ -26,8 +27,18 @@ const TiendaPage = () => {
   return (
     <div style={{ display: "flex", alignItems: "center", alignContent: "center", padding: (4.25 * em), justifyContent: "center" }}>
       <div className="conjunto-productos">
-        {nums.map((num, index) => <BotonProducto key={index} imagen={dataPrueba.imagen} categoria={dataPrueba.categoria}
-          tags={dataPrueba.tags} nombre={dataPrueba.nombre} precio={dataPrueba.precio} textoBoton={dataPrueba.textoBoton} />)}
+        {nums.map((num, index) =>
+          <Link href={"/viewItem"}>
+            <BotonProducto
+              key={index}
+              imagen={dataPrueba.imagen}
+              categoria={dataPrueba.categoria}
+              tags={dataPrueba.tags}
+              nombre={dataPrueba.nombre}
+              precio={dataPrueba.precio}
+              textoBoton={dataPrueba.textoBoton} />
+          </Link>
+        )}
       </div>
     </div>
 
