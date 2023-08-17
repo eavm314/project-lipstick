@@ -1,65 +1,94 @@
 import Link from "next/link";
 import React from "react";
+import '../qr/qr.css'
+import '../globals.css'
 
 export default function CreateAccountPage() {
+  const em = 16;
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', position: 'absolute', top: 120, bottom: 0, left: 0, right: 0, backgroundColor: '#fff9f5', flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <div style={{ width: 759 }}>
-        <h1 className="titulo" style={{ fontSize: 32, marginBottom: 12, fontWeight: 'bold' }}>Finalizando tu compra</h1>
-        <h1 className="subtitulo" style={{ fontSize: 28, marginBottom: 18 }}>¿Dónde enviamos tu pedido?</h1>
+    <div style={{ display: "flex", alignItems: "center", alignContent: "center", paddingTop: (5 * em), paddingBottom: (5 * em), paddingLeft: "20%", paddingRight: "20%", justifyContent: "center", flexDirection: "column", flexWrap: 'nowrap', backgroundColor: 'var(--sec-b-200)' }}>
+      <div style={{ display: "flex", alignItems: "center", alignContent: "center", width: '100%', justifyContent: "center", flexDirection: "column", flexWrap: 'nowrap' }}>
+
+        <div className="titulo" style={{ fontSize: (em * 2), fontWeight: 'var(--weight-bold)', width: "100%", paddingBottom: (2 * em) }}>
+          Finalizando tu compra
+        </div>
+        <div className="subtitulo" style={{ fontSize: (em * 1.75), width: '100%', paddingBottom: (1.75 * em) }}>
+          ¿Dónde enviamos tu pedido?
+        </div>
+
+        <div className="box-con-botones w-full">
+          <form className="w-full">
+            <div className="mb-4" style={{ display: "flex", width: "100%", flexDirection: "column", gap: 0.75 * em }}>
+              <label className="texto-normal-semibold" style={{ fontSize: 1.25 * em }}>Dirección</label>
+              <input 
+                type="text" 
+                className="texto-parrafo" 
+                style={{ display: "flex", fontsize: em, color: 'var(--primary-300)', borderWidth: 1, borderColor: '#000', width: "100%", padding: 0.75 * em, backgroundColor: 'var(--transicion-50)' }} 
+                placeholder="Av. Villarroel Calle 8, Edificio 'Las Rosas', Piso 6, Nro.612" 
+                name="userDireccion" />
+            </div>
+            {/*grid style seleccionar*/}
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2 * em, width: "100%" }}>
+
+              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', width: "50%", gap: 1.75 * em }}>
+                <div style={{ display: "flex", width: "100%", flexDirection: "column", gap: 0.75 * em }}>
+                  <label className="texto-normal-semibold" style={{ fontSize: 1.25 * em }}>Ciudad</label>
+                  <input 
+                    type="text" 
+                    className="texto-parrafo" 
+                    style={{ display: "flex", fontsize: em, color: 'var(--primary-300)', borderWidth: 1, borderColor: '#000', width: "100%", padding: 0.75 * em, backgroundColor: 'var(--transicion-50)' }} 
+                    placeholder="La Paz" 
+                    name="userCiudad" />
+                </div>
+
+                <div style={{ display: "flex", width: "100%", flexDirection: "column", gap: 0.75 * em }}>
+                  <label className="texto-normal-semibold" style={{ fontSize: 1.25 * em }}>Distrito</label>
+                  <input 
+                    type="text" 
+                    className="texto-parrafo" 
+                    style={{ display: "flex", fontsize: em, color: 'var(--primary-300)', borderWidth: 1, borderColor: '#000', width: "100%", padding: 0.75 * em, backgroundColor: 'var(--transicion-50)' }} 
+                    placeholder="La Paz" 
+                    name="userDistrito" />
+                </div>
+
+
+              </div>
+
+              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', width: "50%", gap: 1.75 * em }}>
+
+                <div style={{ display: "flex", width: "100%", flexDirection: "column", gap: 0.75 * em }}>
+                  <label className="texto-normal-semibold" style={{ fontSize: 1.25 * em }}>Zona</label>
+                  <input 
+                    type="text" 
+                    className="texto-parrafo" 
+                    style={{ display: "flex", fontsize: em, color: 'var(--primary-300)', borderWidth: 1, borderColor: '#000', width: "100%", padding: 0.75 * em, backgroundColor: 'var(--transicion-50)' }} 
+                    placeholder="San Pedro" name="userZona" />
+                </div>
+
+                <div style={{ display: "flex", width: "100%", flexDirection: "column", gap: 0.75 * em }}>
+                  <label className="texto-normal-semibold" style={{ fontSize: 1.25 * em }} >Teléfono</label>
+                  <input 
+                    type="text" 
+                    className="texto-parrafo" 
+                    style={{ display: "flex", fontsize: em, color: 'var(--primary-300)', borderWidth: 1, borderColor: '#000', width: "100%", padding: 0.75 * em, backgroundColor: 'var(--transicion-50)' }} 
+                    placeholder="7777777" 
+                    name="userTelefono" />
+                </div>
+              </div>
+            </div>
+            <Link 
+              href={"/qr"}
+              className="boton-primario w-40 mx-auto mt-5"
+              style={{ fontSize: 1.25 * em }}
+              >
+              <input
+                type="submit"
+                value="Continuar" />
+            </Link>
+          </form>
+        </div>
       </div>
 
-      <div style={{ display: 'flex', flexDirection: 'column', width: 759, height: 445, backgroundColor: '#ffeee3', borderWidth: 1, borderColor: '#000', justifyContent: 'center', alignItems: 'center' }}>
-
-        <div style={{ width: 718, marginBottom: 8 }}>
-          <h1 className="texto-normal-semibold" style={{ fontSize: 20 }}>Dirección</h1>
-        </div>
-        <div style={{ width: 718, height: 52, backgroundColor: '#fff9f5', borderWidth: 1, borderColor: '#000', justifyContent: 'center', padding: 12, paddingLeft: 20 }}>
-          <h1 style={{ fontsize: 16 }}>Av. Villarroel Calle 8, Edificio "Las Rosas", Piso 6, Nro.612</h1>
-        </div>
-        {/*grid style seleccionar*/}
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginTop: 28 }}>
-
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', marginRight: 30 }}>
-            <div style={{ width: 344, marginBottom: 8 }}>
-              <h1 className="texto-normal-semibold" style={{ fontSize: 20 }}>Ciudad</h1>
-            </div>
-            <div style={{ width: 344, height: 52, backgroundColor: '#fff9f5', borderWidth: 1, borderColor: '#000', justifyContent: 'center', padding: 12, paddingLeft: 20, marginBottom: 25 }}>
-              <h1 style={{ fontsize: 16 }}>Seleccione opción:</h1>
-            </div>
-
-            <div style={{ width: 344, marginBottom: 8 }}>
-              <h1 className="texto-normal-semibold" style={{ fontSize: 20 }}>Distrito</h1>
-            </div>
-            <div style={{ width: 344, height: 52, backgroundColor: '#fff9f5', borderWidth: 1, borderColor: '#000', justifyContent: 'center', padding: 12, paddingLeft: 20 }}>
-              <h1 style={{ fontsize: 16 }}>Seleccione opción:</h1>
-            </div>
-
-          </div>
-
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-            <div style={{ width: 344, marginBottom: 8 }}>
-              <h1 className="texto-normal-semibold" style={{ fontSize: 20 }}>Zona</h1>
-            </div>
-            <div style={{ width: 344, height: 52, backgroundColor: '#fff9f5', borderWidth: 1, borderColor: '#000', justifyContent: 'center', padding: 12, paddingLeft: 20, marginBottom: 25 }}>
-              <h1 style={{ fontsize: 16 }}>Seleccione opción:</h1>
-            </div>
-
-            <div style={{ width: 344, marginBottom: 8 }}>
-              <h1 className="texto-normal-semibold" style={{ fontSize: 20 }}>Número de Teléfono</h1>
-            </div>
-            <div style={{ width: 344, height: 52, backgroundColor: '#fff9f5', borderWidth: 1, borderColor: '#000', justifyContent: 'center', padding: 12, paddingLeft: 20 }}>
-              <h1 style={{ fontsize: 16 }}>Teléfono</h1>
-            </div>
-          </div>
-        </div>
-        <Link
-          href={"/qr"}
-          style={{ fontSize: 20, marginTop: 28, padding: 15, paddingLeft: 45, paddingRight: 45 }} 
-          className="boton-primario">
-            Continuar
-        </Link>
-      </div>
-    </div>
+    </div >
   )
 };
