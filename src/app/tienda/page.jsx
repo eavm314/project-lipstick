@@ -1,5 +1,5 @@
 "use client"
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from 'next/image'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -9,6 +9,9 @@ import {
 import '../globals.css'
 import './tienda.css'
 import { BotonProducto } from "./ComponentesTienda";
+import Link from "next/link";
+import { listaProductos } from "@/data/listaProductos";
+import { useProductContext } from "./layout";
 
 const dataPrueba = {
   imagen: "lipstickPrueba",
@@ -18,16 +21,38 @@ const dataPrueba = {
   precio: "70.00",
   textoBoton: "Comprar"
 }
+const em = 16;
 
 const TiendaPage = () => {
-  const [cont, setCont] = useState(2);
-  const nums = [1, 2, 3, 4, 5, 6, 7, 8];
-  const em = 16;
+  const { selectedCategory } = useProductContext();
+
+  const [products, setProducts] = useState([]);
+  const getProducts = () => {
+    const data = listaProductos;
+    setProducts(data)
+  }
+
+  useEffect(() => {
+
+    getProducts();
+  }, []);
+
   return (
     <div style={{ display: "flex", alignItems: "center", alignContent: "center", padding: (4.25 * em), justifyContent: "center" }}>
       <div className="conjunto-productos">
-        {nums.map((num, index) => <BotonProducto key={index} imagen={dataPrueba.imagen} categoria={dataPrueba.categoria}
-          tags={dataPrueba.tags} nombre={dataPrueba.nombre} precio={dataPrueba.precio} textoBoton={dataPrueba.textoBoton} />)}
+        {products
+          .filter((p) => p.categoria === selectedCategory || selectedCategory === "Todos")
+          .map((product, index) =>
+            <Link href={"/viewItem/"+product.id} key={index}>
+              <BotonProducto
+                imagen={product.imagen}
+                categoria={product.categoria}
+                tags={product.tags}
+                nombre={product.nombre}
+                precio={product.precio}
+                textoBoton={"Comprar"} />
+            </Link>
+          )}
       </div>
     </div>
 
