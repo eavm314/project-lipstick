@@ -7,6 +7,7 @@ import {
   faCircleStop
 } from "@fortawesome/free-solid-svg-icons";
 import '../globals.css'
+import './tienda.css'
 import { BotonProducto } from "./ComponentesTienda";
 
 const dataPrueba = {
