@@ -4,6 +4,7 @@ import { faAngleLeft, faAngleRight, faXmark } from "@fortawesome/free-solid-svg-
 import Stars from "../resources/stars";
 import "../../globals.css"
 import "../resources/paginaIndividual.css"
+import Link from "next/link";
 
 const dataPrueba = {
   imagen: "lipstickPrueba",
@@ -21,9 +22,10 @@ export default function ViewItem() {
   return (
       
     <div className="box-con-equis">
-      <div style={{alignContent:'flex-end', alignItems: 'right', justifyContent: 'right', width: '100%', display: 'flex'}}>
+      <Link href={"/tienda"}
+        style={{alignContent:'flex-end', alignItems: 'right', justifyContent: 'right', width: '100%', display: 'flex'}}>
           <FontAwesomeIcon icon={faXmark} color="var(--transicion-100)" size="2xl" />
-      </div>
+      </Link>
       {/* <FontAwesomeIcon icon={faAngleLeft} color="#000000" size="3x" style={{ padding: 10 }} /> */}
       <div className="box-datos-imagen">
           <div className="imagen-producto-individual">
@@ -40,12 +42,13 @@ export default function ViewItem() {
             <p className="texto-cuerpo-pagina-individual" style={{ fontSize: em, maxWidth: (26.5*em)}}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
             <Stars numStar={dataPrueba.rating}></Stars>
             <div style={{ display:"flex", alignItems: 'center', justifyContent: 'center', width: '100%'}}>
-              <button
+              <Link
+                href={"/createAccount"}
                 className="boton-primario"
               //TODO: llevar a producto individual
               >
                 Comprar
-              </button>
+              </Link>
             </div>
           </div>
 
