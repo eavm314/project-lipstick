@@ -33,6 +33,7 @@ const TiendaPage = () => {
   }
 
   useEffect(() => {
+
     getProducts();
   }, []);
 
@@ -42,7 +43,7 @@ const TiendaPage = () => {
         {products
           .filter((p) => p.categoria === selectedCategory || selectedCategory === "Todos")
           .map((product, index) =>
-            <Link href={"/viewItem"} key={index}>
+            <Link href={"/viewItem/"+product.id} key={index}>
               <BotonProducto
                 imagen={product.imagen}
                 categoria={product.categoria}
