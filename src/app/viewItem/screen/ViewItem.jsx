@@ -43,8 +43,9 @@ export default function ViewItem() {
           </div>
           <p className="texto-precio-producto-pagina-individual" style={{ fontSize: 1.5 * em }}>$ {dataPrueba.precio}</p>
           <p className="texto-cuerpo-pagina-individual" style={{ fontSize: em, maxWidth: (26.5 * em) }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          <Stars numStar={dataPrueba.rating} />
           <div className="flex flex-col w-1/2 content-center mx-auto">
-            <Stars numStar={dataPrueba.rating} />
+            
             <Link
               href={"/createAccount"}
               className="boton-primario w-40 my-5 mx-auto"

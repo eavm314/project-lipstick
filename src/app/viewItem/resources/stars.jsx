@@ -5,13 +5,14 @@ import { faStar as solidStar } from "@fortawesome/free-solid-svg-icons";
 
 
 export default function Stars({ numStar }) {
+  const em=16
   return (
     <div className="flex">
-      <FontAwesomeIcon icon={numStar >= 1 ? solidStar : regStar} size="lg" color="#000000" />
-      <FontAwesomeIcon icon={numStar >= 2 ? solidStar : regStar} size="lg" color="#000000" />
-      <FontAwesomeIcon icon={numStar >= 3 ? solidStar : regStar} size="lg" color="#000000" />
-      <FontAwesomeIcon icon={numStar >= 4 ? solidStar : regStar} size="lg" color="#000000" />
-      <FontAwesomeIcon icon={numStar >= 5 ? solidStar : regStar} size="lg" color="#000000" />
+      <FontAwesomeIcon icon={numStar >= 1 ? solidStar : regStar} color="#000000" />
+      <FontAwesomeIcon icon={numStar >= 2 ? solidStar : regStar}  color="#000000" />
+      <FontAwesomeIcon icon={numStar >= 3 ? solidStar : regStar}  color="#000000" />
+      <FontAwesomeIcon icon={numStar >= 4 ? solidStar : regStar}  color="#000000" />
+      <FontAwesomeIcon icon={numStar >= 5 ? solidStar : regStar}  color="#000000" />
     </div>
   )
 
