@@ -9,10 +9,10 @@ export default function NavBarLayout({ children }) {
   return (
     <div>
       <div className="navigation-bar">
-        <p className="texto-navigation-bar" tabindex="1">Todos</p>
-        <p className="texto-navigation-bar" tabindex="1">Ojos</p>
-        <p className="texto-navigation-bar" tabindex="1">Cabello</p>
-        <p className="texto-navigation-bar" tabindex="1">Uñas</p>
+        <p className="texto-navigation-bar" tabIndex="1">Todos</p>
+        <p className="texto-navigation-bar" tabIndex="1">Ojos</p>
+        <p className="texto-navigation-bar" tabIndex="1">Cabello</p>
+        <p className="texto-navigation-bar" tabIndex="1">Uñas</p>
       </div>
       {children}
     </div>
