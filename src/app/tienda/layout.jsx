@@ -13,7 +13,7 @@ export const useProductContext = () => {
   return useContext(ProductContext);
 };
 
-const categorias = ["Todos", "Ojos", "Labios", "Uñas"];
+const categorias = ["Todos", "Skin Care", "Labios", "Cabello", "Ojos", "Accesorios", "Piel"];
 
 export default function NavBarLayout({ children }) {
   const [selectedCategory, setSelectedCategory] = useState("Todos");
