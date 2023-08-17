@@ -23,7 +23,7 @@ export default function CreateAccountPage() {
               <input 
                 type="text" 
                 className="texto-parrafo" 
-                style={{ display: "flex", fontsize: em, color: 'var(--primary-300)', borderWidth: 1, borderColor: '#000', width: "100%", padding: 0.75 * em, backgroundColor: 'var(--transicion-50)' }} 
+                style={{ display: "flex", fontsize: em, borderWidth: 1, borderColor: '#000', width: "100%", padding: 0.75 * em, backgroundColor: 'var(--transicion-50)' }} 
                 placeholder="Av. Villarroel Calle 8, Edificio 'Las Rosas', Piso 6, Nro.612" 
                 name="userDireccion" />
             </div>
@@ -36,7 +36,7 @@ export default function CreateAccountPage() {
                   <input 
                     type="text" 
                     className="texto-parrafo" 
-                    style={{ display: "flex", fontsize: em, color: 'var(--primary-300)', borderWidth: 1, borderColor: '#000', width: "100%", padding: 0.75 * em, backgroundColor: 'var(--transicion-50)' }} 
+                    style={{ display: "flex", fontsize: em, borderWidth: 1, borderColor: '#000', width: "100%", padding: 0.75 * em, backgroundColor: 'var(--transicion-50)' }} 
                     placeholder="La Paz" 
                     name="userCiudad" />
                 </div>
@@ -46,7 +46,7 @@ export default function CreateAccountPage() {
                   <input 
                     type="text" 
                     className="texto-parrafo" 
-                    style={{ display: "flex", fontsize: em, color: 'var(--primary-300)', borderWidth: 1, borderColor: '#000', width: "100%", padding: 0.75 * em, backgroundColor: 'var(--transicion-50)' }} 
+                    style={{ display: "flex", fontsize: em, borderWidth: 1, borderColor: '#000', width: "100%", padding: 0.75 * em, backgroundColor: 'var(--transicion-50)' }} 
                     placeholder="La Paz" 
                     name="userDistrito" />
                 </div>
@@ -61,7 +61,7 @@ export default function CreateAccountPage() {
                   <input 
                     type="text" 
                     className="texto-parrafo" 
-                    style={{ display: "flex", fontsize: em, color: 'var(--primary-300)', borderWidth: 1, borderColor: '#000', width: "100%", padding: 0.75 * em, backgroundColor: 'var(--transicion-50)' }} 
+                    style={{ display: "flex", fontsize: em, borderWidth: 1, borderColor: '#000', width: "100%", padding: 0.75 * em, backgroundColor: 'var(--transicion-50)' }} 
                     placeholder="San Pedro" name="userZona" />
                 </div>
 
@@ -70,7 +70,7 @@ export default function CreateAccountPage() {
                   <input 
                     type="text" 
                     className="texto-parrafo" 
-                    style={{ display: "flex", fontsize: em, color: 'var(--primary-300)', borderWidth: 1, borderColor: '#000', width: "100%", padding: 0.75 * em, backgroundColor: 'var(--transicion-50)' }} 
+                    style={{ display: "flex", fontsize: em, borderWidth: 1, borderColor: '#000', width: "100%", padding: 0.75 * em, backgroundColor: 'var(--transicion-50)' }} 
                     placeholder="7777777" 
                     name="userTelefono" />
                 </div>
@@ -78,7 +78,7 @@ export default function CreateAccountPage() {
             </div>
             <Link 
               href={"/qr"}
-              className="boton-primario w-40 mx-auto mt-5"
+              className="boton-primario w-40 mx-auto mt-6"
               style={{ fontSize: 1.25 * em }}
               >
               <input

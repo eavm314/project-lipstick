@@ -20,37 +20,40 @@ const em = 16;
 
 export default function ViewItem() {
   return (
-      
-    <div className="box-con-equis">
-      <Link href={"/tienda"}
-        style={{alignContent:'flex-end', alignItems: 'right', justifyContent: 'right', width: '100%', display: 'flex'}}>
-          <FontAwesomeIcon icon={faXmark} color="var(--transicion-100)" size="2xl" />
+
+    <div className="relative box-con-equis">
+
+      <Link
+        href={"/tienda"}
+        className="absolute w-6 h-6 top-4 end-5"
+      >
+        <FontAwesomeIcon icon={faXmark} color="var(--transicion-100)" size="2xl" />
       </Link>
       {/* <FontAwesomeIcon icon={faAngleLeft} color="#000000" size="3x" style={{ padding: 10 }} /> */}
-      <div className="box-datos-imagen">
-          <div className="imagen-producto-individual">
-            <img src={"/lipstickPrueba.jpg"} alt="" />
+      <div className="box-datos-imagen mt-8">
+        <div className="imagen-producto-individual">
+          <img src={"/lipstickPrueba.jpg"} alt="" />
+        </div>
+        <div className="box-datos">
+          <p className="tituloItemIndividual" style={{ fontSize: 2 * em }}>{dataPrueba.nombre}</p>
+          <div style={{ display: "flex", gap: (0.75 * em) }}>
+            {dataPrueba.tags.map((tag, index) => <view className="box-tags">
+              <p className="texto-tags-pagina-individual" style={{ fontSize: 1 * em }}>{tag}</p>
+            </view>)}
           </div>
-          <div className="box-datos">
-            <p className="tituloItemIndividual" style={{ fontSize: 2*em}}>{dataPrueba.nombre}</p>
-            <div style={{ display: "flex", gap: (0.75*em)}}>
-              {dataPrueba.tags.map((tag, index) => <view className="box-tags">
-                <p className="texto-tags-pagina-individual" style={{ fontSize: 1*em}}>{tag}</p>
-              </view>)}
-            </div>
-            <p className="texto-precio-producto-pagina-individual" style={{ fontSize: 1.5*em}}>$ {dataPrueba.precio}</p>
-            <p className="texto-cuerpo-pagina-individual" style={{ fontSize: em, maxWidth: (26.5*em)}}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            <Stars numStar={dataPrueba.rating}></Stars>
-            <div style={{ display:"flex", alignItems: 'center', justifyContent: 'center', width: '100%'}}>
-              <Link
-                href={"/createAccount"}
-                className="boton-primario"
-              //TODO: llevar a producto individual
-              >
-                Comprar
-              </Link>
-            </div>
+          <p className="texto-precio-producto-pagina-individual" style={{ fontSize: 1.5 * em }}>$ {dataPrueba.precio}</p>
+          <p className="texto-cuerpo-pagina-individual" style={{ fontSize: em, maxWidth: (26.5 * em) }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          <div className="flex flex-col w-1/2 content-center mx-auto">
+            <Stars numStar={dataPrueba.rating} />
+            <Link
+              href={"/createAccount"}
+              className="boton-primario w-40 my-5 mx-auto"
+            //TODO: llevar a producto individual
+            >
+              Comprar
+            </Link>
           </div>
+        </div>
 
       </div>
 
