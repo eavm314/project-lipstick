@@ -47,8 +47,6 @@ export const ViewItem = ({product}) => {
         </div>
 
       </div>
-
-      {/* <FontAwesomeIcon icon={faAngleRight} color="#000000" siscze="3x" style={{ padding: 10 }} /> */}
     </div>
   )
 }
