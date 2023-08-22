@@ -37,7 +37,7 @@ export const ViewItem = ({product}) => {
           <div className="flex flex-col w-1/2 content-center mx-auto">
             
             <Link
-              href={"/createAccount"}
+              href={"/address"}
               className="boton-primario w-40 my-5 mx-auto"
             //TODO: llevar a producto individual
             >
