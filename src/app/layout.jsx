@@ -1,9 +1,12 @@
+"use client"
 import './globals.css'
 import { Inter } from 'next/font/google'
 
 //implementar font awesome icons
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import { config } from "@fortawesome/fontawesome-svg-core";
+import Link from "next/link";
+import { createContext, useContext, useState } from 'react';
 
 config.autoAddCss = false;
 
@@ -15,7 +18,10 @@ export const metadata = {
   brandName: 'Bodoni Moda',
 }
 
+const categorias = ["Todos", "Skin Care", "Labios", "Cabello", "Ojos", "Accesorios", "Piel"];
+
 export default function RootLayout({ children }) {
+  const [selectedCategory, setSelectedCategory] = useState("Todos");
   return (
     <html lang="en">
       <body>

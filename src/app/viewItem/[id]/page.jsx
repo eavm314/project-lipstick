@@ -23,7 +23,6 @@ const dataPrueba = {
 const em = 16;
 
 export default function ItemPage({ params }) {
-  const nums = [1, 2, 3, 4, 5]
   const getProduct = (id) => {
     const data = listaProductos.filter((p) => p.id == id)[0];
     return data;
@@ -44,11 +43,10 @@ export default function ItemPage({ params }) {
       <div>
         <div className="conjunto-productos">
           {recomendados.map((producto, index) =>
-            <Link href={"/viewItem/" + producto.id} key={index}>
 
-              <BotonProducto key={index} imagen={producto.imagen} categoria={producto.categoria}
-                tags={producto.tags} nombre={producto.nombre} precio={producto.precio} textoBoton={"Comprar"} />
-            </Link>
+              <BotonProducto key={index}
+              id={producto.id} imagen={producto.imagen} categoria={producto.categoria}
+                tags={producto.tags} nombre={producto.nombre} precio={producto.precio} textoBoton={"Añadir"} />
           )}
         </div>
       </div>

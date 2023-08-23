@@ -329,7 +329,7 @@ textarea {
 }
 
 .filter-bar{
-  width: 75%;
+  width: 83.4%;
   display:flex;
   justify-content: left;
   align-items: center;
@@ -364,13 +364,6 @@ textarea {
 
 .icons-filter-bar:hover{
   color: var(--primary-300);
-  display:flex;
-  flex-wrap: nowrap;
-  justify-content: center;
-  align-items: center;
-  gap:1em;
-  font-size: 1.5em;
-  width: 100%;
   cursor: pointer;
 }
 
