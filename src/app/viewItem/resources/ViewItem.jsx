@@ -33,7 +33,7 @@ export const ViewItem = ({product}) => {
               <p className="texto-tags-pagina-individual" style={{ fontSize: 1 * em }}>{tag}</p>
             </view>)}
           </div>
-          <p className="texto-precio-producto-pagina-individual" style={{ fontSize: 1.5 * em }}>$ {product.precio}</p>
+          <p className="texto-precio-producto-pagina-individual" style={{ fontSize: 1.5 * em }}>$ {product.precio.toFixed(2)}</p>
           <p className="texto-cuerpo-pagina-individual" style={{ fontSize: em, maxWidth: (26.5 * em) }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
           <Stars numStar={Math.floor(Math.random() * 5) + 1} />
           <div className="flex flex-col w-1/2 content-center mx-auto">
@@ -43,9 +43,8 @@ export const ViewItem = ({product}) => {
               className="boton-primario w-40 my-5 mx-auto"
             //TODO: llevar a producto individual
             >
-              Añadir <IconContext.Provider value={{ className: 'icons-boton-producto' }}>
-            <BsBagPlus/>
-          </IconContext.Provider>
+              Añadir 
+                <BsBagPlus/>
             </Link>
           </div>
         </div>

@@ -17,7 +17,7 @@ export const BotonProducto = ({ key,id,imagen, categoria, tags, nombre, precio, 
       </div>
       </Link>
 
-      <p className="texto-normal-semibold"
+      <p className="texto-normal"
         style={{ fontSize: (em * 1), width: (9.75 * em) }}>
         {nombre}
       </p>
@@ -38,9 +38,7 @@ export const BotonProducto = ({ key,id,imagen, categoria, tags, nombre, precio, 
       //TODO: llevar a producto individual
       >
         {textoBoton}
-        <IconContext.Provider value={{ className: 'icons-boton-producto' }}>
             <BsBagPlus/>
-          </IconContext.Provider>
       </button>
     </div>
   )
