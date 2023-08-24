@@ -5,6 +5,8 @@ import Stars from "./stars";
 import "../../globals.css"
 import "../resources/paginaIndividual.css"
 import Link from "next/link";
+import { IconContext } from 'react-icons';
+import {BsBagPlus} from "react-icons/bs";
 
 const em = 16;
 
@@ -41,7 +43,9 @@ export const ViewItem = ({product}) => {
               className="boton-primario w-40 my-5 mx-auto"
             //TODO: llevar a producto individual
             >
-              Comprar
+              Añadir <IconContext.Provider value={{ className: 'icons-boton-producto' }}>
+            <BsBagPlus/>
+          </IconContext.Provider>
             </Link>
           </div>
         </div>
