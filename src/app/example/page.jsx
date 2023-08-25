@@ -7,8 +7,9 @@ import {
   faCircleStop
 } from "@fortawesome/free-solid-svg-icons";
 import '../globals.css'
-import BoxProducto from "../bolsaCompras/resources/boxProducto";
+import BoxProducto from "../bolsaCompras/resources/BoxProducto";
 import BoxCantidad from "../bolsaCompras/resources/BoxCantidad";
+import BoxIndividual from "../bolsaCompras/resources/BoxIndividual";
 
 
 const ExamplePage = () => {
@@ -50,8 +51,7 @@ const ExamplePage = () => {
                 <FontAwesomeIcon
                     icon={faCircleStop}
                 />
-            <BoxProducto key={0} product={dataPrueba}/>
-            <BoxCantidad key={0} cantidad={cantidad} setCantidad={setCantidad}/>
+            <BoxIndividual key={0} product={dataPrueba}/>
 
         </div>
     )

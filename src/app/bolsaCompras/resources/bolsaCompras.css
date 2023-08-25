@@ -18,6 +18,15 @@
     max-height: 2em;
 }
 
+.box-producto-individual{
+    max-width: 54em;
+    display:flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    gap:3.5em;
+}
+
 .icon-bolsa-compras:hover{
     color: var(--transicion-700)
 }
