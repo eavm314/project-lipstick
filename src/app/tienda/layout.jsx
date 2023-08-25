@@ -6,8 +6,8 @@ import { config } from "@fortawesome/fontawesome-svg-core";
 import { createContext, useContext, useState } from 'react';
 import {BsBag} from "react-icons/bs";
 import {FaRegHeart} from "react-icons/fa";
-import {HiMenu} from "react-icons/hi";
 import { IconContext } from 'react-icons';
+import Link from "next/link";
 
 config.autoAddCss = false;
 
@@ -18,7 +18,7 @@ export const useProductContext = () => {
 };
 
 const categorias = ["Todos", "Skin Care", "Labios", "Cabello", "Ojos", "Accesorios", "Piel"];
-const filtrosLabios = ["Lipbalm", "Labial", "Gloss", "Delineador", "Especial"]
+const filtrosLabios = [" "]
 
 export default function NavBarLayout({ children }) {
   const [selectedCategory, setSelectedCategory] = useState("Todos");
@@ -26,6 +26,11 @@ export default function NavBarLayout({ children }) {
   return (
     <div>
       <div className="navigation-bar">
+        <Link href={"/"}
+        //TODO: LLEVAR A PAGINA DE INICIO
+        >
+          <p className={"texto-navigation-bar"}>Inicio</p>
+        </Link>
         {
           categorias.map((categoria, index) =>
             <p
@@ -52,9 +57,9 @@ export default function NavBarLayout({ children }) {
             )
           }
         </div>
-        <div style={{width:"25%", display:"flex"}}>
+        <div style={{width:"16.67%", display:"flex"}}>
           <IconContext.Provider value={{ className: 'icons-filter-bar' }}>
-            <BsBag/> <FaRegHeart/> <HiMenu/>
+            <BsBag/> <FaRegHeart/>
           </IconContext.Provider>
         </div>
       </div>

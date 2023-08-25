@@ -1,11 +1,6 @@
 "use client"
 import { useEffect, useState } from "react";
-import Image from 'next/image'
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faMagnifyingGlass,
-  faCircleStop
-} from "@fortawesome/free-solid-svg-icons";
+
 import '../globals.css'
 import './tienda.css'
 import { BotonProducto } from "./ComponentesTienda";
@@ -19,7 +14,7 @@ const dataPrueba = {
   tags: ["lipstick", "especial"],
   nombre: "Ruby Lips",
   precio: "70.00",
-  textoBoton: "Comprar"
+  textoBoton: "Añadir"
 }
 const em = 16;
 
@@ -43,15 +38,15 @@ const TiendaPage = () => {
         {products
           .filter((p) => p.categoria === selectedCategory || selectedCategory === "Todos")
           .map((product, index) =>
-            <Link href={"/viewItem/"+product.id} key={index}>
               <BotonProducto
+                key={index}
+                id={product.id}
                 imagen={product.imagen}
                 categoria={product.categoria}
                 tags={product.tags}
                 nombre={product.nombre}
                 precio={product.precio}
-                textoBoton={"Comprar"} />
-            </Link>
+                textoBoton={"Añadir"} />
           )}
       </div>
     </div>

@@ -53,4 +53,36 @@
     height: 9.75em;
     flex-shrink: 0;
     object-fit: cover;
+    background-color: var(--primary-100);
+  }
+
+  .imagen-producto-tienda:hover{
+    filter: blur(0px);
+    -webkit-filter: blur(2px);
+  }
+
+  .texto-imagen{
+    font-family: var(--texto-font), sans-serif;
+    font-size: 1em;
+    font-weight: var(--weight-regular);
+    text-align: center;
+    color: var(--text-color-default);
+    z-index:1;
+    position:absolute;
+    display: flex;
+    place-self: center;
+    justify-content: center;
+    flex-direction: column;
+    opacity: 100;
+  }
+
+
+  .icon-boton-producto{
+    color: var(--primary-100);
+    display:flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.25em;
+    width: 100%;
   }

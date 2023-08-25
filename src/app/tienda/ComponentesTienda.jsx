@@ -1,16 +1,21 @@
 import "../globals.css"
 import './tienda.css'
+import { IconContext } from 'react-icons';
+import {BsBagPlus} from "react-icons/bs";
+import Link from "next/link";
 const em = 16;
 
-export const BotonProducto = ({ imagen, categoria, tags, nombre, precio, textoBoton }) => {
+export const BotonProducto = ({ key,id,imagen, categoria, tags, nombre, precio, textoBoton }) => {
   return (
     <div className="boton-producto">
+      <Link href={"/viewItem/"+id} key={key}>
       <div className="imagen-producto-tienda">
         <img 
         className="w-full h-full"
           src={imagen} 
           alt={nombre} />
       </div>
+      </Link>
 
       <p className="texto-normal-semibold"
         style={{ fontSize: (em * 1), width: (9.75 * em) }}>
@@ -33,6 +38,9 @@ export const BotonProducto = ({ imagen, categoria, tags, nombre, precio, textoBo
       //TODO: llevar a producto individual
       >
         {textoBoton}
+        <IconContext.Provider value={{ className: 'icons-boton-producto' }}>
+            <BsBagPlus/>
+          </IconContext.Provider>
       </button>
     </div>
   )
