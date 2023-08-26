@@ -7,8 +7,6 @@ import {
   faCircleStop
 } from "@fortawesome/free-solid-svg-icons";
 import '../globals.css'
-import BoxProducto from "../bolsaCompras/resources/BoxProducto";
-import BoxCantidad from "../bolsaCompras/resources/BoxCantidad";
 import BoxIndividual from "../bolsaCompras/resources/BoxIndividual";
 
 

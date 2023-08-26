@@ -156,6 +156,7 @@ textarea {
   font-weight: var(--weight-semi-bold);
   align-items: left;
   text-align: left;
+  white-space: wrap;
 }
 
 /*BOTONES------------------------------------------------------------------------*/

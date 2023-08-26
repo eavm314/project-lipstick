@@ -13,11 +13,16 @@ const em = 16;
 const BoxCantidad = (props) =>{
     const {cantidad, setCantidad} = props;
     const aumentar = () =>{
-        setCantidad(cantidad+1)
+        if(cantidad===50){
+            setCantidad(50)
+        } else{
+            setCantidad(cantidad+1)
+        }
+        
     }
     const disminuir = () =>{
-        if(cantidad===0){
-            setCantidad(0)
+        if(cantidad===1){
+            setCantidad(1)
         } else{
             setCantidad(cantidad-1)
         }

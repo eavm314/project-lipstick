@@ -18,22 +18,22 @@ export const BotonProducto = ({ key,id,imagen, categoria, tags, nombre, precio, 
       </Link>
 
       <p className="texto-normal"
-        style={{ fontSize: (em * 1), width: (9.75 * em) }}>
+        style={{ fontSize: "1em", width: "9.75em" }}>
         {nombre}
       </p>
 
       <p className="texto-tags-producto-tienda"
-        style={{ fontSize: (em * 0.75), width: (9.75 * em) }}>
+        style={{ fontSize: "0.75rem", width: "9.75rem" }}>
         {categoria}: {tags.join(", ")}
       </p>
 
       <p className="texto-precio-producto-tienda"
-        style={{ fontSize: (em * 1.5), width: (9.75 * em) }}>
+        style={{ fontSize: "1.5em", width: "9.75rem" }}>
         ${precio.toFixed(2)}
       </p>
 
       <button
-        style={{ fontSize: (em * 1) }}
+        style={{ fontSize: "1em" }}
         className="boton-primario"
       //TODO: llevar a producto individual
       >

@@ -5,6 +5,7 @@ export const listaProductos = [
       categoria: "Labios",
       tags: ["lipstick", "especial"],
       nombre: "Ruby Lips",
+      nombreLargo: "Labial Sabor  Chocolate Humectante Antigrasa Esika Premium",
       precio: 70.00,
     },
     {

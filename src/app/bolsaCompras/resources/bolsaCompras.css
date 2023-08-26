@@ -19,6 +19,7 @@
 }
 
 .box-producto-individual{
+    min-width: 30em;
     max-width: 54em;
     display:flex;
     flex-wrap: nowrap;
@@ -37,4 +38,24 @@
     flex-shrink: 0;
     object-fit: cover;
     background-color: var(--primary-100);
+}
+
+.horizontal-line {
+    border-top: 1px solid black;
+    width: 100%;
+    padding-bottom: 2.25em;
+}
+
+.scroll-child{
+	flex: 0 0 auto;			
+	overflow: auto;
+}
+
+.scroll-parent{
+    width: 100%;
+	overflow: hidden;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
 }
