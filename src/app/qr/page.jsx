@@ -32,12 +32,12 @@ const QRPage = () => {
   }
 
   return (
-    <div style={{ display: "flex", alignItems: "center", alignContent: "center", padding: (5 * em), justifyContent: "center", flexDirection: "column", flexWrap: 'nowrap', backgroundColor: 'var(--sec-b-200)' }}>
+    <div style={{ display: "flex", alignItems: "center", alignContent: "center", padding: "5em", justifyContent: "center", flexDirection: "column", flexWrap: 'nowrap', backgroundColor: 'var(--sec-b-200)' }}>
       <div style={{ display: "flex", alignItems: "center", alignContent: "center", width: 'auto', justifyContent: "center", flexDirection: "column", flexWrap: 'nowrap' }}>
-        <div className="titulo" style={{ fontSize: (em * 2), fontWeight: 'var(--weight-bold)', width: '100%', paddingBottom: (2 * em) }}>
+        <div className="titulo" style={{ fontSize: "2em", fontWeight: 'var(--weight-bold)', width: '100%', paddingBottom: "2rem" }}>
           Finalizando tu compra
         </div>
-        <div className="subtitulo" style={{ fontSize: (em * 1.75), width: '100%', paddingBottom: (1.75 * em) }}>
+        <div className="subtitulo" style={{ fontSize: "1.75em", width: '100%', paddingBottom: "1.75rem" }}>
           Pago del pedido
         </div>
         <div className="box-con-botones" id="principal">
