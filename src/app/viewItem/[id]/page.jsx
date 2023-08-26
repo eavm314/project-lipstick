@@ -38,7 +38,7 @@ export default function ItemPage({ params }) {
 
 
   return (
-    <div style={{ flex: 1, backgroundColor: "var(--primary-100)", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: 'center', padding: 4 * em, gap: 2.5 * em }}>
+    <div style={{ flex: 1, backgroundColor: "var(--primary-100)", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: 'center', padding: "4em", gap: "2.5em" }}>
       <ViewItem product={product} />
       <div>
         <div className="conjunto-productos">

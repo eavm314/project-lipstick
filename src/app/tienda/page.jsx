@@ -33,7 +33,7 @@ const TiendaPage = () => {
   }, []);
 
   return (
-    <div style={{ display: "flex", alignItems: "center", alignContent: "center", padding: (4.25 * em), justifyContent: "center" }}>
+    <div style={{ display: "flex", alignItems: "center", alignContent: "center", padding: "4.25em", justifyContent: "center" }}>
       <div className="conjunto-productos">
         {products
           .filter((p) => p.categoria === selectedCategory || selectedCategory === "Todos")

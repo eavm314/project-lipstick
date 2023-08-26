@@ -3,53 +3,54 @@ import Link from "next/link";
 const CreateAccount = () => {
     const em = 16
     return (
-        <div style={{ display: "flex", backgroundColor: "#fff", flexDirection: 'column', justifyContent: 'center', alignItems: 'center', alignContent: 'center' }}>
-            <div style={{ backgroundColor: '#efecea', padding: 36, borderWidth: 1, borderColor: '#000' }}>
-                <div style={{ width: 30.25 * em, height: 36.75 * em }}>
-                    <h1 className="titulo" style={{ fontSize: 2 * em, marginBottom: em*2.1875 }}>Regístrate</h1>
-                    <div style={{ display: 'flex', flexDirection: 'row', marginBottom: em * 1.25, justifyContent: 'space-between' }}>
-                        <input type='text' style={{ display: 'flex', fontSize: 18, borderWidth: 1, borderColor: '#000', backgroundColor: '#f9f8f7', width: 14.5 * em, height: 55, padding: 0.75 * em }}
+        <>
+        <div style={{ display: "flex", backgroundColor: "#fff", flexDirection: 'column', justifyContent: 'center', alignItems: 'center',width:"100%",height:"100%",flexWrap:'nowrap', paddingTop: "5em", paddingBottom: "5em"}}>
+            <div style={{ backgroundColor: '#efecea', padding: "2.25em", borderWidth: 1, borderColor: '#000' }}>
+                <div style={{ width: "30.25em", height: "36.75em" }}>
+                    <h1 className="titulo" style={{ fontSize: "2em", marginBottom: "2.1875rem" }}>Regístrate</h1>
+                    <div style={{ display: 'flex', flexDirection: 'row', marginBottom: "1.25rem", justifyContent: 'space-between' }}>
+                        <input type='text' style={{ display: 'flex', fontSize: "1.125em", borderWidth: 1, borderColor: '#000', backgroundColor: '#f9f8f7', width: "14.5rem", height: 55, padding: "0.75em" }}
                             placeholder="Nombre"
                             name="Nombre"
                             className="texto-parrafo" />
-                        <input type='text' style={{ display: 'flex', fontSize: 18, borderWidth: 1, borderColor: '#000', backgroundColor: '#f9f8f7', width: 14.5 * em, height: 55, padding: 0.75 * em }}
+                        <input type='text' style={{ display: 'flex', fontSize: "1.125em", borderWidth: 1, borderColor: '#000', backgroundColor: '#f9f8f7', width: "14.5rem", height: 55, padding: "0.75em" }}
                             placeholder="Apellido"
                             name="Apellido"
                             className="texto-parrafo" />
                     </div>
-                    <input type='text' style={{ display: 'flex', fontSize: 18, borderWidth: 1, borderColor: '#000', backgroundColor: '#f9f8f7', width: '100%', height: 55, padding: 0.75 * em, marginBottom: em * 1.25 }}
+                    <input type='text' style={{ display: 'flex', fontSize: "1.125em", borderWidth: 1, borderColor: '#000', backgroundColor: '#f9f8f7', width: '100%', height: 55, padding: "0.75em", marginBottom: "1.25em" }}
                         placeholder="Correo electrónico"
                         name="correo electronico"
                         className="texto-parrafo" />
-                    <h1 className="texto-normal-semibold" style={{ fontSize: em * 1.25, marginBottom: em * 0.6875 }}>Fecha de Nacimiento</h1>
-                    <div style={{ display: 'flex', flexDirection: 'row', marginBottom: em * 1.25, justifyContent: 'flex-start' }}>
-                        <input type='text' style={{ display: 'flex', fontSize: 18, borderWidth: 1, borderColor: '#000', backgroundColor: '#f9f8f7', width: 5.75 * em, height: 55, padding: 0.75 * em, marginRight: 2 * em }}
+                    <h1 className="texto-normal-semibold" style={{ fontSize: "1.25em", marginBottom: "0.6875em" }}>Fecha de Nacimiento</h1>
+                    <div style={{ display: 'flex', flexDirection: 'row', marginBottom: "1.25em", justifyContent: 'flex-start' }}>
+                        <input type='text' style={{ display: 'flex', fontSize: "1.125em", borderWidth: 1, borderColor: '#000', backgroundColor: '#f9f8f7', width: "5.75rem", height: 55, padding: "0.75em", marginRight: "2rem" }}
                             placeholder="Dia"
                             name="Dia"
                             className="texto-parrafo" />
-                        <input type='text' style={{ display: 'flex', fontSize: 18, borderWidth: 1, borderColor: '#000', backgroundColor: '#f9f8f7', width: 5.75 * em, height: 55, padding: 0.75 * em, marginRight: 2 * em }}
+                        <input type='text' style={{ display: 'flex', fontSize: "1.125em", borderWidth: 1, borderColor: '#000', backgroundColor: '#f9f8f7', width: "5.75rem", height: 55, padding: "0.75em", marginRight: "2rem" }}
                             placeholder="Mes"
                             name="Mes"
                             className="texto-parrafo" />
-                        <input type='text' style={{ display: 'flex', fontSize: 18, borderWidth: 1, borderColor: '#000', backgroundColor: '#f9f8f7', width: 5.75 * em, height: 55, padding: 0.75 * em, marginRight: 2 * em }}
+                        <input type='text' style={{ display: 'flex', fontSize: "1.125em", borderWidth: 1, borderColor: '#000', backgroundColor: '#f9f8f7', width: "5.75rem", height: 55, padding: "0.75em", marginRight: "2rem" }}
                             placeholder="Año"
                             name="Año"
                             className="texto-parrafo" />
                     </div>
-                    <input type='text' style={{ display: 'flex', fontSize: 18, borderWidth: 1, borderColor: '#000', backgroundColor: '#f9f8f7', width: '100%', height: 55, padding: 0.75 * em, marginBottom: em * 1.25 }}
+                    <input type='text' style={{ display: 'flex', fontSize: "1.125em", borderWidth: 1, borderColor: '#000', backgroundColor: '#f9f8f7', width: '100%', height: 55, padding: "0.75em", marginBottom: "1.25em" }}
                         placeholder="Contraseña"
                         name="Contraseña"
                         className="texto-parrafo" />
-                    <input type='text' style={{ display: 'flex', fontSize: 18, borderWidth: 1, borderColor: '#000', backgroundColor: '#f9f8f7', width: '100%', height: 55, padding: 0.75 * em, marginBottom: em * 1.25 }}
+                    <input type='text' style={{ display: 'flex', fontSize: "1.125em", borderWidth: 1, borderColor: '#000', backgroundColor: '#f9f8f7', width: '100%', height: 55, padding: "0.75em", marginBottom: "1.25em" }}
                         placeholder="Repite contraseña"
                         name="Repite contraseña"
                         className="texto-parrafo" />
                     <div style={{ display: 'flex', width: '100%', alignItems: 'center' ,flexDirection:'column'}}>
                         <div style={{justifyContent:'center'}}>
-                            <h1 className="texto-parrafo" style={{fontSize:em*1.125}}>Acepto los 
+                            <h1 className="texto-parrafo" style={{fontSize:"1.125em"}}>Acepto los 
                                 <Link 
                                 className="texto-parrafo" 
-                                style={{fontSize:em*1.125, fontWeight:'bold',marginLeft:2}}
+                                style={{fontSize:"1.125rem", fontWeight:'bold',marginLeft:2.5}}
                                 href={"https://www.youtube.com/watch?v=dQw4w9WgXcQ"}> Términos y Condiciones</Link>
                                 
                                 {/*TODO: IMPLEMENTAR SISTEMA DE TICKEADO*/}
@@ -59,7 +60,7 @@ const CreateAccount = () => {
                         </div>
                         <Link
                             href={"/tienda"}
-                            className="boton-primario w-188 my-3">
+                            className="boton-primario w-188 my-2">
                             Crear Cuenta
                         </Link>
                     </div>
@@ -67,6 +68,7 @@ const CreateAccount = () => {
             </div>
 
         </div>
+        </>
     );
 };
 export default CreateAccount

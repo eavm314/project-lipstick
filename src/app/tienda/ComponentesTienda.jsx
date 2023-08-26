@@ -23,7 +23,7 @@ export const BotonProducto = ({ key,id,imagen, categoria, tags, nombre, precio, 
       </p>
 
       <p className="texto-tags-producto-tienda"
-        style={{ fontSize: "0.75rem", width: "9.75rem" }}>
+        style={{ fontSize: "0.75em", width: "9.75rem" }}>
         {categoria}: {tags.join(", ")}
       </p>
 
