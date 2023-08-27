@@ -10,6 +10,12 @@ import { createContext, useContext, useState } from 'react';
 
 config.autoAddCss = false;
 
+const BolsaComprasContext = createContext();
+
+export const useBolsaComprasContext = () => {
+  return useContext(BolsaComprasContext);
+};
+
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
@@ -21,12 +27,15 @@ export const metadata = {
 const categorias = ["Todos", "Skin Care", "Labios", "Cabello", "Ojos", "Accesorios", "Piel"];
 
 export default function RootLayout({ children }) {
+  const [listaBolsaCompras, setListaBolsaCompras] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("Todos");
   return (
     <html lang="en">
       <body>
       <div className="brand-name">{metadata.brandName}</div>
+      <BolsaComprasContext.Provider value={{listaBolsaCompras, setListaBolsaCompras}}>
       {children}
+      </BolsaComprasContext.Provider>
       </body>
     </html>
   )

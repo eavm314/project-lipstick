@@ -28,7 +28,6 @@ const TiendaPage = () => {
   }
 
   useEffect(() => {
-
     getProducts();
   }, []);
 
@@ -45,6 +44,7 @@ const TiendaPage = () => {
                 categoria={product.categoria}
                 tags={product.tags}
                 nombre={product.nombre}
+                nombreLargo={product.nombreLargo}
                 precio={product.precio}
                 textoBoton={"Añadir"} />
           )}

@@ -36,7 +36,6 @@ export default function ItemPage({ params }) {
   const [product, setProduct] = useState(getProduct(params.id));
   const [recomendados, setRecomendados] = useState(getRecomendados());
 
-
   return (
     <div style={{ flex: 1, backgroundColor: "var(--primary-100)", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: 'center', padding: "4em", gap: "2.5em" }}>
       <ViewItem product={product} />

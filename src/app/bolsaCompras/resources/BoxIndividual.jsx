@@ -1,6 +1,6 @@
 "use state"
 import React from "react";
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import "../../globals.css"
 import '../../tienda/tienda.css'
 import './bolsaCompras.css'
@@ -10,13 +10,31 @@ import { IconContext } from 'react-icons';
 import {BsTrash3Fill} from "react-icons/bs";
 import Link from "next/link";
 import BoxCantidad from "./BoxCantidad";
+import { useBolsaComprasContext } from "../../layout";
 const em = 16;
 
+const total=0;
+
+export const getTotal = () =>{
+    return total
+}
+
 const BoxIndividual = (props) =>{
+    const {listaBolsaCompras, setListaBolsaCompras} = useBolsaComprasContext()
     const [cantidad, setCantidad] = useState(1);
-    const {product} = props
+    const {product, calcTotalProducto, setProducts, cantidadItems, setCantidadItems} = props
     const totalProducto = () =>{
-        return product.precio*cantidad;
+        return product.precio*cantidad
+    }
+    useEffect(() => {
+        calcTotalProducto(product.id, product.precio*cantidad);
+      }, [cantidad]);
+    const eliminarProducto = () =>{
+        const newList = listaBolsaCompras.filter((producto) => producto.id !== product.id)
+        setListaBolsaCompras(newList)
+        setProducts(newList)
+        calcTotalProducto(product.id, 0);
+        setCantidadItems(cantidadItems-1);
     }
     return(
         <div className={"box-producto-individual"}>
@@ -36,7 +54,7 @@ const BoxIndividual = (props) =>{
                 </div>
                 <BoxCantidad key={0} cantidad={cantidad} setCantidad={setCantidad}/>
                 <div className={"texto-normal"+" font-normal flex"} style={{fontSize:"1.25em", width:"12.5%", justifyContent:"right"}}>${totalProducto().toFixed(2)}</div>
-                <BsTrash3Fill className="icon-bolsa-compras" style={{fontSize:"1.25em"}}/>
+                <BsTrash3Fill className="icon-bolsa-compras" style={{fontSize:"1.25em"}} onClick={eliminarProducto}/>
         </div>
     );
 
