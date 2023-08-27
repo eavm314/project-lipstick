@@ -31,44 +31,47 @@ const QRPage = () => {
     }, []);
   }
 
+  const [selectedMethod, setSelectedMethod] = useState(0);
+
+  const cambiarMethod = (num) =>{
+    setSelectedMethod(num)
+  }
+
   return (
-    <div style={{ display: "flex", alignItems: "center", alignContent: "center", padding: "5em", justifyContent: "center", flexDirection: "column", flexWrap: 'nowrap', backgroundColor: 'var(--sec-b-200)' }}>
-      <div style={{ display: "flex", alignItems: "center", alignContent: "center", width: 'auto', justifyContent: "center", flexDirection: "column", flexWrap: 'nowrap' }}>
+    <div style={{ display: "flex", alignItems: "center", alignContent: "center", padding: "5em 25em", justifyContent: "center", flexDirection: "column", flexWrap: 'nowrap', backgroundColor: 'var(--sec-b-200)' }}>
+      <div style={{ display: "flex", alignItems: "center", alignContent: "center", width: '100%', justifyContent: "center", flexDirection: "column", flexWrap: 'nowrap' }}>
         <div className="titulo" style={{ fontSize: "2em", fontWeight: 'var(--weight-bold)', width: '100%', paddingBottom: "2rem" }}>
           Finalizando tu compra
         </div>
         <div className="subtitulo" style={{ fontSize: "1.75em", width: '100%', paddingBottom: "1.75rem" }}>
           Pago del pedido
         </div>
-        <div className="box-con-botones" id="principal">
-          <div className="box-imagen-texto">
-            <div className="box-texto">
-              {instrucciones.map((instruccion, index) => <p className="texto-parrafo">{index + 1}. {instruccion} </p>)}
-            </div>
-            <div className="imagen-qr">
-              <img src={"/qr" + index + ".png"} alt="/qr2.png" id="qr" />
-            </div>
-          </div>
-          <div className="box-auxiliar">
-            <div className="box-empty">
-
-            </div>
-            <button className="box-nuevo-qr" id="cambiarQR" onClick={() => { document.getElementById("qr").src = "/qr2.png" }}>
-              Generar Nuevo QR
-            </button>
-          </div>
-          <div className="box-botones">
-            <Link
-              href={"/tienda"}
-              className="boton-secundario"
-            >
-              Descargar QR
-            </Link>
-            <button disabled className="boton-terciario">
-              Compartir QR
-            </button>
-          </div>
+        <div className="texto-normal gap-7 flex flex-nowrap font-medium" style={{ fontSize: "1.5em", width: '100%', paddingBottom: "1.5rem"}}>
+          <div className={"opciones"+(selectedMethod===1? " underline":"")} onClick={() => cambiarMethod(1)}>Tarjeta</div>
+          <div className={"opciones"+(selectedMethod===0? " underline":"")} onClick={() => cambiarMethod(0)}>Código QR</div>
         </div>
+        <>
+        {selectedMethod===0 ? 
+          <div className="box-con-botones" id="principal">
+            <div className="box-imagen-texto">
+              <div className="box-texto">
+                {instrucciones.map((instruccion, index) => <p className="texto-parrafo">{index + 1}. {instruccion} </p>)}
+              </div>
+              <Link href={""} className="imagen-qr">
+                <img src={"/qr" + index + ".png"} alt="/qr2.png" id="qr" />
+              </Link>
+            </div>
+            <div className="box-auxiliar">
+              <div className="box-empty"></div>
+              <button className="box-nuevo-qr" id="cambiarQR" onClick={() => { document.getElementById("qr").src = "/qr2.png" }}>
+                Generar Nuevo QR
+              </button>
+            </div>
+          </div>
+          : <></>
+        }
+        </>
+        
       </div>
     </div>
   )
