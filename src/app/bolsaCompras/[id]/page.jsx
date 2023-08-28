@@ -61,9 +61,9 @@ const dataPrueba = {
         <div className="flex flex-row w-full"><div className="titulo" style={{fontSize:"2em", width:"95%", paddingBottom:"1.25rem"}}>Tu Bolsa de Compras</div> <Link href={"/tienda"} key={0}><FaXmark/></Link></div>
         <div className="texto-normal" style={{fontSize:"1.25em", width:"100%", paddingBottom:"1.25rem"}}>{cantidadItems} Items</div>
         <div className="horizontal-line"></div>
-        <div className={"scroll-parent"+"px-3 flex-nowrap flex-row"}>
+        <div className={"scroll-parent"+"px-2 flex-nowrap flex-row"}>
         <div className={"scroll-child w-full"}>
-        <div className={"scroll-parent"+" px-3 flex-nowrap flex-col"}>
+        <div className={"scroll-parent"+" px-2 flex-nowrap flex-col"}>
             <div className={"scroll-child flex-col"} style={{height:"31em"}}>
             <div className={"texto-normal"+" font-semibold w-full flex flex-row"} style={{fontSize:"1.25em", paddingBottom:"1.5em", gap:"3.5em"}}>
                 <div className="w-3/6">Productos</div>

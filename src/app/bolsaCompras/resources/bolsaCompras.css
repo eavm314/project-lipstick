@@ -20,7 +20,7 @@
 
 .box-producto-individual{
     min-width: 30em;
-    max-width: 54em;
+    max-width: 57em;
     display:flex;
     flex-wrap: nowrap;
     justify-content: center;
@@ -29,14 +29,14 @@
 }
 
 .icon-bolsa-compras:hover{
-    color: var(--transicion-700)
+    color: var(--transicion-700);
 }
 
 .imagen-box-producto{
     width: 5.25em;
     height: 5.25em;
     flex-shrink: 0;
-    object-fit: cover;
+    object-fit: contain;
     background-color: var(--primary-100);
 }
 

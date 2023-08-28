@@ -37,7 +37,7 @@ const BoxIndividual = (props) =>{
         setCantidadItems(cantidadItems-1);
     }
     return(
-        <div className={"box-producto-individual"}>
+        <div className={"box-producto-individual"} style={{paddingRight:"1em"}}>
                 <div className="p-4 flex w-3/6 gap-4 flex-wrap flex-row items-center justify-center" style={{backgroundColor:"var(--gris-200)"}}>
                     <div className="imagen-box-producto">
                         <img src={product.imagen} alt="" />
@@ -54,7 +54,8 @@ const BoxIndividual = (props) =>{
                 </div>
                 <BoxCantidad key={0} cantidad={cantidad} setCantidad={setCantidad}/>
                 <div className={"texto-normal"+" font-normal flex"} style={{fontSize:"1.25em", width:"12.5%", justifyContent:"right"}}>${totalProducto().toFixed(2)}</div>
-                <BsTrash3Fill className="icon-bolsa-compras" style={{fontSize:"1.25em"}} onClick={eliminarProducto}/>
+                <IconContext.Provider value={{ className:"icon-bolsa-compras"}}><BsTrash3Fill style={{fontSize:"1.25em"}} onClick={eliminarProducto}/></IconContext.Provider>
+                
         </div>
     );
 
