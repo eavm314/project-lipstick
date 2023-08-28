@@ -20,7 +20,7 @@
 
 .box-producto-individual{
     min-width: 30em;
-    max-width: 57em;
+    max-width: 56em;
     display:flex;
     flex-wrap: nowrap;
     justify-content: center;
