@@ -6,7 +6,8 @@ const HistorialPucharses = (props) => {
     code: props.code,
     pucharses: props.list
   }
-  const total = 6500
+  //const total = 6500
+  let total = purchasesHistorial.pucharses.reduce((totalAcc,priceItem)=> totalAcc+priceItem.precio,0)
   
   return (
     <div style={{ width: '42.5625em', margin: '1.5em', marginTop: '1em', borderBottomWidth: 1, borderBottomColor: '#000' }}>
