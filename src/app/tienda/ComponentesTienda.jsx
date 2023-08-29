@@ -3,9 +3,27 @@ import './tienda.css'
 import { IconContext } from 'react-icons';
 import {BsBagPlus} from "react-icons/bs";
 import Link from "next/link";
+import { useBolsaComprasContext } from "../layout";
 const em = 16;
 
-export const BotonProducto = ({ key,id,imagen, categoria, tags, nombre, precio, textoBoton }) => {
+export const BotonProducto = ({ key,id,imagen, categoria, tags, nombre, nombreLargo, precio, textoBoton }) => {
+
+  const {listaBolsaCompras, setListaBolsaCompras} = useBolsaComprasContext()
+
+  const addProduct = () =>{
+    const product = {
+      id: id,
+      imagen: imagen,
+      nombre: nombre,
+      nombreLargo:nombreLargo,
+      precio: precio
+    }
+    if(listaBolsaCompras.filter((producto) => producto.id === product.id).length===0){
+      const newList = [...listaBolsaCompras, product]
+      setListaBolsaCompras(newList)
+    }
+  }
+
   return (
     <div className="boton-producto">
       <Link href={"/viewItem/"+id} key={key}>
@@ -17,8 +35,8 @@ export const BotonProducto = ({ key,id,imagen, categoria, tags, nombre, precio, 
       </div>
       </Link>
 
-      <p className="texto-normal-semibold"
-        style={{ fontSize: "em", width: "9.75em" }}>
+      <p className="texto-normal"
+        style={{ fontSize: "1em", width: "9.75em" }}>
         {nombre}
       </p>
 
@@ -33,14 +51,11 @@ export const BotonProducto = ({ key,id,imagen, categoria, tags, nombre, precio, 
       </p>
 
       <button
-        style={{ fontSize: "em" }}
-        className="boton-primario"
-      //TODO: llevar a producto individual
+        style={{ fontSize: "1em" }}
+        className="boton-primario" onClick={addProduct}
       >
         {textoBoton}
-        <IconContext.Provider value={{ className: 'icons-boton-producto' }}>
             <BsBagPlus/>
-          </IconContext.Provider>
       </button>
     </div>
   )

@@ -8,6 +8,9 @@ import "@fortawesome/fontawesome-svg-core/styles.css";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import { listaProductos } from "@/data/listaProductos";
 import Link from "next/link";
+import {BsBag} from "react-icons/bs";
+import {FaRegHeart} from "react-icons/fa";
+import { IconContext } from 'react-icons';
 
 config.autoAddCss = false;
 
@@ -36,8 +39,18 @@ export default function ItemPage({ params }) {
   const [product, setProduct] = useState(getProduct(params.id));
   const [recomendados, setRecomendados] = useState(getRecomendados());
 
-
   return (
+    <>
+    <div className="flex flex-initial flex-nowrap w-full h-max py-3.5 px-9" style={{backgroundColor:"var(--transicion-700)"}}>
+        <div className="filter-bar">
+        </div>
+        <div style={{width:"16.67%", display:"flex"}}>
+          <IconContext.Provider value={{ className: 'icons-filter-bar' }}>
+          <Link href={"/bolsaCompras/1"} key={0}><BsBag/></Link>
+           <FaRegHeart/>
+          </IconContext.Provider>
+        </div>
+      </div>
     <div style={{ flex: 1, backgroundColor: "var(--primary-100)", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: 'center', padding: "4em", gap: "2.5em" }}>
       <ViewItem product={product} />
       <div>
@@ -51,6 +64,6 @@ export default function ItemPage({ params }) {
         </div>
       </div>
     </div>
-
+    </>
   )
 }

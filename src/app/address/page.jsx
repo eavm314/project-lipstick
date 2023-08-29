@@ -1,10 +1,51 @@
+"use client"
+import { useState } from "react";
 import Link from "next/link";
 import React from "react";
 import '../qr/qr.css'
 import '../globals.css'
+import Dropdown from "./Dropdown";
+import { userAgent } from "next/server";
 
 export default function CreateAccountPage() {
-  const em = 16;
+  const optionsCiudad = [
+    { label: 'La Paz', value: 'LP'},
+    { label: 'El Alto', value: 'AL' },
+    { label: 'Sucre', value: 'CHQ' },
+    { label: 'Santa Cruz', value: 'SCZ' },
+    { label: 'Tarija', value: 'TRJ' },
+    { label: 'Cochabamba', value: 'CBBA' },
+    { label: 'Oruro', value: 'OR' }
+  ];
+  const zonasLaPaz = [
+    {label: 'Sur', value: 'S'},
+    {label: 'Centro', value: 'C'},
+    {label: 'Miraflores', value: 'M'},
+    {label: 'Villa Copacabana', value: 'VC'},
+    {label: 'San Pedro', value: 'SP'}
+  ]
+  const distritosLaPaz = [
+    {label: 'Sur', value: 'S'},
+    {label: 'San Antonio', value: 'SA'},
+    {label: 'Periferica', value: 'P'},
+    {label: 'Max Paredes', value: 'MP'},
+    {label: 'Cotahuma', value: 'C'}
+  ]
+  const [ciudad, setCiudad] = useState('LP');
+  const [zonas, setZonas] = useState(zonasLaPaz);
+  const [zona, setZona] = useState('S');
+  const [distritos, setDistritos] = useState(distritosLaPaz);
+  const [distrito, setDistrito] = useState('S')
+
+  const changeCiudad = (event) => {
+    setCiudad(event.target.value);
+  };
+  const changeZona = (event) => {
+    setZona(event.target.value);
+  };
+  const changeDistrito = (event) => {
+    setDistrito(event.target.value);
+  };
   return (
     <div style={{ display: "flex", alignItems: "center", alignContent: "center", paddingTop: "5em", paddingBottom: "5em", paddingLeft: "20%", paddingRight: "20%", justifyContent: "center", flexDirection: "column", flexWrap: 'nowrap', backgroundColor: 'var(--sec-b-200)' }}>
       <div style={{ display: "flex", alignItems: "center", alignContent: "center", width: '100%', justifyContent: "center", flexDirection: "column", flexWrap: 'nowrap' }}>
@@ -19,11 +60,11 @@ export default function CreateAccountPage() {
         <div className="box-con-botones w-full">
           <form className="w-full">
             <div className="mb-4" style={{ display: "flex", width: "100%", flexDirection: "column", gap: "0.75em" }}>
-              <label className="texto-normal-semibold" style={{ fontSize: "1.25em" }}>Dirección</label>
+              <label className="texto-normal" style={{ fontSize: "1.25em" }}>Dirección</label>
               <input 
                 type="text" 
                 className="texto-parrafo" 
-                style={{ display: "flex", fontsize: em, borderWidth: 1, borderColor: '#000', width: "100%", padding: "0.75em", backgroundColor: 'var(--transicion-50)' }} 
+                style={{ display: "flex", fontsize: "1em", borderWidth: 1, borderColor: '#000', width: "100%", padding: "0.75em", backgroundColor: 'var(--transicion-50)' }} 
                 placeholder="Av. Villarroel Calle 8, Edificio 'Las Rosas', Piso 6, Nro.612" 
                 name="userDireccion" />
             </div>
@@ -31,46 +72,21 @@ export default function CreateAccountPage() {
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: "2em", width: "100%" }}>
 
               <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', width: "50%", gap: "1.75em" }}>
-                <div style={{ display: "flex", width: "100%", flexDirection: "column", gap: "0.75em"}}>
-                  <label className="texto-normal-semibold" style={{ fontSize: "1.25em"}}>Ciudad</label>
-                  <input 
-                    type="text" 
-                    className="texto-parrafo" 
-                    style={{ display: "flex", fontsize: em, borderWidth: 1, borderColor: '#000', width: "100%", padding: "0.75em", backgroundColor: 'var(--transicion-50)' }} 
-                    placeholder="La Paz" 
-                    name="userCiudad" />
-                </div>
+              <Dropdown label="Departamento" options={optionsCiudad} value={ciudad} onChange={changeCiudad}/>
 
-                <div style={{ display: "flex", width: "100%", flexDirection: "column", gap: "0.75em" }}>
-                  <label className="texto-normal-semibold" style={{ fontSize: "1.25em" }}>Distrito</label>
-                  <input 
-                    type="text" 
-                    className="texto-parrafo" 
-                    style={{ display: "flex", fontsize: em, borderWidth: 1, borderColor: '#000', width: "100%", padding: "0.75sem", backgroundColor: 'var(--transicion-50)' }} 
-                    placeholder="La Paz" 
-                    name="userDistrito" />
-                </div>
-
-
+              <Dropdown label="Distrito" options={distritos} value={distrito} onChange={changeDistrito}/>
               </div>
 
               <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', width: "50%", gap: "1.75em" }}>
 
-                <div style={{ display: "flex", width: "100%", flexDirection: "column", gap: "0.75em" }}>
-                  <label className="texto-normal-semibold" style={{ fontSize: "1.25em" }}>Zona</label>
-                  <input 
-                    type="text" 
-                    className="texto-parrafo" 
-                    style={{ display: "flex", fontsize: em, borderWidth: 1, borderColor: '#000', width: "100%", padding: "0.75em", backgroundColor: 'var(--transicion-50)' }} 
-                    placeholder="San Pedro" name="userZona" />
-                </div>
+              <Dropdown label="Zona" options={zonas} value={zona} onChange={changeZona}/>
 
                 <div style={{ display: "flex", width: "100%", flexDirection: "column", gap: "0.75em" }}>
-                  <label className="texto-normal-semibold" style={{ fontSize: "1.25em" }} >Teléfono</label>
+                  <label className="texto-normal" style={{ fontSize: "1.25em" }} >Teléfono</label>
                   <input 
                     type="text" 
                     className="texto-parrafo" 
-                    style={{ display: "flex", fontsize: em, borderWidth: 1, borderColor: '#000', width: "100%", padding: "0.75em", backgroundColor: 'var(--transicion-50)' }} 
+                    style={{ display: "flex", fontsize: "1em", borderWidth: 1, borderColor: '#000', width: "100%", padding: "0.75em", backgroundColor: 'var(--transicion-50)' }} 
                     placeholder="7777777" 
                     name="userTelefono" />
                 </div>
