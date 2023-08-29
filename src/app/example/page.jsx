@@ -8,6 +8,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import '../globals.css'
 import BoxIndividual from "../bolsaCompras/resources/BoxIndividual";
+import BoxTarjeta from "../qr/BoxTarjeta";
 
 
 
@@ -53,23 +54,8 @@ const ExamplePage = () => {
                 <FontAwesomeIcon
                     icon={faCircleStop}
                 />
+            <BoxTarjeta></BoxTarjeta>
 
-            <div style={{ display: "flex", width: "100%", flexDirection: "column", gap: "0.75em"}}>
-                  <label className="texto-normal" style={{ fontSize: "1.25em"}}>Ciudad</label>
-                  <input 
-                    type="text" 
-                    className="texto-parrafo" 
-                    style={{ display: "flex", fontsize: "1em", borderWidth: 1, borderColor: '#000', width: "100%", padding: "0.75em", backgroundColor: 'var(--transicion-50)' }} 
-                    placeholder="La Paz" 
-                    name="userCiudad" />
-                </div>
-                <div>
-
-
-
-<p>We eat {value}!</p>
-
-</div>
 
         </div>
     )

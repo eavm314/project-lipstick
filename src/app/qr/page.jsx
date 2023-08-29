@@ -9,15 +9,8 @@ import {
 import '../globals.css'
 import './qr.css'
 import Link from "next/link";
-
-const instrucciones = ["Ingrese a su aplicacíon de su Banco en su dispositivo móvil.",
-  "Ingrese a la opción de Pago QR en su aplicación.",
-  "Capture el Código QR que aparece en Pantalla con la cámara de su Celular.",
-  "Una vez realizado el pago, espere unos segundos hasta que reciba una confirmación de pago."];
-
-
-
-
+import BoxQR from "./BoxQR";
+import BoxTarjeta from "./BoxTarjeta";
 
 const QRPage = () => {
   const [imageIndex, setImageIndex] = useState(2);
@@ -46,29 +39,14 @@ const QRPage = () => {
         <div className="subtitulo" style={{ fontSize: "1.75em", width: '100%', paddingBottom: "1.75rem" }}>
           Pago del pedido
         </div>
-        <div className="texto-normal gap-7 flex flex-nowrap font-medium" style={{ fontSize: "1.5em", width: '100%', paddingBottom: "1.5rem"}}>
+        <div className="texto-normal gap-7 flex flex-nowrap font-medium" style={{ fontSize: "1.5em", width: '100%', paddingBottom: "3rem"}}>
           <div className={"opciones"+(selectedMethod===1? " underline":"")} onClick={() => cambiarMethod(1)}>Tarjeta</div>
           <div className={"opciones"+(selectedMethod===0? " underline":"")} onClick={() => cambiarMethod(0)}>Código QR</div>
         </div>
         <>
         {selectedMethod===0 ? 
-          <div className="box-con-botones" id="principal">
-            <div className="box-imagen-texto">
-              <div className="box-texto">
-                {instrucciones.map((instruccion, index) => <p className="texto-parrafo">{index + 1}. {instruccion} </p>)}
-              </div>
-              <Link href={""} className="imagen-qr">
-                <img src={"/qr" + index + ".png"} alt="/qr2.png" id="qr" />
-              </Link>
-            </div>
-            <div className="box-auxiliar">
-              <div className="box-empty"></div>
-              <button className="box-nuevo-qr" id="cambiarQR" onClick={() => { document.getElementById("qr").src = "/qr2.png" }}>
-                Generar Nuevo QR
-              </button>
-            </div>
-          </div>
-          : <></>
+          <BoxQR/>
+          : <BoxTarjeta/>
         }
         </>
         
