@@ -13,32 +13,32 @@ const infoData = {
   address: "LP-Sur, Z. Sur, Los Rosales, Achumani, Calle 5 Nro. 2475",
   password: "**********",
   //TODO: Add for multiples pucharses, with multiple codes and a bunch of
-  pucharsesHistorial:
-    [
-      {
-        code: 5998,
-        pucharses: [
-          { nameItem: "Labial Sabor Chocolate Humectante Antigrasa Esika Premium", cant: 20, precio: 2000 },
-          { nameItem: "Palette Pinky Dinky Sin Glitter Edicion de Diatio", cant: 30, precio: 6000 },
-        ]
-      },
-      {
-        code: 7977,
-        pucharses: [
-          { nameItem: "Labial Sabor Chocolate Humectante Antigrasa Esika Premium", cant: 20, precio: 2000 },
-          { nameItem: "Palette Pinky Dinky Sin Glitter Edicion de Diatio", cant: 50, precio: 6000 },
-        ]
-      },
-      {
-        code: 5879,
-        pucharses: [
-          { nameItem: "Labial Sabor Chocolate Humectante Antigrasa Esika Premium", cant: 20, precio: 2000 },
-          { nameItem: "Palette Pinky Dinky Sin Glitter Edicion de Diatio", cant: 50, precio: 6000 },
-          { nameItem: "Labial Sabor Chocolate Humectante Antigrasa Esika Premium", cant: 20, precio: 2000 },
-          { nameItem: "Palette Pinky Dinky Sin Glitter Edicion de Diatio", cant: 30, precio: 6000 },
-        ]
-      }
-    ]
+  pucharsesHistorial:[
+    {
+      code: 5998,
+      pucharses: [
+        { nameItem: "Labial Sabor Chocolate Humectante Antigrasa Esika Premium", cant: 20, precio: 2000 },
+        { nameItem: "Palette Pinky Dinky Sin Glitter Edicion de Diatio", cant: 30, precio: 6000 },
+      ]
+    },
+    {
+      code: 7977,
+      pucharses: [
+        { nameItem: "Labial Sabor Chocolate Humectante Antigrasa Esika Premium", cant: 20, precio: 2000 },
+        { nameItem: "Palette Pinky Dinky Sin Glitter Edicion de Diatio", cant: 50, precio: 6000 },
+      ]
+    },
+    {
+      code: 5879,
+      pucharses: [
+        { nameItem: "Labial Sabor Chocolate Humectante Antigrasa Esika Premium", cant: 20, precio: 2000 },
+        { nameItem: "Palette Pinky Dinky Sin Glitter Edicion de Diatio", cant: 50, precio: 6000 },
+        { nameItem: "Labial Sabor Chocolate Humectante Antigrasa Esika Premium", cant: 20, precio: 2000 },
+        { nameItem: "Palette Pinky Dinky Sin Glitter Edicion de Diatio", cant: 30, precio: 6000 },
+      ]
+    }
+  ]
+    
 }
 
 
@@ -119,13 +119,16 @@ const infoPerfil = () => {
         <view style={{ width: '45.625em', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', justifyContent: 'flex-start' }}>
           <h1 className="titulo" style={{ fontSize: '1.5em', marginBottom: '0.5rem', marginTop: '1rem', marginLeft: '0.375em', fontWeight: 'normal' }}>Historial de Compras</h1>
           {
-            infoData.pucharsesHistorial.map(item => {
+            infoData.pucharsesHistorial.length!==0?
+              infoData.pucharsesHistorial.map(item => {
               return (
                 <HistorialPucharses
                   code={item.code}
                   list={item.pucharses}
                 />)
-            })}
+              }):<div className="texto-normal w-full text-4xl py-16 px-90 text-slate-400 text-center">No se ha realizado Niguna Compra</div>
+            
+            }
 
         </view>
 
