@@ -7,8 +7,7 @@ import { BotonProducto } from "./ComponentesTienda";
 import Link from "next/link";
 import { listaProductos } from "@/data/listaProductos";
 import { useProductContext } from "./layout";
-import { getProducts } from "@/api_services/productsService";
-
+import { getProducts } from "../services/axiosAPIServices";
 const dataPrueba = {
   imagen: "lipstickPrueba",
   categoria: "Labios",
@@ -26,8 +25,9 @@ const TiendaPage = () => {
 
   useEffect(() => {
     const getProductsTienda= async() =>{
-      const productos = getProducts();
-      setProducts(productos)
+      const productos = await getProducts();
+      setProducts(productos.data)
+      console.log(productos)
     }
     getProductsTienda();
   }, []);

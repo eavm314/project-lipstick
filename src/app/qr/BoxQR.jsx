@@ -33,7 +33,7 @@ const BoxQR = () =>{
               <div className="box-texto">
                 {instrucciones.map((instruccion, index) => <p className="texto-parrafo" key={index}>{index + 1}. {instruccion} </p>)}
               </div>
-              <Link href={""} className="imagen-qr">
+              <Link href={"/finCompra"} className="imagen-qr">
                 <img src={qr} alt="" id="qr" />
               </Link>
             </div>
