@@ -33,7 +33,7 @@ const FacturaPage = () =>{
                         name="userRazonSocial" />
                 </div>
                 <div className="mb-4" style={{ display: "flex", width: "100%", flexDirection: "column", gap: "0.75em" }}>
-                    <label className="texto-normal font-medium" style={{ fontSize: "1.25em" }}>Razón Social</label>
+                    <label className="texto-normal font-medium" style={{ fontSize: "1.25em" }}>NIT</label>
                     <input 
                         type="text" 
                         className="texto-parrafo" 
