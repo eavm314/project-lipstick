@@ -14,6 +14,7 @@ export const listaProductos = [
       categoria: "Ojos",
       tags: ["sombra", "mate"],
       nombre: "Midnight Sparkle",
+      nombreLargo: "Midnight Sparkle Eyeshadow Matte for a Glamorous Look",
       precio: 45.00,
     },
     {
@@ -31,6 +32,7 @@ export const listaProductos = [
       categoria: "Cabello",
       tags: ["cabello", "brillo"],
       nombre: "Shine Boost",
+      nombreLargo: "Shine Boost Hair Serum Enhance Your Hair's Natural Shine",
       precio: 25.00,
     },
     {
@@ -48,6 +50,7 @@ export const listaProductos = [
       categoria: "Ojos",
       tags: ["sombra", "brillo"],
       nombre: "Starlit Eyes",
+      nombreLargo: "Starlit Eyes Eyeshadow Mesmerizing Shimmery Shadows",
       precio: 38.00,
     },
     {
@@ -65,6 +68,7 @@ export const listaProductos = [
       categoria: "Cabello",
       tags: ["brillo", "cabello"],
       nombre: "Hair Charm",
+      nombreLargo: "Hair Charm Accessory Add Elegance to Your Hairstyle",
       precio: 12.00,
     },
     {
@@ -82,6 +86,7 @@ export const listaProductos = [
       categoria: "Ojos",
       tags: ["sombra", "suave"],
       nombre: "Soft Hues",
+      nombreLargo: "Soft Hues Eyeshadow Palette Subtle and Beautiful Makeup",
       precio: 42.00,
     },
     {
@@ -99,6 +104,7 @@ export const listaProductos = [
       categoria: "Accesorios",
       tags: ["accesorio", "elegante"],
       nombre: "Elegant Accessory",
+      nombreLargo: "Elevate Your Style with This Sophisticated Accessory",
       precio: 15.00,
     },
     {
@@ -107,6 +113,7 @@ export const listaProductos = [
       categoria: "Labios",
       tags: ["labial", "vino", "oscuro"],
       nombre: "Wine Stain",
+      nombreLargo: "Sparkling Charm Accessory a Touch of Sparkle",
       precio: 60.00,
     },
     {
@@ -115,6 +122,7 @@ export const listaProductos = [
       categoria: "Ojos",
       tags: ["sombra", "glamour"],
       nombre: "Glamour Gaze",
+      nombreLargo: "Neutral Tones Eyeshadow Palette Create Versatile Makeup Looks",
       precio: 50.00,
     },
     {
@@ -123,6 +131,7 @@ export const listaProductos = [
       categoria: "Skin Care",
       tags: ["piel", "frescura"],
       nombre: "Fresh Glow",
+      nombreLargo: "Skin Care Set Revitalizing and Fresh Look, Skincare Regimen",
       precio: 34.00,
     },
     {
@@ -131,6 +140,7 @@ export const listaProductos = [
       categoria: "Accesorios",
       tags: ["accesorio", "brillo"],
       nombre: "Sparkling Charm",
+      nombreLargo: "Accessory, Add a Touch of Sparkle and Charm to Your Ensemble",
       precio: 18.00,
     },
     {
@@ -139,6 +149,7 @@ export const listaProductos = [
       categoria: "Labios",
       tags: ["labial", "coral"],
       nombre: "Coral Crush",
+      nombreLargo: "Lipstick Crush on the Vibrant Coral Lip Shade, Radiant Look",
       precio: 48.00,
     },
     {
@@ -147,6 +158,7 @@ export const listaProductos = [
       categoria: "Ojos",
       tags: ["sombra", "elegante"],
       nombre: "Elegant Shadows",
+      nombreLargo: "Eyeshadow Palette Create Captivating and Elegant Eye Looks",
       precio: 40.00,
     },
     {
@@ -155,6 +167,7 @@ export const listaProductos = [
       categoria: "Skin Care",
       tags: ["piel", "revitalización"],
       nombre: "Revitalizing Elixir",
+      nombreLargo: "Skin Revitalization Serum Awaken Your Skin's Radiance",
       precio: 37.00,
     },
     {
@@ -163,6 +176,7 @@ export const listaProductos = [
       categoria: "Piel",
       tags: ["piel", "base", "natural"],
       nombre: "Natural Glow Foundation",
+      nombreLargo: "Achieve a Flawless Complexion with a Natural, Radiant Finish",
       precio: 55.00,
     },
     {
@@ -171,6 +185,7 @@ export const listaProductos = [
       categoria: "Piel",
       tags: ["piel", "base", "matificante"],
       nombre: "Matte Finish Foundation",
+      nombreLargo: "Get a Matte and Smooth Complexion for an All-Day Glam",
       precio: 48.00,
     },
     {
@@ -179,6 +194,7 @@ export const listaProductos = [
       categoria: "Piel",
       tags: ["piel", "base", "hidratante"],
       nombre: "Hydrating Foundation",
+      nombreLargo: "Keep Your Skin Hydrated While Achieving a Flawless Look",
       precio: 50.00,
     },
     {
@@ -187,6 +203,7 @@ export const listaProductos = [
       categoria: "Labios",
       tags: ["labial", "nude"],
       nombre: "Nude Bliss",
+      nombreLargo: "Lipstick Discover the Blissful Beauty of Nude Shades",
       precio: 58.00,
     },
     {
@@ -195,6 +212,7 @@ export const listaProductos = [
       categoria: "Accesorios",
       tags: ["accesorio", "elegante"],
       nombre: "Elegant Touch",
+      nombreLargo: "Accessory, Add an Elegant and Refined Touch to Your Ensemble",
       precio: 14.00,
     },
     {
@@ -203,6 +221,7 @@ export const listaProductos = [
       categoria: "Ojos",
       tags: ["sombra", "neutra"],
       nombre: "Neutral Tones",
+      nombreLargo: "Eyeshadow Palette Embrace Timeless Elegance, Neutral Eye Shades",
       precio: 36.00,
     },
     {
@@ -211,6 +230,7 @@ export const listaProductos = [
       categoria: "Skin Care",
       tags: ["piel", "suavidad"],
       nombre: "Smooth Complexion",
+      nombreLargo: "Skin Smoothing Cream Achieve a Silky and Smooth Skin Texture",
       precio: 31.00,
     },
     {
@@ -219,6 +239,7 @@ export const listaProductos = [
       categoria: "Accesorios",
       tags: ["accesorio", "encanto"],
       nombre: "Charm Bracelet",
+      nombreLargo: "Adorn Yourself with a Delicate and Enchanting Charm Bracelet",
       precio: 22.00,
     },
     {
@@ -227,6 +248,7 @@ export const listaProductos = [
       categoria: "Labios",
       tags: ["labial", "mate"],
       nombre: "Velvet Matte",
+      nombreLargo: "Lipstick Experience a Luxurious Velvet Texture, Matte Finish",
       precio: 63.00,
     },
     {
@@ -235,6 +257,7 @@ export const listaProductos = [
       categoria: "Ojos",
       tags: ["sombra", "intensa"],
       nombre: "Intense Eyes",
+      nombreLargo: "Eyeshadow Palette, Look with Stunning and Intense Eye Shades",
       precio: 44.00,
     },
     {
@@ -243,6 +266,7 @@ export const listaProductos = [
       categoria: "Uñas",
       tags: ["uñas", "rosa"],
       nombre: "Rose Delight",
+      nombreLargo: "Nail Polish Achieve Delightful Rose-Colored Nails",
       precio: 26.00,
     },
     {
@@ -252,6 +276,7 @@ export const listaProductos = [
       tags: ["labial", "brillante"],
       nombre: "Shine On",
       precio: 52.00,
+      nombreLargo: "Lip Gloss Let Your Lips Shine Bright, Brilliant Lip Gloss",
     },
     {
       id: 32,
@@ -259,6 +284,7 @@ export const listaProductos = [
       categoria: "Ojos",
       tags: ["sombra", "mística"],
       nombre: "Mystic Shadows",
+      nombreLargo: "Eyeshadow Palette Unleash Your Inner Enchantment",
       precio: 46.00,
     },
     {
@@ -267,6 +293,7 @@ export const listaProductos = [
       categoria: "Uñas",
       tags: ["uñas", "verde"],
       nombre: "Emerald Elegance",
+      nombreLargo: "Nail Polish Add a Pop of Glamour with this Stunning Shade",
       precio: 23.00,
     },
     {
@@ -275,6 +302,7 @@ export const listaProductos = [
       categoria: "Labios",
       tags: ["labial", "magenta"],
       nombre: "Magenta Magic",
+      nombreLargo: "Lipstick Cast a Spell with the Captivating Magenta Lip Color",
       precio: 54.00,
     },
     {
@@ -283,6 +311,7 @@ export const listaProductos = [
       categoria: "Ojos",
       tags: ["sombra", "dramática"],
       nombre: "Dramatic Flair",
+      nombreLargo: "Eyeshadow Palette Add Dramatic Flair with Intense Shadows",
       precio: 47.00,
     },
     {
@@ -291,6 +320,7 @@ export const listaProductos = [
       categoria: "Uñas",
       tags: ["uñas", "morado"],
       nombre: "Purple Majesty",
+      nombreLargo: "Nail Polish Feel like Royalty with this Majestic Shade",
       precio: 21.00,
     },
     {
@@ -299,6 +329,7 @@ export const listaProductos = [
       categoria: "Labios",
       tags: ["labial", "gloss"],
       nombre: "Glossy Glow",
+      nombreLargo: "Lip Gloss Illuminate Your Lips with a Glossy Shine",
       precio: 49.00,
     },
     {
@@ -307,6 +338,7 @@ export const listaProductos = [
       categoria: "Ojos",
       tags: ["sombra", "seductora"],
       nombre: "Seductive Charms",
+      nombreLargo: "Eyeshadow Palette Unleash Your Inner Seductress",
       precio: 43.00,
     },
     {
@@ -315,6 +347,7 @@ export const listaProductos = [
       categoria: "Uñas",
       tags: ["uñas", "dorado"],
       nombre: "Golden Glam",
+      nombreLargo: "Nail Polish Shine Bright with Luxurious Golden Nails",
       precio: 30.00,
     },
     {
@@ -323,6 +356,7 @@ export const listaProductos = [
       categoria: "Labios",
       tags: ["labial", "elegante"],
       nombre: "Elegant Red",
+      nombreLargo: "Lipstick Adorn Your Lips with an Elegant Shade of Red",
       precio: 57.00,
     },
     {
@@ -331,6 +365,7 @@ export const listaProductos = [
       categoria: "Ojos",
       tags: ["sombra", "brillante"],
       nombre: "Sparkling Eyes",
+      nombreLargo: "Eyeshadow Palette Illuminate Your Eyes with Shimmering Shades",
       precio: 41.00,
     },
   ];
