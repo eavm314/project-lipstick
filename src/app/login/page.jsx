@@ -17,15 +17,24 @@ export default function Login() {
       <Link
         href={"/tienda"}
         className="boton-primario w-175"
-        style={{width:'10.9375em'}}>
+        style={{width:'15em'}}>
         Continuar
       </Link>
       <h1 className="texto-normal" style={{ fontSize: '1.25em', marginTop: '1.75rem',  marginBottom: '1.25rem' }}>¿No tienes una cuenta?</h1>
       <Link
         href={"/createAccount"}
         className="boton-secundario w-175"
-        style={{width:'10.9375em',marginBottom:'2.5%'}}>
+        style={{width:'15em',marginBottom:'1.25rem'}}>
         Regístrate
+      </Link>
+      <Link
+        href={"/createAccount"}
+        
+        style={{display:'flex',flexDirection:'row', width:'15em',paddingLeft:'0.5rem',paddingRight:'1rem',paddingTop:'1em',paddingBottom:'1em',marginBottom:'2.5%',boxShadow: '0px 5px 10px #00000090',alignItems:'center'}}>
+        <img 
+        src="https://static.vecteezy.com/system/resources/previews/010/353/285/non_2x/colourful-google-logo-on-white-background-free-vector.jpg"
+        style={{height:'2rem',width:'2rem',borderRadius:100,marginRight:'0.5em',marginLeft:'0.5em'}}/>
+        <h1 style={{fontWeight:'500'}}>Continuar con Google</h1>
       </Link>
 
     </div>
