@@ -1,4 +1,4 @@
-const { default: supabase} = require("@/supabase/instance");
+const { default: supabase } = require("@/supabase/instance");
 
 
 export const signUp = async (email, password) => {
@@ -20,6 +20,17 @@ export const signIn = async (email, password) => {
     const { data, error } = await supabase.auth.signInWithPassword({
         email: email,
         password: password,
+    });
+
+    return {data, error}
+}
+
+export const signInGoogle = async () => {
+    console.log("sign in google");
+    // console.log(supabase);
+
+    const { data, error } = await supabase.auth.signInWithOAuth({
+        provider: 'google',
     });
 
     return {data, error}
