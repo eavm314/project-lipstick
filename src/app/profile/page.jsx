@@ -134,7 +134,7 @@ const infoPerfil = () => {
 
       </view>
       <Link
-        href={"/tienda"}
+        href={"/login"}
         className="boton-advertencia w-175 " style={{ marginBottom: '2.25rem', marginTop: '9.1875em' }}>
         Cerrar Sesion
       </Link>
