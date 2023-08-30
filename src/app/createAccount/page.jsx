@@ -1,10 +1,14 @@
+"use client"
 import React from "react";
+import { useEffect, useState } from "react";
+import '../globals.css'
 import Link from "next/link";
+
 const CreateAccount = () => {
     const em = 16
     return (
         <>
-        <div style={{ display: "flex", backgroundColor: "#fff", flexDirection: 'column', justifyContent: 'center', alignItems: 'center',width:"100%",height:"100%",flexWrap:'nowrap', paddingTop: "5em", paddingBottom: "5em"}}>
+        <div style={{ display: "flex", backgroundColor: "#f9f8f7", flexDirection: 'column', justifyContent: 'center', alignItems: 'center',width:"100%",height:"100%",flexWrap:'nowrap', paddingTop: "5em", paddingBottom: "5em"}}>
             <div style={{ backgroundColor: '#efecea', padding: "2.25em", borderWidth: 1, borderColor: '#000' }}>
                 <div style={{ width: "30.25em", height: "36.75em" }}>
                     <h1 className="titulo" style={{ fontSize: "2em", marginBottom: "2.1875rem" }}>Regístrate</h1>

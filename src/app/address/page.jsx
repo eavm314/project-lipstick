@@ -72,7 +72,7 @@ export default function CreateAccountPage() {
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: "2em", width: "100%" }}>
 
               <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', width: "50%", gap: "1.75em" }}>
-              <Dropdown label="Departamento" options={optionsCiudad} value={ciudad} onChange={changeCiudad}/>
+              <Dropdown label="Ciudad" options={optionsCiudad} value={ciudad} onChange={changeCiudad}/>
 
               <Dropdown label="Distrito" options={distritos} value={distrito} onChange={changeDistrito}/>
               </div>

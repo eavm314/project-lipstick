@@ -82,7 +82,7 @@ const dataPrueba = {
         </div>
         <div className="px-8 flex flex-wrap w-full py-4 align-middle">
             <div className="justify-start flex min-w-max max-h-min" style={{width:"50%", paddingBottom:"1.25em"}}>
-                <Link href={"/address"} className="boton-primario" style={{fontSize:"1.25em", pointerEvents: products.length===0  ? 'none' : ''}}>Comprar</Link>
+                <Link href={"/factura"} className="boton-primario" style={{fontSize:"1.25em", pointerEvents: products.length===0  ? 'none' : ''}}>Comprar</Link>
             </div>
             <div className={"justify-end flex gap-44 align-text-bottom w-2/4 min-w-max"}>
                 <div className={"texto-normal"} style={{fontSize:"1.75em", fontWeight:"var(--weight-bold)"}}>Total:</div>

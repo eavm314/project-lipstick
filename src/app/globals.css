@@ -294,7 +294,8 @@ textarea {
   color: var(--primary-100);
   font-family: var(--titulo-font), serif;
   font-weight: var(--weight-bold);
-  font-size: 3.25em
+  font-size: 3.25em;
+  gap:12.25em;
 }
 
 .navigation-bar{
