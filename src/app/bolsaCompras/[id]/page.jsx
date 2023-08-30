@@ -1,6 +1,6 @@
 "use client"
 import React from "react";
-import {useState, useEffect} from 'react';
+import {createContext, useState, useEffect} from 'react';
 import "../../globals.css"
 import '../../tienda/tienda.css'
 import '../resources/bolsaCompras.css'
@@ -24,6 +24,12 @@ const dataPrueba = {
   }
   
   const em = 16;
+
+  const ProductosCompradosContext = createContext();
+
+    export const useProductosCompradosContext = () => {
+        return useContext(ProductContext);
+    };
   
   export default function ItemPage({ params }) {
 

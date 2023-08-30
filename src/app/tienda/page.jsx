@@ -7,6 +7,7 @@ import { BotonProducto } from "./ComponentesTienda";
 import Link from "next/link";
 import { listaProductos } from "@/data/listaProductos";
 import { useProductContext } from "./layout";
+import { getProducts } from "@/api_services/productsService";
 
 const dataPrueba = {
   imagen: "lipstickPrueba",
@@ -22,19 +23,19 @@ const TiendaPage = () => {
   const { selectedCategory } = useProductContext();
 
   const [products, setProducts] = useState([]);
-  const getProducts = () => {
-    const data = listaProductos;
-    setProducts(data)
-  }
 
   useEffect(() => {
-    getProducts();
+    const getProductsTienda= async() =>{
+      const productos = getProducts();
+      setProducts(productos)
+    }
+    getProductsTienda();
   }, []);
 
   return (
     <div style={{ display: "flex", alignItems: "center", alignContent: "center", padding: "4.25em", justifyContent: "center" }}>
       <div className="conjunto-productos">
-        {products
+        {products && products
           .filter((p) => p.categoria === selectedCategory || selectedCategory === "Todos")
           .map((product, index) =>
               <BotonProducto
