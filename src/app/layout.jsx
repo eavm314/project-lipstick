@@ -1,11 +1,20 @@
+"use client"
 import './globals.css'
 import { Inter } from 'next/font/google'
 
 //implementar font awesome icons
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import { config } from "@fortawesome/fontawesome-svg-core";
+import Link from "next/link";
+import { createContext, useContext, useState } from 'react';
 
 config.autoAddCss = false;
+
+const BolsaComprasContext = createContext();
+
+export const useBolsaComprasContext = () => {
+  return useContext(BolsaComprasContext);
+};
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -15,12 +24,18 @@ export const metadata = {
   brandName: 'Bodoni Moda',
 }
 
+const categorias = ["Todos", "Skin Care", "Labios", "Cabello", "Ojos", "Accesorios", "Piel"];
+
 export default function RootLayout({ children }) {
+  const [listaBolsaCompras, setListaBolsaCompras] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState("Todos");
   return (
     <html lang="en">
       <body>
       <div className="brand-name">{metadata.brandName}</div>
+      <BolsaComprasContext.Provider value={{listaBolsaCompras, setListaBolsaCompras}}>
       {children}
+      </BolsaComprasContext.Provider>
       </body>
     </html>
   )

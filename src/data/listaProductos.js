@@ -5,6 +5,7 @@ export const listaProductos = [
       categoria: "Labios",
       tags: ["lipstick", "especial"],
       nombre: "Ruby Lips",
+      nombreLargo: "Labial Sabor  Chocolate Humectante Antigrasa Esika Premium",
       precio: 70.00,
     },
     {
@@ -21,6 +22,7 @@ export const listaProductos = [
       categoria: "Skin Care",
       tags: ["piel", "limpieza"],
       nombre: "Cleanse & Glow",
+      nombreLargo: "Agua Micelar Piel Mixta Desmaquillante Cleanse & Glow",
       precio: 30.00,
     },
     {
@@ -37,6 +39,7 @@ export const listaProductos = [
       categoria: "Labios",
       tags: ["labial", "rosa"],
       nombre: "Pink Bloom",
+      nombreLargo: "Labial Humectante Sin Sabor 24H Pink Bloom",
       precio: 55.00,
     },
     {
@@ -53,6 +56,7 @@ export const listaProductos = [
       categoria: "Skin Care",
       tags: ["piel", "hidratación"],
       nombre: "Hydrate & Nourish",
+      nombreLargo: "Crema Piel Grasa Hidratante Efecto Matte Hydrate & Nourish",
       precio: 32.00,
     },
     {
@@ -69,6 +73,7 @@ export const listaProductos = [
       categoria: "Labios",
       tags: ["labial", "rojo", "mate"],
       nombre: "Crimson Charm",
+      nombreLargo: "Labial Humectante Sin Sabor Long Night Crimson Charm",
       precio: 65.00,
     },
     {
@@ -85,6 +90,7 @@ export const listaProductos = [
       categoria: "Skin Care",
       tags: ["piel", "renovación"],
       nombre: "Renew & Revive",
+      nombreLargo: "Crema Anti-arrugas 30+ Humectante Nocturna Renew & Revive",
       precio: 28.00,
     },
     {
