@@ -28,18 +28,11 @@ const CreateAccount = () => {
                         className="texto-parrafo" />
                     <h1 className="texto-normal-semibold" style={{ fontSize: "1.25em", marginBottom: "0.6875em" }}>Fecha de Nacimiento</h1>
                     <div style={{ display: 'flex', flexDirection: 'row', marginBottom: "1.25em", justifyContent: 'flex-start' }}>
-                        <input type='text' style={{ display: 'flex', fontSize: "1.125em", borderWidth: 1, borderColor: '#000', backgroundColor: '#f9f8f7', width: "5.75rem", height: 55, padding: "0.75em", marginRight: "2rem" }}
+                        <input type='date' style={{ display: 'flex', fontSize: "1.125em", borderWidth: 1, borderColor: '#000', backgroundColor: '#f9f8f7', width: "17.25rem", height: 55, padding: "0.75em", marginRight: "2rem" }}
                             placeholder="Dia"
                             name="Dia"
                             className="texto-parrafo" />
-                        <input type='text' style={{ display: 'flex', fontSize: "1.125em", borderWidth: 1, borderColor: '#000', backgroundColor: '#f9f8f7', width: "5.75rem", height: 55, padding: "0.75em", marginRight: "2rem" }}
-                            placeholder="Mes"
-                            name="Mes"
-                            className="texto-parrafo" />
-                        <input type='text' style={{ display: 'flex', fontSize: "1.125em", borderWidth: 1, borderColor: '#000', backgroundColor: '#f9f8f7', width: "5.75rem", height: 55, padding: "0.75em", marginRight: "2rem" }}
-                            placeholder="Año"
-                            name="Año"
-                            className="texto-parrafo" />
+                        
                     </div>
                     <input type='text' style={{ display: 'flex', fontSize: "1.125em", borderWidth: 1, borderColor: '#000', backgroundColor: '#f9f8f7', width: '100%', height: 55, padding: "0.75em", marginBottom: "1.25em" }}
                         placeholder="Contraseña"
