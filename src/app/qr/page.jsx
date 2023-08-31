@@ -39,15 +39,18 @@ const QRPage = () => {
         <div className="subtitulo" style={{ fontSize: "1.75em", width: '100%', paddingBottom: "1.75rem" }}>
           Pago del pedido
         </div>
+        
         <div className="texto-normal gap-7 flex flex-nowrap font-medium" style={{ fontSize: "1.5em", width: '100%', paddingBottom: "3rem"}}>
           <div className={"opciones"+(selectedMethod===1? " underline":"")} onClick={() => cambiarMethod(1)}>Tarjeta</div>
           <div className={"opciones"+(selectedMethod===0? " underline":"")} onClick={() => cambiarMethod(0)}>Código QR</div>
         </div>
         <>
+        <form>
         {selectedMethod===0 ? 
           <BoxQR/>
           : <BoxTarjeta/>
         }
+        </form>
         </>
         
       </div>

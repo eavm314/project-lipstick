@@ -21,9 +21,9 @@ const HistorialPucharses = (props) => {
 
       <div style={{ width: "100%", margin: '4.25em', marginTop: '1.375em', marginBottom: '1.375em', display: 'flex', flexDirection: 'column', marginLeft: '2em' }}>
         {
-          purchasesHistorial.pucharses.map(item => {
+          purchasesHistorial.pucharses.map((item,index) => {
             return (
-              <div style={{ minWidth: '32.75em', flexDirection: 'row', display: 'flex' }}>
+              <div style={{ minWidth: '32.75em', flexDirection: 'row', display: 'flex' }} key={index}>
                 <div style={{ display: 'flex', flex: 3, paddingBottom: '0.75em', paddingTop: '0.75em', flexDirection: 'row' }}>
                   <h1
                     className="texto-parrafo"

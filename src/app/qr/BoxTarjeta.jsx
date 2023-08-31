@@ -23,16 +23,17 @@ const BoxTarjeta = () => {
     return(
         <div className="w-full">
         <form className="w-full flex items-center justify-center">
-        <div className="flex px-5 py-7 items-center justify-center flex-col no-wrap" style={{borderWidth:"1px", borderColor:"#000", backgroundColor:"var(--sec-b-100)", minWidth:"30em", maxWidth:"47.25em"}}>
+        <div className="flex px-5 py-7 items-center justify-center flex-col no-wrap" style={{borderWidth:"1px", borderColor:"#000", backgroundColor:"var(--sec-b-100)", minWidth:"40em", maxWidth:"47.25em"}}>
             <div className="flex gap-8 w-full no-wrap">
                 <div className="mb-4" style={{ display: "flex", width: "50%", flexDirection: "column", gap: "0.75em" }}>
                     <label className="texto-normal font-medium" style={{ fontSize: "1.25em" }}>Número de Tarjeta</label>
                     <input 
-                        type="text" 
-                        className="texto-parrafo" 
+                        type="number" 
+                        className="texto-parrafo input" 
                         style={{ display: "flex", fontsize: "1em", borderWidth: 1, borderColor: '#000', width: "100%", padding: "0.75em", backgroundColor: 'var(--transicion-50)' }} 
                         placeholder="0000-0000-0000-0000" 
-                        name="userNumeroTarjeta" />
+                        name="userNumeroTarjeta"
+                        pattern="[0-9]{13,16}"/>
                 </div>
                 <div style={{width: "50%"}}>
                     <Dropdown label="Tipo de Tarjeta" options={opcionesTarjeta} value={tipoTarjeta} onChange={changeTipoTarjeta}></Dropdown>
@@ -43,24 +44,17 @@ const BoxTarjeta = () => {
                     <label className="texto-normal font-medium" style={{ fontSize: "1.25em" }}>Fecha de Expiración</label>
                     <div className="flex flex-row w-full items-start justify-start gap-3">
                         <input 
-                            type="text" 
+                            type="month" 
                             className="texto-parrafo" 
-                            style={{ display: "flex", fontsize: "1em", borderWidth: 1, borderColor: '#000', width: "25%", padding: "0.75em", backgroundColor: 'var(--transicion-50)' }} 
+                            style={{ display: "flex", fontsize: "1em", borderWidth: 1, borderColor: '#000', width: "50%", padding: "0.75em", backgroundColor: 'var(--transicion-50)' }} 
                             placeholder="MM" 
-                            name="mesExpiracion" />
-                        <div className="texto-normal font-normal self-center">/</div>
-                        <input 
-                            type="text" 
-                            className="texto-parrafo" 
-                            style={{ display: "flex", fontsize: "1em", borderWidth: 1, borderColor: '#000', width: "25%", padding: "0.75em", backgroundColor: 'var(--transicion-50)' }} 
-                            placeholder="YYYY" 
-                            name="anioExpiracion" />
+                            name="mesAnioExpiracion" />
                     </div>
                 </div>
                 <div className="mb-4" style={{ display: "flex", width: "50%", flexDirection: "column", gap: "0.75em" }}>
                     <label className="texto-normal font-medium" style={{ fontSize: "1.25em" }}>Código CCV</label>
                     <input 
-                        type="text" 
+                        type="number" 
                         className="texto-parrafo" 
                         style={{ display: "flex", fontsize: "1em", borderWidth: 1, borderColor: '#000', width: "100%", padding: "0.75em", backgroundColor: 'var(--transicion-50)' }} 
                         placeholder="000000" 
