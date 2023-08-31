@@ -11,7 +11,7 @@ import './qr.css'
 import Link from "next/link";
 
 const BoxQR = () =>{
-    const instrucciones = ["Ingrese a su aplicacíon de su Banco en su dispositivo móvil.",
+    const instrucciones = ["Ingrese a la aplicación de su Banco desde su dispositivo móvil.",
   "Ingrese a la opción de Pago QR en su aplicación.",
   "Capture el Código QR que aparece en Pantalla con la cámara de su Celular.",
   "Una vez realizado el pago, espere unos segundos hasta que reciba una confirmación de pago."];
