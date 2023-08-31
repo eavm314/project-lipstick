@@ -45,12 +45,12 @@ const QRPage = () => {
           <div className={"opciones"+(selectedMethod===0? " underline":"")} onClick={() => cambiarMethod(0)}>Código QR</div>
         </div>
         <>
-        <form>
+        
         {selectedMethod===0 ? 
           <BoxQR/>
-          : <BoxTarjeta/>
+          : <form><BoxTarjeta/></form>
         }
-        </form>
+        
         </>
         
       </div>
