@@ -71,6 +71,7 @@ const CreateAccount = () => {
                             name="Contraseña"
                             className="texto-parrafo"
                             onChange={(value) => setPasswd(value)} />
+                            
                         <input type='password' style={{ display: 'flex', fontSize: "1.125em", borderWidth: 1, borderColor: '#000', backgroundColor: '#f9f8f7', width: '100%', height: 55, padding: "0.75em", marginBottom: "0.5em" }}
                             placeholder="Repite contraseña"
                             name="Repite contraseña"
