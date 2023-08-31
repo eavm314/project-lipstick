@@ -7,7 +7,11 @@ import { BotonProducto } from "./ComponentesTienda";
 import Link from "next/link";
 import { listaProductos } from "@/data/listaProductos";
 import { useProductContext } from "./layout";
-import { getProducts } from "../services/axiosAPIServices";
+//import { getProducts } from "../services/axiosAPIServices";
+import {getProducts} from "../../api_services/productsService";
+
+import supabase from '../../utils/SupabaseAPI'
+
 const dataPrueba = {
   imagen: "lipstickPrueba",
   categoria: "Labios",
@@ -20,14 +24,21 @@ const em = 16;
 
 const TiendaPage = () => {
   const { selectedCategory } = useProductContext();
-
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
+    
     const getProductsTienda= async() =>{
-      const productos = await getProducts();
-      setProducts(productos.data)
-      console.log(productos)
+      const { products, error } = await getProducts();
+      if (error) {
+        console.error('Error al consultar la base de datos:', error);
+      } else {
+        setProducts(products);
+      }
+      /*const productos = await getProducts();
+      setProducts(productos.data)*/
+      console.log("🚀 ~ file: page.jsx:34 ~ getProductsTienda ~ products:", products)
+    
     }
     getProductsTienda();
   }, []);
