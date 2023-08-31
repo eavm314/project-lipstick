@@ -4,9 +4,9 @@ import supabase from "@/utils/SupabaseAPI";
 const tableName = 'productos';
 
 export const getProducts = async () => {
-    const productos  = await supabase.from(tableName).select('*');
-    console.log("🚀 ~ file: productsService.js:9 ~ getProducts ~ productos:", productos)
-    return productos;
+    const {data}  = await supabase.from(tableName).select('*');
+    console.log("🚀 ~ file: productsService.js:9 ~ getProducts ~ data:", data)
+    return data;
 }
 
 /*export const getProducts = async () => {

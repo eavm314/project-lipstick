@@ -28,13 +28,12 @@ const TiendaPage = () => {
 
   useEffect(() => {
     
-    const getProductsTienda= async() =>{
-      const { products, error } = await getProducts();
-      if (error) {
-        console.error('Error al consultar la base de datos:', error);
-      } else {
-        setProducts(products);
-      }
+    const getProductsTienda = async() =>{
+      const products = await getProducts();
+      console.log(products)
+      
+      setProducts(products);
+      
       /*const productos = await getProducts();
       setProducts(productos.data)*/
       console.log("🚀 ~ file: page.jsx:34 ~ getProductsTienda ~ products:", products)
