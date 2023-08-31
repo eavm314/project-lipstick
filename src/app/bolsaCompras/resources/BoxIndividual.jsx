@@ -30,9 +30,9 @@ const BoxIndividual = (props) =>{
         calcTotalProducto(product.id, product.precio*cantidad);
       }, [cantidad]);
     const eliminarProducto = () =>{
-        const newList = listaBolsaCompras.filter((producto) => producto.id !== product.id)
-        setListaBolsaCompras(newList)
-        setProducts(newList)
+        const newList = listaBolsaCompras.filter((producto) => producto.id !== product.id);
+        setListaBolsaCompras(newList);
+        setProducts(newList);
         calcTotalProducto(product.id, 0);
         setCantidadItems(cantidadItems-1);
     }

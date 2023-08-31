@@ -52,7 +52,7 @@
     width: 9.75em;
     height: 9.75em;
     flex-shrink: 0;
-    object-fit: cover;
+    object-fit: contain;
     background-color: var(--primary-100);
   }
 

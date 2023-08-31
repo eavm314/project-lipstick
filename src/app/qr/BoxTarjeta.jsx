@@ -93,9 +93,9 @@ const BoxTarjeta = (props) => {
                     </div>
                     {(!validNombre || !validApellido) ? <div className="texto-normal font-normal flex flex-row items-center justify-center w-full gap-8" style={{fontSize:"1em", color:"var(--sec-a-300)"}}>Debe llenar ambos campos</div> : <></>}
             </div>
-            <div className="boton-primario flex items-center justify-center">
-                <input  type="submit" value="Realizar el Pago" onClick={evaluate}/>
-            </div>
+            <Link href={"/finCompra"} className="boton-primario flex items-center justify-center">
+                <input  type="submit" value="Realizar el Pago"/>
+            </Link>
         </div>
         </form>
         </div>
