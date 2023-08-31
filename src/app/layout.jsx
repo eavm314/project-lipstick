@@ -22,6 +22,12 @@ export const useProductosCompradosContext = () => {
   return useContext(ProductosCompradosContext);
 };
 
+const MetodoPagoContext = createContext();
+
+export const useMetodoPagoContext = () =>{
+  return useContext(MetodoPagoContext);
+}
+
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
@@ -35,6 +41,7 @@ const categorias = ["Todos", "Skin Care", "Labios", "Cabello", "Ojos", "Accesori
 export default function RootLayout({ children }) {
   const [listaBolsaCompras, setListaBolsaCompras] = useState([]);
   const [productosComprados, setProductosComprados] = useState([])
+  const [metodoPago, setMetodoPago] = useState(1);
   const [selectedCategory, setSelectedCategory] = useState("Todos");
   return (
     <html lang="en">
@@ -54,7 +61,9 @@ export default function RootLayout({ children }) {
         </div>
       <ProductosCompradosContext.Provider value={{productosComprados, setProductosComprados}}>
       <BolsaComprasContext.Provider value={{listaBolsaCompras, setListaBolsaCompras}}>
+        <MetodoPagoContext.Provider value={{metodoPago, setMetodoPago}}>
       {children}
+      </MetodoPagoContext.Provider>
       </BolsaComprasContext.Provider>
       </ProductosCompradosContext.Provider>
       </body>

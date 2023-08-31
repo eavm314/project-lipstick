@@ -62,7 +62,7 @@ const dataPrueba = {
         return data
     }
     const paraResumenCompra = () =>{
-        const listaCompras = totalProducto.map(producto => 
+        const listaCompras = totalProducto.filter(producto => producto.precio>0).map(producto => 
             {
                 const paquete = {
                     product: getProductById(producto.id),
