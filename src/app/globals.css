@@ -325,3 +325,13 @@ textarea {
   color: var(--primary-100);
   text-decoration: underline;
 }
+
+.input:invalid{
+  border-color: var(--sec-a-300);
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

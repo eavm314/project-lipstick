@@ -46,8 +46,8 @@ const BoxTarjeta = () => {
                         <input 
                             type="month" 
                             className="texto-parrafo" 
-                            style={{ display: "flex", fontsize: "1em", borderWidth: 1, borderColor: '#000', width: "50%", padding: "0.75em", backgroundColor: 'var(--transicion-50)' }} 
-                            placeholder="MM" 
+                            style={{ display: "flex", fontsize: "1em", borderWidth: 1, borderColor: '#000', width: "100%", padding: "0.75em", backgroundColor: 'var(--transicion-50)' }} 
+                            placeholder="Mes de Año" 
                             name="mesAnioExpiracion" />
                     </div>
                 </div>
