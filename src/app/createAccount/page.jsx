@@ -94,7 +94,7 @@ const CreateAccount = () => {
                             </h1>  
                         </div>*/}
                             <Link
-                                href={""}
+                                href=""
                                 className="boton-primario w-188 my-2"
                                 style={{marginTop:"1.25em"}}
                                 onClick={goToNext}>
