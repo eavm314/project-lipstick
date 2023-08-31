@@ -99,9 +99,15 @@ const FinCompraPage = () =>{
                 </div>
               </div>
             </div>
-            <Link className="boton-primario" href={"/profile"}>
+            <div className="flex flex-row gap-8">
+                <Link className="boton-primario" href={"/profile"}>
                 <input type="submit" value="Guardar Cambios"/>
                 </Link>
+                <Link className="boton-advertencia" href={"/profile"}>
+                <button>Cancelar Cambios</button>
+                </Link>
+            </div>
+            
                 </div>
             </div>
         </form>
