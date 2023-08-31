@@ -20,20 +20,20 @@ const CreateAccount = () => {
     const router = useRouter();
 
     const goToNext = () => {
+        router.push('/tienda')
+        //const cleanedPwd1=passWd.trim
+        //const cleanedPwd2=passWd2.trim
+        //const cleanedEmail=email.trim
 
-        const cleanedPwd1=passWd.trim
-        const cleanedPwd2=passWd2.trim
-        const cleanedEmail=email.trim
-
-        if (cleanedPwd1 === cleanedPwd2 && name!=="" && lastName!=="" && cleanedEmail!=="" && cleanedPwd1 !== "" && cleanedPwd2!=="") {
-            setMatchPwd(true)
-            router.push('/tienda')
+        //if (cleanedPwd1 === cleanedPwd2 && name!=="" && lastName!=="" && cleanedEmail!=="" && cleanedPwd1 !== "" && cleanedPwd2!=="") {
+        //    setMatchPwd(true)
+        //    router.push('/tienda')
             
-        } else if (cleanedPwd1 !== cleanedPwd2) {
-            setMatchPwd(false)
-        }else if (name==="" || lastName===""||cleanedEmail===""|| cleanedPwd1 === "" ||cleanedPwd2==="" ) {
-            setNullSpaces(true)
-        }
+        //} else if (cleanedPwd1 !== cleanedPwd2) {
+        //    setMatchPwd(false)
+        //}else if (name==="" || lastName===""||cleanedEmail===""|| cleanedPwd1 === "" ||cleanedPwd2==="" ) {
+        //    setNullSpaces(true)
+        //}
     }
 
     return (
@@ -86,10 +86,12 @@ const CreateAccount = () => {
                             <p style={{ color: "#BD2222",marginBottom: '0.125rem',paddingLeft:'0.5em' }}>No debe dejar casillas sin llenar</p>
                         )}
                         <div style={{ display: 'flex', width: '100%', alignItems: 'center', flexDirection: 'column' }}>
-                                <input className="boton-primario w-188 my-2"
+                                <Link className="boton-primario w-188 my-2"
                                 style={{marginTop:"1.25em"}}
-                                onClick={goToNext}
-                                type="submit" value="Crear Cuenta"/>
+                                href={'/tienda'}
+                                //onClick={goToNext}
+                                type="submit" value="Crear Cuenta"
+                                >Crear Cuenta</Link>
                         </div>
                     </div>
                 </div>
