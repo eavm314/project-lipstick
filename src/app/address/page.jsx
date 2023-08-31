@@ -9,13 +9,7 @@ import { userAgent } from "next/server";
 
 export default function CreateAccountPage() {
   const optionsCiudad = [
-    { label: 'La Paz', value: 'LP'},
-    { label: 'El Alto', value: 'AL' },
-    { label: 'Sucre', value: 'CHQ' },
-    { label: 'Santa Cruz', value: 'SCZ' },
-    { label: 'Tarija', value: 'TRJ' },
-    { label: 'Cochabamba', value: 'CBBA' },
-    { label: 'Oruro', value: 'OR' }
+    { label: 'La Paz', value: 'LP'}
   ];
   const zonasLaPaz = [
     {label: 'Sur', value: 'S'},
@@ -84,7 +78,7 @@ export default function CreateAccountPage() {
                 <div style={{ display: "flex", width: "100%", flexDirection: "column", gap: "0.75em" }}>
                   <label className="texto-normal" style={{ fontSize: "1.25em" }} >Teléfono</label>
                   <input 
-                    type="text" 
+                    type="number" 
                     className="texto-parrafo" 
                     style={{ display: "flex", fontsize: "1em", borderWidth: 1, borderColor: '#000', width: "100%", padding: "0.75em", backgroundColor: 'var(--transicion-50)' }} 
                     placeholder="7777777" 
