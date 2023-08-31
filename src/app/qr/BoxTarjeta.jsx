@@ -81,8 +81,8 @@ const BoxTarjeta = () => {
                     </div>
             </div>
             <div className="flex items-center justify-center w-full">
-                <Link href={"/finCompra"}>
-                <button className="boton-primario">Realizar el Pago</button>
+                <Link href={"/finCompra"} className="boton-primario">
+                <input type="submit" value="Realizar el Pago"/>
                 </Link>
             </div>
         </div>
