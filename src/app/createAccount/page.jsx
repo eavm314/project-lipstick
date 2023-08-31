@@ -36,7 +36,7 @@ const CreateAccount = () => {
     }
 
     return (
-        <>
+        <form>
             <div style={{ display: "flex", backgroundColor: "#f9f8f7", flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: "100%", height: "100%", flexWrap: 'nowrap', paddingTop: "5em", paddingBottom: "5em" }}>
                 <div style={{ backgroundColor: '#efecea', padding: "2.25em", borderWidth: 1, borderColor: '#000' }}>
                     <div style={{ width: "30.25em", height: "36.75em" }}>
@@ -93,18 +93,19 @@ const CreateAccount = () => {
                                 <view style={{width:24,height:24,backgroundColor:'#c7c7c7',margin:5,marginLeft:10}}/>
                             </h1>  
                         </div>*/}
-                            <button
-                                onClick={goToNext}
+                            <Link
+                                href={""}
                                 className="boton-primario w-188 my-2"
-                                style={{marginTop:"1.25em"}}>
-                                Crear Cuenta
-                            </button>
+                                style={{marginTop:"1.25em"}}
+                                onClick={goToNext}>
+                                <input type="submit" value="Crear Cuenta"/>
+                            </Link>
                         </div>
                     </div>
                 </div>
 
             </div>
-        </>
+        </form>
     );
 };
 export default CreateAccount
