@@ -41,7 +41,7 @@ const FinCompraPage = () =>{
         setDistrito(event.target.value);
       };
     return(
-        <>
+        <form>
             <div className="w-full items-center justify-center text-center px-56 py-12 flex flex-col" style={{backgroundColor:"var(--primary--100)"}}>
                 <div className="titulo text-left w-full" style={{ fontSize: "2em", paddingBottom:"1rem"}}>Editar Datos de Perfil</div>
                 <div className="subtitulo text-left w-full" style={{ fontSize: "1.75em", paddingBottom:"2rem"}}>Ingrese los nuevos datos</div>
@@ -104,7 +104,7 @@ const FinCompraPage = () =>{
                 </Link>
                 </div>
             </div>
-        </>
+        </form>
     );
 }
 

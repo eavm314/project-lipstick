@@ -120,11 +120,12 @@ const infoPerfil = () => {
           <h1 className="titulo" style={{ fontSize: '1.5em', marginBottom: '0.5rem', marginTop: '1rem', marginLeft: '0.375em', fontWeight: 'normal' }}>Historial de Compras</h1>
           {
             infoData.pucharsesHistorial.length!==0?
-              infoData.pucharsesHistorial.map(item => {
+              infoData.pucharsesHistorial.map((item,index) => {
               return (
                 <HistorialPucharses
                   code={item.code}
                   list={item.pucharses}
+                  key={index}
                 />)
               }):<div className="texto-normal w-full text-4xl py-16 px-90 text-slate-400 text-center">No se ha realizado Niguna Compra</div>
             
