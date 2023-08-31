@@ -28,7 +28,7 @@ const dataPrueba = {
   
   export default function ItemPage({ params }) {
 
-    const {listaBolsaCompras} = useBolsaComprasContext();
+    const {listaBolsaCompras, setListaBolsaCompras} = useBolsaComprasContext();
     const {productosComprados,setProductosComprados} = useProductosCompradosContext();
 
     const getUser = (id) =>{
@@ -72,7 +72,7 @@ const dataPrueba = {
             }
         );
         setProductosComprados(listaCompras);
-        console.log(productosComprados)
+        setListaBolsaCompras([]);
     }
     return (
       <div style={{ flex: 1, backgroundColor: "var(--sec-b-100)", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: 'center', padding: "3.5% 20%"}}>

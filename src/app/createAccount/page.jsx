@@ -24,7 +24,7 @@ const CreateAccount = () => {
         const cleanedPwd1=passWd.trim
         const cleanedPwd2=passWd2.trim
 
-        if (cleanedPwd1 === cleanedPwd2 && name!=="" && lastName!==""&&email!==""&& cleanedPwd1 !== "" &&cleanedPwd2!=="") {
+        if (cleanedPwd1 === cleanedPwd2 && name!=="" && lastName!==""&&email!==""&& cleanedPwd1 !== "" && cleanedPwd2!=="") {
             setMatchPwd(true)
             router.push('/tienda')
             
@@ -74,7 +74,7 @@ const CreateAccount = () => {
                         <input type='password' style={{ display: 'flex', fontSize: "1.125em", borderWidth: 1, borderColor: '#000', backgroundColor: '#f9f8f7', width: '100%', height: 55, padding: "0.75em", marginBottom: "0.5em" }}
                             placeholder="Repite contraseña"
                             name="Repite contraseña"
-                            className="texto-parrafo"
+                            className="texto-parrafo input"
                             onChange={(value) => setPasswd2(value)} />
                         {!MatchPwd && (
                             <p style={{ color: "#BD2222",marginBottom: "0.125rem",paddingLeft:'0.5em' }}>Las contraseñas no coinciden.</p>
@@ -92,13 +92,10 @@ const CreateAccount = () => {
                                 <view style={{width:24,height:24,backgroundColor:'#c7c7c7',margin:5,marginLeft:10}}/>
                             </h1>  
                         </div>*/}
-                            <Link
-                                href={""}
-                                className="boton-primario w-188 my-2"
+                                <input className="boton-primario w-188 my-2"
                                 style={{marginTop:"1.25em"}}
-                                onClick={goToNext}>
-                                <input type="submit" value="Crear Cuenta"/>
-                            </Link>
+                                onClick={goToNext}
+                                type="submit" value="Crear Cuenta"/>
                         </div>
                     </div>
                 </div>
