@@ -99,7 +99,3 @@
     text-decoration: underline;
     cursor:pointer;
 }
-
-.input:invalid{
-    border-color: var(--sec-a-300);
-}

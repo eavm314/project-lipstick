@@ -1,19 +1,18 @@
-import { getProducts } from "@/api_services/productsService";
+import { getProductById } from "@/api_services/productsService";
 import { NextResponse } from "next/server"
 
-export async function GET() {
-    
+export async function GET(request, {params}) {
     try {
-        const products = await getProducts();
+        const product = await getProductById(params.id);
         return NextResponse.json({
             message: "data retrieved successfully",
             status: 200,
-            data: products
+            data: product
         });
         
     } catch (error) {
         return NextResponse.json({
-            message: "server error",
+            message: "error",
             status: 500,
             error
         })

@@ -6,7 +6,7 @@ import Link from "next/link";
 import { useBolsaComprasContext } from "../layout";
 const em = 16;
 
-export const BotonProducto = ({ key,id,imagen, categoria, tags, nombre, nombreLargo, precio, textoBoton }) => {
+export const BotonProducto = ({ id,imagen, categoria, tags, nombre, nombreLargo, precio, textoBoton }) => {
 
   const {listaBolsaCompras, setListaBolsaCompras} = useBolsaComprasContext()
 
@@ -26,7 +26,7 @@ export const BotonProducto = ({ key,id,imagen, categoria, tags, nombre, nombreLa
 
   return (
     <div className="boton-producto">
-      <Link href={"/viewItem/"+id} key={key}>
+      <Link href={"/viewItem/"+id} key={id}>
       <div className="imagen-producto-tienda">
         <img 
         className="w-full h-full"
