@@ -14,7 +14,8 @@ import Dropdown from "../address/Dropdown";
 import { useRouter } from "next/navigation";
 
 const BoxTarjeta = (props) => {
-    const {numTarjeta, setNumTarjeta, validNumTarjeta, setValidNumTarjeta, setCodigoCCV, validCCV, setNombre, validNombre, setApellido, validApellido, evaluate} = props;
+    const {numTarjeta, setNumTarjeta, validNumTarjeta, setValidNumTarjeta, setCodigoCCV,
+         validCCV, setNombre, validNombre, setApellido, validApellido, evaluate} = props;
     const opcionesTarjeta = [
         {label: "Crédito", value:"cred"},
         {label: "Débito", value:"deb"}
@@ -93,7 +94,7 @@ const BoxTarjeta = (props) => {
                     {(!validNombre || !validApellido) ? <div className="texto-normal font-normal flex flex-row items-center justify-center w-full gap-8" style={{fontSize:"1em", color:"var(--sec-a-300)"}}>Debe llenar ambos campos</div> : <></>}
             </div>
             <div className="boton-primario flex items-center justify-center">
-                <input  type="submit" value="Realizar el Pago" onClick={() => { evaluate();}}/>
+                <input  type="submit" value="Realizar el Pago" onClick={evaluate}/>
             </div>
         </div>
         </form>

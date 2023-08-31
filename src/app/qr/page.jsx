@@ -41,18 +41,22 @@ const QRPage = () => {
 
   const router = useRouter();
 
-  const evaluate = () =>{
-    //if(nombre !== "" && apellido != ""){
-    //  setValidNumTarjeta(/^[0-9]{13,16}$/.test(numTarjeta));
-    //  console.log(numTarjeta)
-    //  setValidCCV(/^[0-9]{4,6}$/.test(codigoCCV));
-    //} else{
-    //  setValidApellido(false);
-    //  setValidNombre(false);
-    //}
-    //if(validApellido && validNombre && validCCV && validNumTarjeta){
-      router.push('/finCompra')
-    //}
+  const evaluate = (e) =>{
+    e.preventDefault();
+    if(nombre !== "" && apellido != ""){
+      setValidNombre(true);
+      setValidApellido(true);
+      setValidNumTarjeta(/^[0-9]{13,16}$/.test(numTarjeta));
+      setValidCCV(/^[0-9]{4,6}$/.test(codigoCCV));
+      if(validApellido && validNombre && validCCV && validNumTarjeta){
+        router.push('/finCompra')
+      }
+    } else{
+      setValidApellido(false);
+      setValidNombre(false);
+      setValidNumTarjeta(/^[0-9]{13,16}$/.test(numTarjeta));
+      setValidCCV(/^[0-9]{4,6}$/.test(codigoCCV));
+    }
   }
 
   return (
