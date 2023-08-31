@@ -1,8 +1,10 @@
-const { default: supabase } = require("@/supabase/instance");
-
+import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
+import { cookies } from "next/headers";
 
 export const signUp = async (email, password) => {
     console.log("sign up");
+
+    const supabase = createServerComponentClient({cookies})
     // console.log(supabase);
 
     const { data, error } = await supabase.auth.signUp({
@@ -15,6 +17,8 @@ export const signUp = async (email, password) => {
 
 export const signIn = async (email, password) => {
     console.log("sign in");
+
+    const supabase = createServerComponentClient({cookies})
     // console.log(supabase);
 
     const { data, error } = await supabase.auth.signInWithPassword({
