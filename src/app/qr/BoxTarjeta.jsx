@@ -1,5 +1,6 @@
 "use client"
 import { useEffect, useState } from "react";
+import React from "react";
 import Image from 'next/image'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -10,8 +11,11 @@ import '../globals.css'
 import './qr.css'
 import Link from "next/link";
 import Dropdown from "../address/Dropdown";
+import { useRouter } from "next/navigation";
 
-const BoxTarjeta = () => {
+const BoxTarjeta = (props) => {
+    const {numTarjeta, setNumTarjeta, validNumTarjeta, setValidNumTarjeta, setCodigoCCV,
+         validCCV, setNombre, validNombre, setApellido, validApellido, evaluate} = props;
     const opcionesTarjeta = [
         {label: "Crédito", value:"cred"},
         {label: "Débito", value:"deb"}
@@ -19,7 +23,7 @@ const BoxTarjeta = () => {
     const [tipoTarjeta, setTipoTarjeta] = useState("cred");
     const changeTipoTarjeta = (event) => {
         setTipoTarjeta(event.target.value);
-      };
+    };
     return(
         <div className="w-full">
         <form className="w-full flex items-center justify-center">
@@ -33,7 +37,8 @@ const BoxTarjeta = () => {
                         style={{ display: "flex", fontsize: "1em", borderWidth: 1, borderColor: '#000', width: "100%", padding: "0.75em", backgroundColor: 'var(--transicion-50)' }} 
                         placeholder="0000-0000-0000-0000" 
                         name="userNumeroTarjeta"
-                        pattern="[0-9]{13,16}"/>
+                        onChange={(value) => {setNumTarjeta(value)}}/>
+                    {!validNumTarjeta ? <div className="texto-normal font-normal" style={{fontSize:"1em", color:"var(--sec-a-300)"}}>El número de tarjeta no es válido</div> : <></>}
                 </div>
                 <div style={{width: "50%"}}>
                     <Dropdown label="Tipo de Tarjeta" options={opcionesTarjeta} value={tipoTarjeta} onChange={changeTipoTarjeta}></Dropdown>
@@ -48,7 +53,8 @@ const BoxTarjeta = () => {
                             className="texto-parrafo" 
                             style={{ display: "flex", fontsize: "1em", borderWidth: 1, borderColor: '#000', width: "100%", padding: "0.75em", backgroundColor: 'var(--transicion-50)' }} 
                             placeholder="Mes de Año" 
-                            name="mesAnioExpiracion" />
+                            name="mesAnioExpiracion"
+                            min='2023-09' />
                     </div>
                 </div>
                 <div className="mb-4" style={{ display: "flex", width: "50%", flexDirection: "column", gap: "0.75em" }}>
@@ -58,7 +64,9 @@ const BoxTarjeta = () => {
                         className="texto-parrafo" 
                         style={{ display: "flex", fontsize: "1em", borderWidth: 1, borderColor: '#000', width: "100%", padding: "0.75em", backgroundColor: 'var(--transicion-50)' }} 
                         placeholder="000000" 
-                        name="userCodigoCCV" />
+                        name="userCodigoCCV" 
+                        onChange={(value) => {setCodigoCCV(value)}}/>
+                    {!validCCV ? <div className="texto-normal font-normal" style={{fontSize:"1em", color:"var(--sec-a-300)"}}>El código no es válido</div> : <></>}
                 </div>
             </div>
             <div className="mb-7" style={{ display: "flex", width: "100%", flexDirection: "column", gap: "0.75em" }}>
@@ -71,19 +79,22 @@ const BoxTarjeta = () => {
                             className="texto-parrafo" 
                             style={{ display: "flex", fontsize: "1em", borderWidth: 1, borderColor: '#000', width: "100%", padding: "0.75em", backgroundColor: 'var(--transicion-50)' }} 
                             placeholder="Nombre del Titular" 
-                            name="userNombreTitular" />
+                            name="userNombreTitular"
+                            onChange={(value) => {setNombre(value)}} />
+                        
                         <input 
                             type="text" 
                             className="texto-parrafo" 
                             style={{ display: "flex", fontsize: "1em", borderWidth: 1, borderColor: '#000', width: "100%", padding: "0.75em", backgroundColor: 'var(--transicion-50)' }} 
                             placeholder="Apellido(s) del Titular" 
-                            name="userApellidoTitular" />
+                            name="userApellidoTitular" 
+                            onChange={(value) => {setApellido(value)}}/>
+                        
                     </div>
+                    {(!validNombre || !validApellido) ? <div className="texto-normal font-normal flex flex-row items-center justify-center w-full gap-8" style={{fontSize:"1em", color:"var(--sec-a-300)"}}>Debe llenar ambos campos</div> : <></>}
             </div>
-            <div className="flex items-center justify-center w-full">
-                <Link href={"/finCompra"} className="boton-primario">
-                <input type="submit" value="Realizar el Pago"/>
-                </Link>
+            <div className="boton-primario flex items-center justify-center">
+                <input  type="submit" value="Realizar el Pago" onClick={evaluate}/>
             </div>
         </div>
         </form>
