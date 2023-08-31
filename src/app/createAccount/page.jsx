@@ -23,14 +23,15 @@ const CreateAccount = () => {
 
         const cleanedPwd1=passWd.trim
         const cleanedPwd2=passWd2.trim
+        const cleanedEmail=email.trim
 
-        if (cleanedPwd1 === cleanedPwd2 && name!=="" && lastName!==""&&email!==""&& cleanedPwd1 !== "" && cleanedPwd2!=="") {
+        if (cleanedPwd1 === cleanedPwd2 && name!=="" && lastName!=="" && cleanedEmail!=="" && cleanedPwd1 !== "" && cleanedPwd2!=="") {
             setMatchPwd(true)
             router.push('/tienda')
             
         } else if (cleanedPwd1 !== cleanedPwd2) {
             setMatchPwd(false)
-        }else if (name==="" || lastName===""||email===""|| cleanedPwd1 === "" ||cleanedPwd2==="" ) {
+        }else if (name==="" || lastName===""||cleanedEmail===""|| cleanedPwd1 === "" ||cleanedPwd2==="" ) {
             setNullSpaces(true)
         }
     }
@@ -46,12 +47,12 @@ const CreateAccount = () => {
                                 placeholder="Nombre"
                                 name="Nombre"
                                 className="texto-parrafo"
-                                onChange={(value) => setName(value)} />
+                                onChange={(value) => setName(value.target.value)} />
                             <input type='text' style={{ display: 'flex', fontSize: "1.125em", borderWidth: 1, borderColor: '#000', backgroundColor: '#f9f8f7', width: "14.5rem", height: 55, padding: "0.75em" }}
                                 placeholder="Apellido"
                                 name="Apellido"
                                 className="texto-parrafo" 
-                                onChange={(value) => setLastName(value)}/>
+                                onChange={(value) => setLastName(value.target.value)}/>
                         </div>
                         <input type='email' style={{ display: 'flex', fontSize: "1.125em", borderWidth: 1, borderColor: '#000', backgroundColor: '#f9f8f7', width: '100%', height: 55, padding: "0.75em", marginBottom: "1.25em" }}
                             placeholder="Correo electrónico"
@@ -61,8 +62,8 @@ const CreateAccount = () => {
                         <h1 className="texto-normal-semibold" style={{ fontSize: "1.25em", marginBottom: "0.6875em" }}>Fecha de Nacimiento</h1>
                         <div style={{ display: 'flex', flexDirection: 'row', marginBottom: "1.25em", justifyContent: 'flex-start' }}>
                             <input type='date' style={{ display: 'flex', fontSize: "1.125em", borderWidth: 1, borderColor: '#000', backgroundColor: '#f9f8f7', width: "17.25rem", height: 55, padding: "0.75em", marginRight: "2rem" }}
-                                placeholder="Dia"
-                                name="Dia"
+                                placeholder="Fecha Nacimiento"
+                                name="Fecha Nacimiento"
                                 className="texto-parrafo" />
 
                         </div>
