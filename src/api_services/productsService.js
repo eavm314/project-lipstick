@@ -8,12 +8,7 @@ export const getProducts = async () => {
     console.log("🚀 ~ file: productsService.js:9 ~ getProducts ~ data:", data)
     return data;
 }
-
-/*export const getProducts = async () => {
-    const products = listaProductos;
-    return products;
-}   
-
+/*
 export const getProductById = async (id) => {
     const product = listaProductos.filter(p => p.id == id)[0];
     return product;
