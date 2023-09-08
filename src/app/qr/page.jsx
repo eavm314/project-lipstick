@@ -14,6 +14,7 @@ import BoxQR from "./BoxQR";
 import BoxTarjeta from "./BoxTarjeta";
 import { useMetodoPagoContext } from "../layout";
 import { useRouter } from "next/navigation";
+import Modal from 'react-modal';
 
 const QRPage = () => {
   const{metodoPago, setMetodoPago} = useMetodoPagoContext();
@@ -59,6 +60,25 @@ const QRPage = () => {
     }
   }
 
+  const finDeCompra = (e) =>{
+    e.preventDefault();
+    setTimeout(goToTienda, 5000);
+    goToTienda = () =>{
+        router.push('/tienda')
+    }
+  }
+
+  const [isOpen, setIsOpen] = useState(false);
+
+  const showModal =  (e) =>{
+    e.preventDefault();
+    setIsOpen(!isOpen)
+    const goToTienda = () =>{
+      router.push('/tienda')
+  }
+    setTimeout(goToTienda, 500);
+  }
+
   return (
     <div style={{ display: "flex", alignItems: "center", alignContent: "center", padding: "5em 25em", justifyContent: "center", flexDirection: "column", flexWrap: 'nowrap', backgroundColor: 'var(--sec-b-200)' }}>
       <div style={{ display: "flex", alignItems: "center", alignContent: "center", width: '100%', justifyContent: "center", flexDirection: "column", flexWrap: 'nowrap' }}>
@@ -76,13 +96,14 @@ const QRPage = () => {
         <>
         
         {metodoPago===0 ? 
-          <BoxQR/>
+          <BoxQR showModal={showModal}/>
           : <BoxTarjeta numTarjeta={numTarjeta} setNumTarjeta={setNumTarjeta} validNumTarjeta={validNumTarjeta} setValidNumTarjeta={setValidNumTarjeta}
            setCodigoCCV={setCodigoCCV} validCCV={validCCV} setNombre={setNombre} validNombre={validNombre} setApellido={setApellido} validApellido={validApellido} 
-            evaluate={evaluate}/>
+            evaluate={evaluate} finDeCompra={finDeCompra} showModal={showModal}/>
         }
         
         </>
+        <Modal isOpen={isOpen}><div className="texto-normal font-normal flex w-full h-full justify-center items-center">Se realizó el pago de manera exitosa</div></Modal>
         
       </div>
     </div>

@@ -11,6 +11,8 @@ import {BsTrash3Fill} from "react-icons/bs";
 import Link from "next/link";
 import BoxCantidad from "./BoxCantidad";
 import { useBolsaComprasContext } from "../../layout";
+import Popup from 'reactjs-popup';
+import 'reactjs-popup/dist/index.css';
 const em = 16;
 
 const total=0;

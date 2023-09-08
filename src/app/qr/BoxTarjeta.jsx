@@ -11,11 +11,13 @@ import '../globals.css'
 import './qr.css'
 import Link from "next/link";
 import Dropdown from "../address/Dropdown";
+import Popup from 'reactjs-popup';
+import 'reactjs-popup/dist/index.css';
 import { useRouter } from "next/navigation";
 
 const BoxTarjeta = (props) => {
     const {numTarjeta, setNumTarjeta, validNumTarjeta, setValidNumTarjeta, setCodigoCCV,
-         validCCV, setNombre, validNombre, setApellido, validApellido, evaluate} = props;
+         validCCV, setNombre, validNombre, setApellido, validApellido, evaluate, finDeCompra, showModal} = props;
     const opcionesTarjeta = [
         {label: "Crédito", value:"cred"},
         {label: "Débito", value:"deb"}
@@ -93,9 +95,7 @@ const BoxTarjeta = (props) => {
                     </div>
                     {(!validNombre || !validApellido) ? <div className="texto-normal font-normal flex flex-row items-center justify-center w-full gap-8" style={{fontSize:"1em", color:"var(--sec-a-300)"}}>Debe llenar ambos campos</div> : <></>}
             </div>
-            <Link href={"/tienda"} className="boton-primario flex items-center justify-center">
-                <input  type="submit" value="Realizar el Pago"/>
-            </Link>
+            <button className="boton-primario flex items-center justify-center" onClick={showModal}>Realizar el Pago</button>
         </div>
         </form>
         </div>

@@ -10,7 +10,8 @@ import '../globals.css'
 import './qr.css'
 import Link from "next/link";
 
-const BoxQR = () =>{
+const BoxQR = (props) =>{
+   const {showModal} = props
     const instrucciones = ["Ingrese a la aplicación de su Banco desde su dispositivo móvil.",
   "Ingrese a la opción de Pago QR en su aplicación.",
   "Capture el Código QR que aparece en Pantalla con la cámara de su Celular.",
@@ -33,9 +34,9 @@ const BoxQR = () =>{
               <div className="box-texto">
                 {instrucciones.map((instruccion, index) => <p className="texto-parrafo" key={index}>{index + 1}. {instruccion} </p>)}
               </div>
-              <Link href={"/tienda"} className="imagen-qr">
+              <button className="imagen-qr" onClick={showModal}>
                 <img src={qr} alt="" id="qr" />
-              </Link>
+              </button>
             </div>
             <div className="box-auxiliar">
               <div className="box-empty"></div>
