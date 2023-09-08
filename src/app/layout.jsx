@@ -51,9 +51,9 @@ export default function RootLayout({ children }) {
           <div className="brand-name flex-nowrap whitespace-nowrap" style={{width:"33%"}}>{metadata.brandName}</div>
           <div className="flex flex-row items-center justify-center" style={{width:"33%"}}>
             
-            <Link href={"/profile"} className="flex p-3 gap-2 flex-nowrap" style={{borderWidth:"1px", borderColor:"var(--primary-100)", maxWidth:"45%", overflow:"hidden", textOverflow:"ellipsis"}}>
-              <img style={{ width:"1.25em", height: "1.25em", backgroundColor: '#d9d9d9', borderRadius: 100}} src="\tame-impala.jpg" alt="Cliente" />
-              <div className="texto-normal font-light whitespace-nowrap" style={{color:"var(--primary-100)", textOverflow:"ellipsis", overflow:"hidden", maxWidth:"50%"}}>Dylan Jitton marco antonio</div>
+            <Link href={"/profile"} className="flex p-3 gap-2 flex-nowrap" style={{ maxWidth:"45%", overflow:"hidden", textOverflow:"ellipsis",marginLeft:'12em'}}>
+              <img style={{ width:"2.5em", height: "2.5em", backgroundColor: '#d9d9d9', borderRadius: 100,borderWidth:3, borderColor:"var(--primary-100)",}} src="\tame-impala.jpg" alt="Cliente" />
+              
             </Link>
             
           </div>
