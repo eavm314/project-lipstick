@@ -40,14 +40,14 @@ const dataPrueba = {
       return data; //getProducts(user.productosCarrito)
     }
     const [user, setUser] = useState(getUser(params.id))
-    const [products, setProducts] = useState(listaBolsaCompras);
+    const [products, setProducts] = useState(listaBolsaCompras.map((product) =>{ const newProduct = { product: product, cantidad: 1}; return newProduct}));
     const [cantidadItems, setCantidadItems] = useState(listaBolsaCompras.length);
     const [totalProducto, setTotalProducto] = useState([]);
     useEffect(() => {
         setTotalProducto(products.map(product => {
             const productIdPrecio = {
-                id:product.id,
-                precio:product.precio
+                id:product.product.id,
+                precio:product.product.precio
             }
             return productIdPrecio
         }));
@@ -74,6 +74,15 @@ const dataPrueba = {
         setProductosComprados(listaCompras);
         setListaBolsaCompras([]);
     }
+    const setCantidadProducto = (id, cantidad) =>{
+        const aux = getProductById(id);
+        const newProduct = {
+            product: aux,
+            cantidad: cantidad
+        }
+        const newProducts = products.map((product) => product.product.id === id ? newProduct : product)
+        setProducts(newProducts)
+    }
     return (
       <div style={{ flex: 1, backgroundColor: "var(--sec-b-100)", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: 'center', padding: "3.5% 20%"}}>
         <div className="flex flex-row w-full"><div className="titulo" style={{fontSize:"2em", width:"95%", paddingBottom:"1.25rem"}}>Tu Bolsa de Compras</div> <Link href={"/tienda"} key={0}><FaXmark/></Link></div>
@@ -91,7 +100,7 @@ const dataPrueba = {
             <div className={"gap-5 flex flex-nowrap flex-col w-full"}>
                 {products.length===0 ? <div className="texto-normal w-full text-4xl py-36 px-60 text-slate-400 text-center">No tienes nada en tu carrito por el momento, vuelve a la tienda</div>
                 
-                    : products.map((product, index) => <BoxIndividual product={product} calcTotalProducto={calcTotalProducto} setProducts={setProducts} cantidadItems={cantidadItems} setCantidadItems={setCantidadItems} key={index}/>)
+                    : products.map((product, index) => <BoxIndividual product={product} calcTotalProducto={calcTotalProducto} products={products} setProducts={setProducts} cantidadItems={cantidadItems} setCantidadItems={setCantidadItems} setCantidadProducto={setCantidadProducto} key={index}/>)
                 }
             </div>
             </div>

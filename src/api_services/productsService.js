@@ -1,7 +1,7 @@
 //const { listaProductos } = require("@/data/listaProductos")
 //import { listaProductos } from "./SupabaseAPI";
 import supabase from "@/utils/SupabaseAPI";
-const tableName = 'productos';
+const tableName = 'producto';
 
 export const getProducts = async () => {
     const {data}  = await supabase.from(tableName).select('*');

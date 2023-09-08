@@ -21,38 +21,39 @@ export const getTotal = () =>{
 
 const BoxIndividual = (props) =>{
     const {listaBolsaCompras, setListaBolsaCompras} = useBolsaComprasContext()
-    const [cantidad, setCantidad] = useState(1);
-    const {product, calcTotalProducto, setProducts, cantidadItems, setCantidadItems} = props
+    const {product, calcTotalProducto, products, setProducts, cantidadItems, setCantidadItems, setCantidadProducto} = props
+    const [cantidad, setCantidad] = useState(product.cantidad);
     const totalProducto = () =>{
-        return product.precio*cantidad
+        return product.product.precio*cantidad
     }
     useEffect(() => {
-        calcTotalProducto(product.id, product.precio*cantidad);
+        calcTotalProducto(product.product.id, product.product.precio*cantidad);
       }, [cantidad]);
     const eliminarProducto = () =>{
-        const newList = listaBolsaCompras.filter((producto) => producto.id !== product.id);
+        const newList = listaBolsaCompras.filter((producto) => producto.id !== product.product.id);
+        const otherNewList = products.filter((producto) => producto.product.id !== product.product.id);
         setListaBolsaCompras(newList);
-        setProducts(newList);
-        calcTotalProducto(product.id, 0);
+        setProducts(otherNewList);
+        calcTotalProducto(product.product.id, 0);
         setCantidadItems(cantidadItems-1);
     }
     return(
         <div className={"box-producto-individual"} style={{paddingRight:"1em"}}>
                 <div className="p-4 flex w-3/6 gap-4 flex-wrap flex-row items-center justify-center" style={{backgroundColor:"var(--gris-200)"}}>
                     <div className="imagen-box-producto">
-                        <img src={product.imagen} alt="" />
+                        <img src={product.product.imagen} alt="" />
                     </div>
                     <div className="flex flex-col gap-5 w-3/4">
                         <div className={"texto-normal"+"flex flex-wrap"}
                             style={{fontSize:"1em", fontWeight:"var(--weight-medium)"}}>
-                            {product.nombreLargo}
+                            {product.product.nombreLargo}
                         </div>
                         <div className="texto-tags-producto-tienda" style={{fontSize:"1em"}}>
-                            ${product.precio?.toFixed(2)}
+                            ${product.product.precio?.toFixed(2)}
                         </div>
                     </div>
                 </div>
-                <BoxCantidad key={0} cantidad={cantidad} setCantidad={setCantidad}/>
+                <BoxCantidad key={0} productId={product.product.id} cantidad={product.cantidad} setCantidadProducto={setCantidadProducto} cantidadView={cantidad} setCantidadView={setCantidad}/>
                 <div className={"texto-normal"+" font-normal flex"} style={{fontSize:"1.25em", width:"12.5%", justifyContent:"right"}}>${totalProducto().toFixed(2)}</div>
                 <IconContext.Provider value={{ className:"icon-bolsa-compras"}}><BsTrash3Fill style={{fontSize:"1.25em"}} onClick={eliminarProducto}/></IconContext.Provider>
                 

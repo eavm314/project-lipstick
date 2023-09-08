@@ -60,7 +60,6 @@ export default function NavBarLayout({ children }) {
         <div style={{width:"16.67%", display:"flex"}}>
           <IconContext.Provider value={{ className: 'icons-filter-bar' }}>
           <Link href={"/bolsaCompras/1"} key={0}><BsBag/></Link>
-           <FaRegHeart/>
           </IconContext.Provider>
         </div>
       </div>
