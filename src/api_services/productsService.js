@@ -10,8 +10,11 @@ export const getProducts = async () => {
     // console.log("🚀 ~ file: productsService.js:9 ~ getProducts ~ data:", data)
     return data;
 }
-/*
+
 export const getProductById = async (id) => {
-    const product = listaProductos.filter(p => p.id == id)[0];
-    return product;
-}*/
+    const supabase = createServerComponentClient({cookies})
+
+    const {data}  = await supabase.from(tableName).select('*').eq('id',id);
+    
+    return data[0];
+}

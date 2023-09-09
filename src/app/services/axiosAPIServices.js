@@ -5,6 +5,11 @@ export const getProducts = async () =>{
     return productos.data;
 }
 
+export const getProductById = async (id) =>{
+    const producto = await bodoniAPI.get(`/products/${id}`);
+    return producto.data;
+}
+
 export const getUser = async () => {
     const user = await bodoniAPI.get('/user');
     return user.data;
