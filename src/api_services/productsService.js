@@ -1,11 +1,13 @@
-//const { listaProductos } = require("@/data/listaProductos")
-//import { listaProductos } from "./SupabaseAPI";
-import supabase from "@/utils/SupabaseAPI";
+import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
+import { cookies } from "next/headers";
+
 const tableName = 'producto';
 
 export const getProducts = async () => {
+    const supabase = createServerComponentClient({cookies})
+
     const {data}  = await supabase.from(tableName).select('*');
-    console.log("🚀 ~ file: productsService.js:9 ~ getProducts ~ data:", data)
+    // console.log("🚀 ~ file: productsService.js:9 ~ getProducts ~ data:", data)
     return data;
 }
 /*

@@ -7,10 +7,10 @@ import { BotonProducto } from "./ComponentesTienda";
 import Link from "next/link";
 import { listaProductos } from "@/data/listaProductos";
 import { useProductContext } from "./layout";
-//import { getProducts } from "../services/axiosAPIServices";
-import {getProducts} from "../../api_services/productsService";
+import { getProducts } from "../services/axiosAPIServices";
+// import {getProducts} from "../../api_services/productsService";
 
-import supabase from '../../utils/SupabaseAPI'
+// import supabase from '../../utils/SupabaseAPI'
 
 const dataPrueba = {
   imagen: "lipstickPrueba",
@@ -30,13 +30,13 @@ const TiendaPage = () => {
     
     const getProductsTienda = async() =>{
       const products = await getProducts();
-      console.log(products)
+      // console.log(products)
       
-      setProducts(products);
+      setProducts(products.data);
       
       /*const productos = await getProducts();
       setProducts(productos.data)*/
-      console.log("🚀 ~ file: page.jsx:34 ~ getProductsTienda ~ products:", products)
+      // console.log("🚀 ~ file: page.jsx:34 ~ getProductsTienda ~ products:", products)
     
     }
     getProductsTienda();
