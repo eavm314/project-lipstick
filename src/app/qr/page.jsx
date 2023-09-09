@@ -64,7 +64,7 @@ const QRPage = () => {
     e.preventDefault();
     setTimeout(goToTienda, 5000);
     goToTienda = () => {
-      router.push('/tienda')
+        router.push('/tienda')
     }
   }
 
@@ -77,7 +77,7 @@ const QRPage = () => {
       router.push('/tienda')
     }
     setTimeout(goToTienda, 5000);
-  }
+}
 
   const customStyles = {
     overlay: {
@@ -102,25 +102,25 @@ const QRPage = () => {
         <div className="subtitulo" style={{ fontSize: "1.75em", width: '100%', paddingBottom: "1.75rem" }}>
           Pago del pedido
         </div>
-
+        
         <div className="texto-normal gap-7 flex flex-nowrap font-medium" style={{ fontSize: "1.5em", width: '100%', paddingBottom: "3rem" }}>
           <div className={"opciones" + (metodoPago === 1 ? " underline" : "")} onClick={() => cambiarMethod(1)}>Tarjeta</div>
           <div className={"opciones" + (metodoPago === 0 ? " underline" : "")} onClick={() => cambiarMethod(0)}>Código QR</div>
         </div>
         <>
-
-          {metodoPago === 0 ?
-            <BoxQR showModal={showModal} />
-            : <BoxTarjeta numTarjeta={numTarjeta} setNumTarjeta={setNumTarjeta} validNumTarjeta={validNumTarjeta} setValidNumTarjeta={setValidNumTarjeta}
-              setCodigoCCV={setCodigoCCV} validCCV={validCCV} setNombre={setNombre} validNombre={validNombre} setApellido={setApellido} validApellido={validApellido}
-              evaluate={evaluate} finDeCompra={finDeCompra} showModal={showModal} />
-          }
-
+        
+        {metodoPago === 0 ? 
+          <BoxQR showModal={showModal} />
+          : <BoxTarjeta numTarjeta={numTarjeta} setNumTarjeta={setNumTarjeta} validNumTarjeta={validNumTarjeta} setValidNumTarjeta={setValidNumTarjeta}
+           setCodigoCCV={setCodigoCCV} validCCV={validCCV} setNombre={setNombre} validNombre={validNombre} setApellido={setApellido} validApellido={validApellido} 
+            evaluate={evaluate} finDeCompra={finDeCompra} showModal={showModal} />
+        }
+        
         </>
         <Modal isOpen={isOpen} style={customStyles}>
           <div className="texto-normal font-normal flex w-full h-full justify-center items-center">Se realizó el pago de manera exitosa</div>
         </Modal>
-
+        
       </div>
     </div>
   )
