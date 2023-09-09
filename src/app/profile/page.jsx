@@ -100,11 +100,6 @@ const infoPerfil = () => {
           </div>
         </view>
         <view style={{ width: '45.625em', display: 'flex', flexDirection: 'row', alignItems: 'flex-end', justifyContent: 'flex-end' }}>
-          <Link
-            href={"/editProfile/password"}
-            className="boton-secundario w-216 " style={{ marginBottom: '1.4375rem', marginRight: '1.5rem' }}>
-            Cambiar Contraseña
-          </Link>
 
           <Link
             href={"/editProfile/otros"}

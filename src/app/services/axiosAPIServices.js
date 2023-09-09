@@ -14,3 +14,7 @@ export const getUser = async () => {
     const user = await bodoniAPI.get('/user');
     return user.data;
 }
+
+export const createCompra = async (compra) =>{
+    await bodoniAPI.post(`/compra`,compra);
+}
