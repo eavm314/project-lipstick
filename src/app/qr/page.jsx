@@ -1,5 +1,6 @@
 "use client"
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
+import React from "react";
 import Image from 'next/image'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -9,66 +10,117 @@ import {
 import '../globals.css'
 import './qr.css'
 import Link from "next/link";
-
-const instrucciones = ["Ingrese a su aplicacíon de su Banco en su dispositivo móvil.",
-  "Ingrese a la opción de Pago QR en su aplicación.",
-  "Capture el Código QR que aparece en Pantalla con la cámara de su Celular.",
-  "Una vez realizado el pago, espere unos segundos hasta que reciba una confirmación de pago."];
-
-
-
-
+import BoxQR from "./BoxQR";
+import BoxTarjeta from "./BoxTarjeta";
+import { useMetodoPagoContext } from "../layout";
+import { useRouter } from "next/navigation";
+import Modal from 'react-modal';
 
 const QRPage = () => {
+  const { metodoPago, setMetodoPago } = useMetodoPagoContext();
   const [imageIndex, setImageIndex] = useState(2);
   const em = 16;
   var index = 1;
-  const changeImage = () => {
-    useEffect(() => {
-      const e = document.getElementById("qr")
-      e.src = e.alt;
-      e.alt = e.src;
-    }, []);
+
+  const [selectedMethod, setSelectedMethod] = useState(metodoPago);
+
+  const cambiarMethod = (num) => {
+    setMetodoPago(num)
+  }
+
+  const [numTarjeta, setNumTarjeta] = useState("1234123412341234");
+  const [validNumTarjeta, setValidNumTarjeta] = useState(true);
+
+  const [codigoCCV, setCodigoCCV] = useState("1234");
+  const [validCCV, setValidCCV] = useState(true);
+
+  const [nombre, setNombre] = useState("");
+  const [validNombre, setValidNombre] = useState(true);
+
+  const [apellido, setApellido] = useState("");
+  const [validApellido, setValidApellido] = useState(true);
+
+  const router = useRouter();
+
+  const evaluate = (e) => {
+    e.preventDefault();
+    if (nombre !== "" && apellido != "") {
+      setValidNombre(true);
+      setValidApellido(true);
+      setValidNumTarjeta(/^[0-9]{13,16}$/.test(numTarjeta));
+      setValidCCV(/^[0-9]{4,6}$/.test(codigoCCV));
+      if (validApellido && validNombre && validCCV && validNumTarjeta) {
+        router.push('/finCompra')
+      }
+    } else {
+      setValidApellido(false);
+      setValidNombre(false);
+      setValidNumTarjeta(/^[0-9]{13,16}$/.test(numTarjeta));
+      setValidCCV(/^[0-9]{4,6}$/.test(codigoCCV));
+    }
+  }
+
+  const finDeCompra = (e) => {
+    e.preventDefault();
+    setTimeout(goToTienda, 5000);
+    goToTienda = () => {
+        router.push('/tienda')
+    }
+  }
+
+  const [isOpen, setIsOpen] = useState(false);
+
+  const showModal = (e) => {
+    e.preventDefault();
+    setIsOpen(!isOpen)
+    const goToTienda = () => {
+      router.push('/tienda')
+    }
+    setTimeout(goToTienda, 5000);
+}
+
+  const customStyles = {
+    overlay: {
+      backgroundColor: 'rgba(0, 0, 0, 0.6)'
+    },
+    content: {
+      display: 'flex',
+      alignContent: 'center',
+      justifyContent: 'center',
+      padding: '1.25em',
+      width: '40%',
+      height: '10%'
+    }
   }
 
   return (
-    <div style={{ display: "flex", alignItems: "center", alignContent: "center", padding: (5 * em), justifyContent: "center", flexDirection: "column", flexWrap: 'nowrap', backgroundColor: 'var(--sec-b-200)' }}>
-      <div style={{ display: "flex", alignItems: "center", alignContent: "center", width: 'auto', justifyContent: "center", flexDirection: "column", flexWrap: 'nowrap' }}>
-        <div className="titulo" style={{ fontSize: (em * 2), fontWeight: 'var(--weight-bold)', width: '100%', paddingBottom: (2 * em) }}>
+    <div style={{ display: "flex", alignItems: "center", alignContent: "center", padding: "5em 25em", justifyContent: "center", flexDirection: "column", flexWrap: 'nowrap', backgroundColor: 'var(--sec-b-200)' }}>
+      <div style={{ display: "flex", alignItems: "center", alignContent: "center", width: '100%', justifyContent: "center", flexDirection: "column", flexWrap: 'nowrap' }}>
+        <div className="titulo" style={{ fontSize: "2em", fontWeight: 'var(--weight-bold)', width: '100%', paddingBottom: "2rem" }}>
           Finalizando tu compra
         </div>
-        <div className="subtitulo" style={{ fontSize: (em * 1.75), width: '100%', paddingBottom: (1.75 * em) }}>
+        <div className="subtitulo" style={{ fontSize: "1.75em", width: '100%', paddingBottom: "1.75rem" }}>
           Pago del pedido
         </div>
-        <div className="box-con-botones" id="principal">
-          <div className="box-imagen-texto">
-            <div className="box-texto">
-              {instrucciones.map((instruccion, index) => <p className="texto-parrafo">{index + 1}. {instruccion} </p>)}
-            </div>
-            <div className="imagen-qr">
-              <img src={"/qr" + index + ".png"} alt="/qr2.png" id="qr" />
-            </div>
-          </div>
-          <div className="box-auxiliar">
-            <div className="box-empty">
-
-            </div>
-            <button className="box-nuevo-qr" id="cambiarQR" onClick={() => { document.getElementById("qr").src = "/qr2.png" }}>
-              Generar Nuevo QR
-            </button>
-          </div>
-          <div className="box-botones">
-            <Link
-              href={"/tienda"}
-              className="boton-secundario"
-            >
-              Descargar QR
-            </Link>
-            <button disabled className="boton-terciario">
-              Compartir QR
-            </button>
-          </div>
+        
+        <div className="texto-normal gap-7 flex flex-nowrap font-medium" style={{ fontSize: "1.5em", width: '100%', paddingBottom: "3rem" }}>
+          <div className={"opciones" + (metodoPago === 1 ? " underline" : "")} onClick={() => cambiarMethod(1)}>Tarjeta</div>
+          <div className={"opciones" + (metodoPago === 0 ? " underline" : "")} onClick={() => cambiarMethod(0)}>Código QR</div>
         </div>
+        <>
+        
+        {metodoPago === 0 ? 
+          <BoxQR showModal={showModal} />
+          : <BoxTarjeta numTarjeta={numTarjeta} setNumTarjeta={setNumTarjeta} validNumTarjeta={validNumTarjeta} setValidNumTarjeta={setValidNumTarjeta}
+           setCodigoCCV={setCodigoCCV} validCCV={validCCV} setNombre={setNombre} validNombre={validNombre} setApellido={setApellido} validApellido={validApellido} 
+            evaluate={evaluate} finDeCompra={finDeCompra} showModal={showModal} />
+        }
+        
+        </>
+        <Modal isOpen={isOpen} style={customStyles}>
+          <div className="texto-normal font-normal flex w-full h-full justify-center items-center">Se realizó el pago de manera exitosa</div>
+        </Modal>
+        
       </div>
     </div>
   )

@@ -150,12 +150,13 @@ textarea {
   letter-spacing: var(--paragraph-letter-spacing);
 }
 
-.texto-normal-semibold{
+.texto-normal{
   color: var(--text-color-default);
   font-family: var(--texto-font), sans-serif;
   font-weight: var(--weight-semi-bold);
   align-items: left;
   text-align: left;
+  white-space: wrap;
 }
 
 /*BOTONES------------------------------------------------------------------------*/
@@ -178,11 +179,13 @@ textarea {
 .boton-primario:hover{
   background-color: var(--primary-100);
   color: var(--primary-def);
+  cursor: pointer;
 }
 
 .boton-primario:active{
   background-color: var(--primary-400);
   color: var(--primary-100);
+  cursor: pointer;
   transition: 50ms
 }
 
@@ -203,12 +206,14 @@ textarea {
 
 .boton-secundario:hover{
   background-color: var(--primary-def);
+  cursor: pointer;
   color: var(--primary-100);
   border: 0.09375em solid var(--transicion-300);
 }
 
 .boton-secundario:active{
   background-color: var(--transicion-300);
+  cursor: pointer;
   color: var(--primary-def);
   border: 0.09375em solid var(--primary-def);
   transition: 50ms
@@ -230,6 +235,7 @@ textarea {
 }
 
 .boton-terciario:hover{
+  cursor: pointer;
   background-color: var(--gris-800);
   color: var(--primary-100);
 }
@@ -237,13 +243,14 @@ textarea {
 .boton-terciario:active{
   background-color: var(--gris-900);
   color: var(--primary-100);
+  cursor: pointer;
   transition: 50ms
 }
 
 .boton-terciario:disabled, button[disabled]{
   background-color: var(--gris-500);
   color: var(--gris-800);
-  transition: 50ms
+  transition: 50ms;
 }
 
 .boton-advertencia{
@@ -264,17 +271,15 @@ textarea {
 .boton-advertencia:hover{
   background-color: var(--primary-100);
   color: var(--sec-a-300);
+  cursor: pointer;
 }
 
 .boton-advertencia:active{
+  cursor: pointer;
   background-color: var(--sec-a-400);
   color: var(--primary-100);
   transition: 50ms
 }
-
-/*BOXES PARA IMÁGENES-------------------------------------------------------------------------------*/
-
-
 
 /*BOXES LAYOUTS-----------------------------------------------------------*/
 /*GLOBAL*/
@@ -289,7 +294,8 @@ textarea {
   color: var(--primary-100);
   font-family: var(--titulo-font), serif;
   font-weight: var(--weight-bold);
-  font-size: 3.25em
+  font-size: 3.25em;
+  gap:12.25em;
 }
 
 .navigation-bar{
@@ -298,6 +304,7 @@ textarea {
   align-items: center;
   padding: 0.75rem;
   background-color: var(--transicion-800);
+  contain: content;
 }
 
 .texto-navigation-bar{
@@ -314,7 +321,17 @@ textarea {
   cursor: pointer;
 }
 
-.texto-navigation-bar:active, .texto-navigation-bar:focus{
+.texto-navigation-bar:active{
   color: var(--primary-100);
   text-decoration: underline;
+}
+
+.input:invalid{
+  border-color: var(--sec-a-300);
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
