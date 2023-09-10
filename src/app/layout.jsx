@@ -45,7 +45,7 @@ export default function RootLayout({ children }) {
   const [selectedCategory, setSelectedCategory] = useState("Todos");
   return (
     <html lang="en">
-      <body>
+      <body style={{backgroundColor: '#F9F8F7'}}>
         <div className="w-full flex flex-row items-center justify-center" style={{backgroundColor:"var(--primary-def)", gap:"12.25em"}}>
           <div className="flex flex-row items-center justify-center" style={{width:"33%"}}></div>
           <div className="brand-name flex-nowrap whitespace-nowrap" style={{width:"33%"}}>{metadata.brandName}</div>
