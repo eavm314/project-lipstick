@@ -23,5 +23,6 @@ export const getCompras = async () =>{
     const supabase = createServerComponentClient({cookies})
     const {data: {user}} = await supabase.auth.getUser();
     const {data, error} = await supabase.from(tableCompra).select(`compra_id, ${tableProducto} (producto_id, cantidad, producto (nombreLargo, precio))`).eq('user_id', user.id);
+    return data;
 }
 

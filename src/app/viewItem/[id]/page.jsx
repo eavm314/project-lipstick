@@ -11,6 +11,7 @@ import Link from "next/link";
 import {BsBag} from "react-icons/bs";
 import {FaRegHeart} from "react-icons/fa";
 import { IconContext } from 'react-icons';
+import { getProductById } from "@/app/services/axiosAPIServices";
 
 config.autoAddCss = false;
 
@@ -26,18 +27,26 @@ const dataPrueba = {
 const em = 16;
 
 export default function ItemPage({ params }) {
-  const getProduct = (id) => {
-    const data = listaProductos.filter((p) => p.id == id)[0];
-    return data;
-  }
 
-  const getRecomendados = () => {
-    const data = listaProductos.filter((p) => p.categoria == product.categoria).slice(0, 5);
-    return data
-  }
+  const [product, setProduct] = useState([]);
+  const [recomendados, setRecomendados] = useState([]);
 
-  const [product, setProduct] = useState(getProduct(params.id));
-  const [recomendados, setRecomendados] = useState(getRecomendados());
+  useEffect(() => {
+    const getRecomendados = () => {
+      const data = listaProductos.filter((p) => p.categoria === product?.categoria).slice(0, 5);
+      console.log(data)
+      setRecomendados(data);
+    }
+
+    const getProduct = async (id) => {
+      const data = await getProductById(id);
+      console.log(data.data);
+      setProduct(data.data);
+      getRecomendados();
+    }
+
+    getProduct(params.id);
+  }, []);
 
   return (
     <>
@@ -47,7 +56,6 @@ export default function ItemPage({ params }) {
         <div style={{width:"16.67%", display:"flex"}}>
           <IconContext.Provider value={{ className: 'icons-filter-bar' }}>
           <Link href={"/bolsaCompras/1"} key={0}><BsBag/></Link>
-           <FaRegHeart/>
           </IconContext.Provider>
         </div>
       </div>
@@ -55,7 +63,7 @@ export default function ItemPage({ params }) {
       <ViewItem product={product} />
       <div>
         <div className="conjunto-productos">
-          {recomendados.map((producto, index) =>
+          {recomendados?.map((producto, index) =>
 
               <BotonProducto key={index}
               id={producto.id} imagen={producto.imagen} categoria={producto.categoria}
