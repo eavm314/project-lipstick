@@ -6,12 +6,8 @@ import '../globals.css'
 
 const CreateAccount = () => {
 
-
-
-
     return (
-        <>
-        
+        <>   
         <Login2/>
         </>
     );
