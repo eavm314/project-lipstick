@@ -34,7 +34,7 @@ const Login2 = () => {
   return (
     <div style={{ display: "flex", backgroundColor: "#f9f8f7", flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: "100%", height: "100%", flexWrap: 'nowrap', paddingTop: "5em", paddingBottom: "5em" }}>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div style={{ backgroundColor: '#efecea', padding: "2.25em", borderWidth: 1, borderColor: '#000' }}>
+        <div style={{ backgroundColor: '#f9f8f7', padding: "2.25em", borderWidth: 1, borderColor: '#000' }}>
 
           <h1 className="titulo" style={{ fontSize: "2em", marginBottom: "1.25rem" }}>Regístrate</h1>
 
