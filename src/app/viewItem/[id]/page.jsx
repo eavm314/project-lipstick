@@ -11,7 +11,7 @@ import Link from "next/link";
 import {BsBag} from "react-icons/bs";
 import {FaRegHeart} from "react-icons/fa";
 import { IconContext } from 'react-icons';
-import { getProductById } from "@/app/services/axiosAPIServices";
+import { getProductById, getProducts } from "@/app/services/axiosAPIServices";
 
 config.autoAddCss = false;
 
@@ -30,10 +30,20 @@ export default function ItemPage({ params }) {
 
   const [product, setProduct] = useState([]);
   const [recomendados, setRecomendados] = useState([]);
+  const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    const getRecomendados = () => {
-      const data = listaProductos.filter((p) => p.categoria === product?.categoria).slice(0, 5);
+    const getProductsTienda = async(id) =>{
+      const products = await getProducts();
+      const product = await getProductById(id);
+      const recomendados = products.data.filter((p) => p.categoria === product.data.categoria && p.id !== product.data.id).slice(0, 5);
+      setProducts(products.data);
+      setProduct(product.data);
+      setRecomendados(recomendados);
+    }
+
+    const getRecomendados = async () => {
+      const data = products.filter((p) => p.categoria === product?.categoria).slice(0, 5);
       console.log(data)
       setRecomendados(data);
     }
@@ -42,10 +52,9 @@ export default function ItemPage({ params }) {
       const data = await getProductById(id);
       console.log(data.data);
       setProduct(data.data);
-      getRecomendados();
     }
 
-    getProduct(params.id);
+    getProductsTienda(params.id);
   }, []);
 
   return (
