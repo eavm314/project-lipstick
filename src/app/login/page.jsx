@@ -10,6 +10,7 @@ export default function Login() {
   const supabase = createClientComponentClient();
 
   const handleSignInGoogle = async () => {
+    console.log("ingresar con google")
     await supabase.auth.signInWithOAuth({
       provider: "google",
       options: {
@@ -27,8 +28,6 @@ export default function Login() {
       <h1 className="titulo" style={{ fontSize: '4.5em', fontWeight: 'bold' }}>BM</h1>
       <h1 className="texto-normal" style={{ fontSize: '1.25em', marginTop: '1rem', fontWeight: 'normal', marginBottom: '2rem' }}>Inicio de Sesión</h1>
       
-     
-
       <button
         onClick={handleSignInGoogle}
         style={{ display: 'flex', flexDirection: 'row', width: '15em', paddingLeft: '0.5rem', paddingRight: '1rem', paddingTop: '1em', paddingBottom: '1em', marginBottom: '2.5%', boxShadow: '0px 5px 10px #00000090', alignItems: 'center' }}>

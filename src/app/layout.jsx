@@ -7,6 +7,7 @@ import "@fortawesome/fontawesome-svg-core/styles.css";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import Link from "next/link";
 import { createContext, useContext, useState } from 'react';
+import { usePathname } from 'next/navigation';
 
 config.autoAddCss = false;
 
@@ -43,6 +44,9 @@ export default function RootLayout({ children }) {
   const [productosComprados, setProductosComprados] = useState([])
   const [metodoPago, setMetodoPago] = useState(1);
   const [selectedCategory, setSelectedCategory] = useState("Todos");
+
+  const path = usePathname();
+  
   return (
     <html lang="en">
       <body style={{backgroundColor: '#F9F8F7'}}>
@@ -51,10 +55,13 @@ export default function RootLayout({ children }) {
           <div className="brand-name flex-nowrap whitespace-nowrap" style={{width:"33%"}}>{metadata.brandName}</div>
           <div className="flex flex-row items-center justify-center" style={{width:"33%"}}>
             
-            <Link href={"/profile"} className="flex p-3 gap-2 flex-nowrap" style={{ maxWidth:"45%", overflow:"hidden", textOverflow:"ellipsis",marginLeft:'12em'}}>
-              <img style={{ width:"2.5em", height: "2.5em", backgroundColor: '#d9d9d9', borderRadius: 100,borderWidth:3, borderColor:"var(--primary-100)",}} src="\tame-impala.jpg" alt="Cliente" />
-              
-            </Link>
+            {
+              path != "/login" &&
+              <Link href={"/profile"} className="flex p-3 gap-2 flex-nowrap" style={{ maxWidth:"45%", overflow:"hidden", textOverflow:"ellipsis",marginLeft:'12em'}}>
+                <img style={{ width:"2.5em", height: "2.5em", backgroundColor: '#d9d9d9', borderRadius: 100,borderWidth:3, borderColor:"var(--primary-100)",}} src="\tame-impala.jpg" alt="Cliente" />
+                
+              </Link>
+            }
             
           </div>
           

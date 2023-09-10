@@ -1,6 +1,8 @@
-import React from "react";
+"use client"
 import Link from "next/link";
 import HistorialPucharses from "./resources/historialPucharses";
+import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
+import { useRouter } from "next/navigation";
 
 const infoData = {
   name: "Dylan Jitton",
@@ -43,20 +45,28 @@ const infoData = {
 
 
 const infoPerfil = () => {
+  const supabase = createClientComponentClient();
+
+  const router = useRouter();
+
+  const handleSignOut = async () => {
+    await supabase.auth.signOut();
+    router.push('/login');
+  }
 
   return (
-    <view style={{ backgroundColor: '#f9f8f7', display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column' }}>
+    <div style={{ backgroundColor: '#f9f8f7', display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column' }}>
 
-      <view style={{ width: '45.625em', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', borderBottomWidth: 1, borderColor: '#000' }}>
+      <div style={{ width: '45.625em', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', borderBottomWidth: 1, borderColor: '#000' }}>
         <h1 className="titulo" style={{ fontSize: '2.25em', marginBottom: '1.5rem', marginTop: '2.5625rem', fontWeight: 'bold' }}>Tu perfil</h1>
         <img style={{ width: 91, height: 91, backgroundColor: '#d9d9d9', borderRadius: 100, marginBottom: '1.3125em' }} src={infoData.image} alt="Cliente" />
         <h1 className="texto-normal-semibold" style={{ fontSize: '1.75em', marginBottom: '1.25rem' }}>{infoData.name}</h1>
         <h1 className="texto-parrafo" style={{ fontSize: '1.125em', marginBottom: '1.375rem' }}>{infoData.email}</h1>
-      </view>
+      </div>
 
-      <view style={{ width: '45.625em', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', borderBottomWidth: 1, borderColor: '#000' }}>
+      <div style={{ width: '45.625em', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', borderBottomWidth: 1, borderColor: '#000' }}>
 
-        <view style={{ width: '45.625em', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', justifyContent: 'flex-start' }}>
+        <div style={{ width: '45.625em', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', justifyContent: 'flex-start' }}>
           <h1 className="titulo" style={{ fontSize: '1.5em', marginBottom: '0.5rem', marginTop: '1rem', marginLeft: '0.375em', fontWeight: 'normal' }}>Datos Personales</h1>
           <div style={{ padding: '2.125em', display: 'flex', flexDirection: 'column', paddingBottom: '1em', paddingTop: '1em' }}>
 
@@ -98,20 +108,20 @@ const infoPerfil = () => {
 
 
           </div>
-        </view>
-        <view style={{ width: '45.625em', display: 'flex', flexDirection: 'row', alignItems: 'flex-end', justifyContent: 'flex-end' }}>
+        </div>
+        <div style={{ width: '45.625em', display: 'flex', flexDirection: 'row', alignItems: 'flex-end', justifyContent: 'flex-end' }}>
 
           <Link
             href={"/editProfile/otros"}
             className="boton-primario w-151 " style={{ marginBottom: '1.4375rem', marginRight: '1.5rem' }}>
             Editar Perfil
           </Link>
-        </view>
-      </view>
+        </div>
+      </div>
 
-      <view style={{ width: '45.625em', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+      <div style={{ width: '45.625em', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
 
-        <view style={{ width: '45.625em', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', justifyContent: 'flex-start' }}>
+        <div style={{ width: '45.625em', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', justifyContent: 'flex-start' }}>
           <h1 className="titulo" style={{ fontSize: '1.5em', marginBottom: '0.5rem', marginTop: '1rem', marginLeft: '0.375em', fontWeight: 'normal' }}>Historial de Compras</h1>
           {
             infoData.pucharsesHistorial.length!==0?
@@ -126,15 +136,15 @@ const infoPerfil = () => {
             
             }
 
-        </view>
+        </div>
 
-      </view>
-      <Link
-        href={"/login"}
+      </div>
+      <button
+        onClick={handleSignOut}
         className="boton-advertencia w-175 " style={{ marginBottom: '2.25rem', marginTop: '9.1875em' }}>
         Cerrar Sesion
-      </Link>
-    </view>
+      </button>
+    </div>
   )
 }
 

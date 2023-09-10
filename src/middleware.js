@@ -4,16 +4,31 @@ import { NextResponse } from 'next/server'
 
 export async function middleware(req) {
   const res = NextResponse.next();
-  if (req.nextUrl.pathname.startsWith('/login')) {
+  // console.log(req.nextUrl.pathname)
+  
+  if (req.nextUrl.pathname.startsWith('/_next') ) {
+    return res;
+  }
+  if (req.nextUrl.pathname.startsWith('/api') ) {
+    return res;
+  }
+  if (req.nextUrl.pathname.startsWith('/auth') ) {
     return res;
   }
 
-  const supabase = createMiddlewareClient({ req, res });
-  const {data} = await supabase.auth.getSession();
-  console.log(data);
-  if (data.session == null) {
-    // console.log("no hay login");
-    // res.redirect("/login");
+  if (req.nextUrl.pathname.startsWith('/login') ) {
+    return res;
+  }
+
+  // const supabase = createMiddlewareClient({ req, res });
+  // const {data} = await supabase.auth.getSession();
+  // console.log(data);
+
+  const authCookie = req.cookies.get('sb-wlcwonwprftismlrkejl-auth-token')
+  // console.log(authCookie) 
+
+  if (!authCookie) {
+    console.log("no hay login");
     return NextResponse.redirect(new URL("/login", req.url));
   }
   return res;
