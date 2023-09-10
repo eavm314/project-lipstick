@@ -67,8 +67,8 @@ const Login1 = () => {
                             className="texto-parrafo" 
                             onChange={(value) => setEmail(value)}/>
                         <h1 className="texto-normal-semibold" style={{ fontSize: "1.25em", marginBottom: "0.6875em",fontWeight:'500' }}>Fecha de Nacimiento</h1>
-                        <div style={{ display: 'flex', flexDirection: 'row', marginBottom: "1.25em", justifyContent: 'flex-start' }}>
-                            <input type='date' style={{ display: 'flex', fontSize: "1.125em", borderWidth: 1, borderColor: '#000', backgroundColor: '#f9f8f7', width: '100%', height: 55, padding: "0.75em" }}
+                        <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'flex-start' }}>
+                            <input type='date' style={{ display: 'flex', fontSize: "1.125em", borderWidth: 1, borderColor: '#000', backgroundColor: '#f9f8f7', width: '100%', height: 55, padding: "0.75em" , marginBottom: "1.25em"}}
                                 placeholder="Dia"
                                 name="Dia"
                                 className="texto-parrafo"
