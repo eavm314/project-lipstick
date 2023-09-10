@@ -42,18 +42,6 @@ export default function ItemPage({ params }) {
       setRecomendados(recomendados);
     }
 
-    const getRecomendados = async () => {
-      const data = products.filter((p) => p.categoria === product?.categoria).slice(0, 5);
-      console.log(data)
-      setRecomendados(data);
-    }
-
-    const getProduct = async (id) => {
-      const data = await getProductById(id);
-      console.log(data.data);
-      setProduct(data.data);
-    }
-
     getProductsTienda(params.id);
   }, []);
 
