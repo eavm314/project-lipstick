@@ -60,14 +60,6 @@ const QRPage = () => {
     }
   }
 
-  const finDeCompra = (e) => {
-    e.preventDefault();
-    setTimeout(goToTienda, 5000);
-    goToTienda = () => {
-        router.push('/tienda')
-    }
-  }
-
   const [isOpen, setIsOpen] = useState(false);
 
   const showModal = (e) => {
@@ -76,20 +68,30 @@ const QRPage = () => {
     const goToTienda = () => {
       router.push('/tienda')
     }
-    setTimeout(goToTienda, 5000);
+    setTimeout(goToTienda, 1500);
 }
 
   const customStyles = {
     overlay: {
-      backgroundColor: 'rgba(0, 0, 0, 0.6)'
+      backgroundColor: 'rgba(0, 0, 0, 0.6)',
+      display:'flex',
+      width: '100%',
+      height: '100%',
+      alignItems: 'center',
+      justifyContent: 'center'
     },
     content: {
       display: 'flex',
       alignContent: 'center',
+      alignItems: 'center',
       justifyContent: 'center',
       padding: '1.25em',
-      width: '40%',
-      height: '10%'
+      width: '30%',
+      height: '10%',
+      position: 'absolute',
+      top: '50%',
+      left: '50%',
+      transform: 'translate(-50%, -50%)',
     }
   }
 
@@ -113,15 +115,14 @@ const QRPage = () => {
           <BoxQR showModal={showModal} />
           : <BoxTarjeta numTarjeta={numTarjeta} setNumTarjeta={setNumTarjeta} validNumTarjeta={validNumTarjeta} setValidNumTarjeta={setValidNumTarjeta}
            setCodigoCCV={setCodigoCCV} validCCV={validCCV} setNombre={setNombre} validNombre={validNombre} setApellido={setApellido} validApellido={validApellido} 
-            evaluate={evaluate} finDeCompra={finDeCompra} showModal={showModal} />
+            evaluate={evaluate} showModal={showModal} />
         }
         
         </>
-        <Modal isOpen={isOpen} style={customStyles}>
-          <div className="texto-normal font-normal flex w-full h-full justify-center items-center">Se realizó el pago de manera exitosa</div>
-        </Modal>
-        
       </div>
+      <Modal isOpen={isOpen} style={customStyles}>
+          <div className="texto-normal font-normal flex w-full h-full justify-center items-center">Se realizó el pago de manera exitosa</div>
+      </Modal>
     </div>
   )
 }

@@ -17,7 +17,7 @@ import { useRouter } from "next/navigation";
 
 const BoxTarjeta = (props) => {
     const {numTarjeta, setNumTarjeta, validNumTarjeta, setValidNumTarjeta, setCodigoCCV,
-         validCCV, setNombre, validNombre, setApellido, validApellido, evaluate, finDeCompra, showModal} = props;
+         validCCV, setNombre, validNombre, setApellido, validApellido, evaluate, showModal} = props;
     const opcionesTarjeta = [
         {label: "Crédito", value:"cred"},
         {label: "Débito", value:"deb"}

@@ -15,6 +15,7 @@ import { listaUsuarios } from "@/data/listaUsuarios";
 import { useBolsaComprasContext, useProductosCompradosContext } from "../../layout";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleLeft, faAngleRight} from "@fortawesome/free-solid-svg-icons";
+import { createCompra } from "@/app/services/axiosAPIServices";
 
 
 const dataPrueba = {
@@ -64,15 +65,20 @@ const dataPrueba = {
     const paraResumenCompra = () =>{
         const listaCompras = totalProducto.filter(producto => producto.precio>0).map(producto => 
             {
+                const aux = getProductById(producto.id)
                 const paquete = {
-                    product: getProductById(producto.id),
-                    precio: producto.precio
+                    product: aux,
+                    cantidad: producto.precio/aux.precio
                 }
                 return paquete
             }
         );
         setProductosComprados(listaCompras);
         setListaBolsaCompras([]);
+        const sendCompra = async () =>{
+            await createCompra(listaCompras);
+        }
+        sendCompra();
     }
     const setCantidadProducto = (id, cantidad) =>{
         const aux = getProductById(id);
