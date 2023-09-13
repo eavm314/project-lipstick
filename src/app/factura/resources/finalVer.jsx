@@ -7,8 +7,10 @@ import { useRouter } from "next/navigation";
 const Facturacion = () => {
   const { register, formState: { errors }, handleSubmit } = useForm();
 
+  const router = useRouter()
   const onSubmit = (data) => {
     console.log(data);
+    router.push('/address')
   }
 
   return (
