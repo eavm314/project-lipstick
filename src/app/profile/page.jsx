@@ -3,6 +3,8 @@ import Link from "next/link";
 import HistorialPucharses from "./resources/historialPucharses";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { useRouter } from "next/navigation";
+import { useEffect } from "react";
+import { getUser } from "../services/axiosAPIServices";
 
 const infoData = {
   name: "Dylan Jitton",
@@ -53,6 +55,15 @@ const infoPerfil = () => {
     await supabase.auth.signOut();
     router.push('/login');
   }
+
+  useEffect(() => {
+    const getUserData = async () => {
+      const user = await getUser();
+      console.log(user.data);
+    };
+
+    getUserData();
+  },[])
 
   return (
     <div style={{ backgroundColor: '#f9f8f7', display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column' }}>

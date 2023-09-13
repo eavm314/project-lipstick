@@ -6,8 +6,22 @@ import '../../tienda/tienda.css'
 import '../../viewItem/resources/paginaIndividual.css'
 import Dropdown from '../../address/Dropdown'
 import Link from "next/link";
+import { updateUser } from "@/app/services/axiosAPIServices";
 
 const FinCompraPage = () =>{
+
+  useEffect(() => {
+    const pruebaUser = {
+      address: "hola es un address de nuevo"
+    }
+    const updateUserData = async () => {
+      const user = await updateUser(pruebaUser);
+      console.log(user);
+    }
+
+    updateUserData();
+  },[])
+
     const optionsCiudad = [
         { label: 'La Paz', value: 'LP'},
       ];
