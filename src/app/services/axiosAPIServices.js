@@ -16,5 +16,6 @@ export const getUser = async () => {
 }
 
 export const createCompra = async (compra) =>{
-    await bodoniAPI.post(`/compra`,compra);
+    const response = await bodoniAPI.post(`/compra`,compra);
+    return response.data;
 }
