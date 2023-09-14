@@ -3,6 +3,7 @@ import React from 'react'
 import { appendErrors, useForm } from "react-hook-form";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { textValidator } from '@/data/validatorText';
 
 const Facturacion = () => {
   const { register, formState: { errors }, handleSubmit } = useForm();
@@ -37,16 +38,18 @@ const Facturacion = () => {
                   placeholder="Ej. Andres Diego Morales Espinoza"
                   {...register('nombre', {
                     required: true,
-                    maxLength: 50
+                    maxLength: 50,
+                    validate:textValidator
                   })} />
                 {errors.nombre?.type === 'required' && <h1 style={{ fontWeight: 500, color: 'red' }}>*campo obligatorio</h1>}
                 {errors.nombre?.type === 'maxLength' && <h1 style={{ fontWeight: 500, color: 'red' }}>50 caracteres como máximo permitido</h1>}
+                {errors.nombre?.type === 'validate' && <h1 style={{ fontWeight: 500, color: 'red' }}>No se permiten Puntos, Comas, ni guiones en este espacio</h1>}
               </div>
 
               <div style={{ display: 'flex', flexDirection: 'column' }}>
                 <label className="texto-normal font-medium" style={{ fontSize: "1.25em", marginBottom: '1.25rem' }}>Número telefónico</label>
                 <input
-                  type="number"
+                  type="tel"
                   className="texto-parrafo"
                   style={{ display: "flex", fontsize: "1em", borderWidth: 1, borderColor: '#000', width: "21.375em", padding: "0.75em", backgroundColor: 'var(--transicion-50)' }}
                   placeholder="Ej. 69420666"
@@ -79,7 +82,7 @@ const Facturacion = () => {
               <div style={{ display: 'flex', flexDirection: 'column', marginRight: '1.375rem' }}>
                 <label className="texto-normal font-medium" style={{ fontSize: "1.25em", marginBottom: '1.25rem' }}>NIT</label>
                 <input
-                  type="number"
+                  type="tel"
                   className="texto-parrafo"
                   style={{ display: "flex", fontsize: "1em", borderWidth: 1, borderColor: '#000', width: "21.375em", padding: "0.75em", backgroundColor: 'var(--transicion-50)' }}
                   placeholder="Ej. 6733784"
