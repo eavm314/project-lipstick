@@ -82,6 +82,7 @@ const Facturacion = () => {
               <div style={{ display: 'flex', flexDirection: 'column', marginRight: '1.375rem' }}>
                 <label className="texto-normal font-medium" style={{ fontSize: "1.25em", marginBottom: '1.25rem' }}>Nombre</label>
                 <input
+                  id="nombre"
                   type="text"
                   className="texto-parrafo"
                   style={{ display: "flex", fontsize: "1em", borderWidth: 1, borderColor: '#000', width: "21.375em", padding: "0.75em", backgroundColor: 'var(--transicion-50)' }}
@@ -100,6 +101,7 @@ const Facturacion = () => {
               <div style={{ display: 'flex', flexDirection: 'column' }}>
                 <label className="texto-normal font-medium" style={{ fontSize: "1.25em", marginBottom: '1.25rem' }}>Teléfono</label>
                 <input
+                id="telefono"
                   type="tel"
                   className="texto-parrafo"
                   style={{ display: "flex", fontsize: "1em", borderWidth: 1, borderColor: '#000', width: "21.375em", padding: "0.75em", backgroundColor: 'var(--transicion-50)' }}
@@ -119,6 +121,7 @@ const Facturacion = () => {
             <div style={{ display: 'flex', flexDirection: 'column' }}>
               <label className="texto-normal font-medium" style={{ fontSize: "1.25em", marginBottom: '1.25rem' }}>Dirección</label>
               <input
+                id="direccion"
                 type="text"
                 className="texto-parrafo"
                 style={{ display: "flex", fontsize: "1em", borderWidth: 1, borderColor: '#000', width: "44.125em", padding: "0.75em", backgroundColor: 'var(--transicion-50)' }}
@@ -136,11 +139,11 @@ const Facturacion = () => {
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: "2em", width: "100%" }}>
 
               <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', width: "100%", gap: "1.75em" }}>
-              <Dropdown label="Ciudad" options={optionsCiudad} value={ciudad} onChange={changeCiudad}/>
+              <Dropdown id="ciudad" label="Ciudad" options={optionsCiudad} value={ciudad} onChange={changeCiudad}/>
 
-              <Dropdown label="Distrito" options={distritos} value={distrito} onChange={changeDistrito}/>
+              <Dropdown id="distrito" label="Distrito" options={distritos} value={distrito} onChange={changeDistrito}/>
               
-              <Dropdown label="Zona" options={zonas} value={zona} onChange={changeZona}/>
+              <Dropdown id="zona" label="Zona" options={zonas} value={zona} onChange={changeZona}/>
 
               </div>
             </div>
@@ -150,6 +153,7 @@ const Facturacion = () => {
               <div style={{ display: 'flex', flexDirection: 'column', marginRight: '1.375rem' }}>
                 <label className="texto-normal font-medium" style={{ fontSize: "1.25em", marginBottom: '1.25rem' }}>NIT</label>
                 <input
+                  id="nit"
                   type="tel"
                   className="texto-parrafo"
                   style={{ display: "flex", fontsize: "1em", borderWidth: 1, borderColor: '#000', width: "21.375em", padding: "0.75em", backgroundColor: 'var(--transicion-50)' }}
@@ -167,6 +171,7 @@ const Facturacion = () => {
               <div style={{ display: 'flex', flexDirection: 'column' }}>
                 <label className="texto-normal font-medium" style={{ fontSize: "1.25em", marginBottom: '1.25rem' }}>Razón Social</label>
                 <input
+                  id="razonSocial"
                   type="text"
                   className="texto-parrafo"
                   style={{ display: "flex", fontsize: "1em", borderWidth: 1, borderColor: '#000', width: "21.375em", padding: "0.75em", backgroundColor: 'var(--transicion-50)' }}
@@ -183,6 +188,7 @@ const Facturacion = () => {
             <input className="boton-primario w-188 my-2" style={{backgroundColor:'#262626',fontSize:'1.25em'}}
               type="submit"
               value="Continuar"
+              id="submit"
             />
               
           </div>

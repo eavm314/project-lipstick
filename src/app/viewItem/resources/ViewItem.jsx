@@ -52,6 +52,7 @@ export const ViewItem = ({product}) => {
             <button
               className="boton-primario w-40 my-5 mx-auto"
               onClick={addProduct}
+              id="add"
             //TODO: llevar a producto individual
             >
               Añadir 

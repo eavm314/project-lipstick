@@ -26,7 +26,7 @@ export const BotonProducto = ({ id,imagen, categoria, tags, nombre, nombreLargo,
 
   return (
     <div className="boton-producto">
-      <Link href={"/viewItem/"+id} key={id}>
+      <Link href={"/viewItem/"+id} id="viewItem">
       <div className="imagen-producto-tienda">
         <img 
         className="w-full h-full"
@@ -52,7 +52,7 @@ export const BotonProducto = ({ id,imagen, categoria, tags, nombre, nombreLargo,
 
       <button
         style={{ fontSize: "1em" }}
-        className="boton-primario" onClick={addProduct}
+        className="boton-primario" onClick={addProduct} id="add"
       >
         {textoBoton}
             <BsBagPlus/>

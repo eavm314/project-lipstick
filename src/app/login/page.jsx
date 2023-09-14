@@ -30,7 +30,8 @@ export default function Login() {
       
       <button
         onClick={handleSignInGoogle}
-        style={{ display: 'flex', flexDirection: 'row', width: '15em', paddingLeft: '0.5rem', paddingRight: '1rem', paddingTop: '1em', paddingBottom: '1em', marginBottom: '2.5%', boxShadow: '0px 5px 10px #00000090', alignItems: 'center' }}>
+        style={{ display: 'flex', flexDirection: 'row', width: '15em', paddingLeft: '0.5rem', paddingRight: '1rem', paddingTop: '1em', paddingBottom: '1em', marginBottom: '2.5%', boxShadow: '0px 5px 10px #00000090', alignItems: 'center' }}
+        id="login">
         <img
           src="https://static.vecteezy.com/system/resources/previews/010/353/285/non_2x/colourful-google-logo-on-white-background-free-vector.jpg"
           style={{ height: '2rem', width: '2rem', borderRadius: 100, marginRight: '0.5em', marginLeft: '0.5em' }} />

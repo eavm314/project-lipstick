@@ -45,7 +45,7 @@ const BoxQR = (props) =>{
               <div className="box-texto">
                 {instrucciones.map((instruccion, index) => <p className="texto-parrafo" key={index}>{index + 1}. {instruccion} </p>)}
               </div>
-              <button className="imagen-qr" onClick={click}>
+              <button className="imagen-qr" onClick={click} id="realizarPago">
                 <img src={qr} alt="" id="qr" />
               </button>
             </div>

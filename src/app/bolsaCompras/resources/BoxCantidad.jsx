@@ -26,9 +26,9 @@ const BoxCantidad = (props) =>{
     }
     return(
         <div className={"box-cantidad"}>
-                <FaMinus className="icon-bolsa-compras" style={{fontSize:(1.5*em)}} onClick={disminuir}/>
+                <FaMinus className="icon-bolsa-compras" style={{fontSize:(1.5*em)}} onClick={disminuir} id="less"/>
                 <div className={"texto-normal"+" font-normal"} style={{fontSize:(1.25*em), lineHeight:(0.5*em), textAlign:"center"}}>{cantidadView}</div>
-                <FaPlus className="icon-bolsa-compras" style={{fontSize:(1.5*em)}} onClick={aumentar}/>
+                <FaPlus className="icon-bolsa-compras" style={{fontSize:(1.5*em)}} onClick={aumentar} id="more"/>
         </div>
     );
 

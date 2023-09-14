@@ -56,7 +56,7 @@ const BoxIndividual = (props) =>{
                 </div>
                 <BoxCantidad key={0} productId={product.product.id} cantidad={product.cantidad} setCantidadProducto={setCantidadProducto} cantidadView={cantidad} setCantidadView={setCantidad}/>
                 <div className={"texto-normal"+" font-normal flex"} style={{fontSize:"1.25em", width:"12.5%", justifyContent:"right"}}>${totalProducto().toFixed(2)}</div>
-                <IconContext.Provider value={{ className:"icon-bolsa-compras"}}><BsTrash3Fill style={{fontSize:"1.25em"}} onClick={eliminarProducto}/></IconContext.Provider>
+                <IconContext.Provider value={{ className:"icon-bolsa-compras"}}><BsTrash3Fill style={{fontSize:"1.25em"}} onClick={eliminarProducto} id="eliminarProducto"/></IconContext.Provider>
                 
         </div>
     );

@@ -106,8 +106,8 @@ const QRPage = () => {
         </div>
         
         <div className="texto-normal gap-7 flex flex-nowrap font-medium" style={{ fontSize: "1.5em", width: '100%', paddingBottom: "3rem" }}>
-          <div className={"opciones" + (metodoPago === 1 ? " underline" : "")} onClick={() => cambiarMethod(1)}>Tarjeta</div>
-          <div className={"opciones" + (metodoPago === 0 ? " underline" : "")} onClick={() => cambiarMethod(0)}>Código QR</div>
+          <div className={"opciones" + (metodoPago === 1 ? " underline" : "")} onClick={() => cambiarMethod(1)} id="tarjeta">Tarjeta</div>
+          <div className={"opciones" + (metodoPago === 0 ? " underline" : "")} onClick={() => cambiarMethod(0)} id="qr">Código QR</div>
         </div>
         <>
         
