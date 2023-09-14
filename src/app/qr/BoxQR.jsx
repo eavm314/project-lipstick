@@ -10,6 +10,7 @@ import '../globals.css'
 import './qr.css'
 import Link from "next/link";
 import {useProductosCompradosContext } from "../layout";
+import { createCompra } from "@/app/services/axiosAPIServices";
 
 const BoxQR = (props) =>{
    const {showModal} = props
@@ -30,13 +31,13 @@ const BoxQR = (props) =>{
   }
 
   const {productosComprados,setProductosComprados} = useProductosCompradosContext();
-  const click = () =>{
+  const click = (e) =>{
     const sendCompra = async () =>{
       const response = await createCompra(productosComprados);
       console.log(response)
     }
     sendCompra();
-    showModal();
+    showModal(e);
   }
 
     return(
