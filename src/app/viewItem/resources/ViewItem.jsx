@@ -5,10 +5,23 @@ import Stars from "./stars";
 import "../../globals.css"
 import "../resources/paginaIndividual.css"
 import Link from "next/link";
+import { IconContext } from 'react-icons';
+import {BsBagPlus} from "react-icons/bs";
+import { useBolsaComprasContext } from "../../layout";
 
 const em = 16;
 
 export const ViewItem = ({product}) => {
+
+  const {listaBolsaCompras, setListaBolsaCompras} = useBolsaComprasContext()
+
+  const addProduct = () =>{
+    if(listaBolsaCompras.filter((producto) => producto.id === product.id).length===0){
+      const newList = [...listaBolsaCompras, product]
+      setListaBolsaCompras(newList)
+    }
+  }
+
   return (
 
     <div className="relative box-con-equis">
@@ -22,27 +35,28 @@ export const ViewItem = ({product}) => {
       {/* <FontAwesomeIcon icon={faAngleLeft} color="#000000" size="3x" style={{ padding: 10 }} /> */}
       <div className="box-datos-imagen mt-8">
         <div className="imagen-producto-individual">
-          <img src={product.imagen} alt="" />
+          <img src={product?.imagen} alt="" />
         </div>
         <div className="box-datos">
-          <p className="tituloItemIndividual" style={{ fontSize: 2 * em }}>{product.nombre}</p>
-          <div style={{ display: "flex", gap: (0.75 * em) }}>
-            {product.tags.map((tag, index) => <view className="box-tags">
-              <p className="texto-tags-pagina-individual" style={{ fontSize: 1 * em }}>{tag}</p>
-            </view>)}
+          <p className="tituloItemIndividual" style={{ fontSize: "2em" }}>{product?.nombre}</p>
+          <div style={{ display: "flex", gap: "0.75em" }}>
+            {product?.tags?.map((tag, index) => <div className="box-tags">
+              <p className="texto-tags-pagina-individual" style={{ fontSize: "em" }} key={index}>{tag}</p>
+            </div>)}
           </div>
-          <p className="texto-precio-producto-pagina-individual" style={{ fontSize: 1.5 * em }}>$ {product.precio}</p>
-          <p className="texto-cuerpo-pagina-individual" style={{ fontSize: em, maxWidth: (26.5 * em) }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          <p className="texto-precio-producto-pagina-individual" style={{ fontSize: "1.5em"}}>$ {product?.precio?.toFixed(2)}</p>
+          <p className="texto-cuerpo-pagina-individual" style={{ fontSize: em, maxWidth: "26.5em" }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
           <Stars numStar={Math.floor(Math.random() * 5) + 1} />
           <div className="flex flex-col w-1/2 content-center mx-auto">
             
-            <Link
-              href={"/address"}
+            <button
               className="boton-primario w-40 my-5 mx-auto"
+              onClick={addProduct}
             //TODO: llevar a producto individual
             >
-              Comprar
-            </Link>
+              Añadir 
+                <BsBagPlus/>
+            </button>
           </div>
         </div>
 

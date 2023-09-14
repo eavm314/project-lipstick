@@ -38,17 +38,6 @@
     gap: 1.25em;
     background:var(--sec-b-100);
     border: 1px solid #000;
-    background:var(--sec-b-100);
-}
-
-.box-botones{
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    align-content: center;
-    justify-content: center;
-    gap: 2.5em;
-    width: 100%;
 }
 
 .box-auxiliar{
@@ -97,4 +86,16 @@
     background-color: #fff;
     text-align: center;
     display: flex;
+}
+
+.opciones:hover{
+    color: var(--primary-400);
+    text-decoration: underline;
+    cursor:pointer;
+}
+
+.opciones:active{
+    color: var(--primary-def);
+    text-decoration: underline;
+    cursor:pointer;
 }

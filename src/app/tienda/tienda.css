@@ -52,7 +52,7 @@
     width: 9.75em;
     height: 9.75em;
     flex-shrink: 0;
-    object-fit: cover;
+    object-fit: contain;
     background-color: var(--primary-100);
   }
 
@@ -61,28 +61,46 @@
     -webkit-filter: blur(2px);
   }
 
-  .texto-imagen{
-    font-family: var(--texto-font), sans-serif;
-    font-size: 1em;
-    font-weight: var(--weight-regular);
-    text-align: center;
-    color: var(--text-color-default);
-    z-index:1;
-    position:absolute;
-    display: flex;
-    place-self: center;
-    justify-content: center;
-    flex-direction: column;
-    opacity: 100;
+  .filter-bar{
+    width: 83.4%;
+    display:flex;
+    justify-content: left;
+    align-items: center;
+    gap:1em;
+    contain: content;
   }
-
-
-  .icon-boton-producto{
+  
+  .texto-filter-bar{
+    font-family: var(--texto-font), sans-serif;
+    font-weight: var(--weight-light);
+    font-size: 1em;
+    white-space: nowrap;
+    color: var(--primary-100);
+  }
+  
+  .texto-filter-bar:hover{
+    color: var(--primary-300);
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  
+  .icons-filter-bar{
     color: var(--primary-100);
     display:flex;
     flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
-    font-size: 1.25em;
+    gap:1em;
+    font-size: 1.5em;
     width: 100%;
+  }
+  
+  .icons-filter-bar:hover{
+    color: var(--primary-300);
+    cursor: pointer;
+  }
+  
+  .icons-filter-bar:active{
+    color: var(--primary-100);
+    cursor: pointer;
   }

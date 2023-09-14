@@ -7,8 +7,27 @@ import "@fortawesome/fontawesome-svg-core/styles.css";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import Link from "next/link";
 import { createContext, useContext, useState } from 'react';
+import { usePathname } from 'next/navigation';
 
 config.autoAddCss = false;
+
+const BolsaComprasContext = createContext();
+
+export const useBolsaComprasContext = () => {
+  return useContext(BolsaComprasContext);
+};
+
+const ProductosCompradosContext = createContext();
+
+export const useProductosCompradosContext = () => {
+  return useContext(ProductosCompradosContext);
+};
+
+const MetodoPagoContext = createContext();
+
+export const useMetodoPagoContext = () =>{
+  return useContext(MetodoPagoContext);
+}
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -21,12 +40,39 @@ export const metadata = {
 const categorias = ["Todos", "Skin Care", "Labios", "Cabello", "Ojos", "Accesorios", "Piel"];
 
 export default function RootLayout({ children }) {
+  const [listaBolsaCompras, setListaBolsaCompras] = useState([]);
+  const [productosComprados, setProductosComprados] = useState([])
+  const [metodoPago, setMetodoPago] = useState(1);
   const [selectedCategory, setSelectedCategory] = useState("Todos");
+
+  const path = usePathname();
+  
   return (
     <html lang="en">
-      <body>
-      <div className="brand-name">{metadata.brandName}</div>
+      <body style={{backgroundColor: '#F9F8F7'}}>
+        <div className="w-full flex flex-row items-center justify-center" style={{backgroundColor:"var(--primary-def)", gap:"12.25em"}}>
+          <div className="flex flex-row items-center justify-center" style={{width:"33%"}}></div>
+          <div className="brand-name flex-nowrap whitespace-nowrap" style={{width:"33%"}}>{metadata.brandName}</div>
+          <div className="flex flex-row items-center justify-center" style={{width:"33%"}}>
+            
+            {
+              path != "/login" &&
+              <Link href={"/profile"} className="flex p-3 gap-2 flex-nowrap" style={{ maxWidth:"45%", overflow:"hidden", textOverflow:"ellipsis",marginLeft:'12em'}}>
+                <img style={{ width:"2.5em", height: "2.5em", backgroundColor: '#d9d9d9', borderRadius: 100,borderWidth:3, borderColor:"var(--primary-100)",}} src="\tame-impala.jpg" alt="Cliente" />
+                
+              </Link>
+            }
+            
+          </div>
+          
+        </div>
+      <ProductosCompradosContext.Provider value={{productosComprados, setProductosComprados}}>
+      <BolsaComprasContext.Provider value={{listaBolsaCompras, setListaBolsaCompras}}>
+        <MetodoPagoContext.Provider value={{metodoPago, setMetodoPago}}>
       {children}
+      </MetodoPagoContext.Provider>
+      </BolsaComprasContext.Provider>
+      </ProductosCompradosContext.Provider>
       </body>
     </html>
   )
