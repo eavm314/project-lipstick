@@ -3,7 +3,7 @@ import Link from "next/link";
 import HistorialPucharses from "./resources/historialPucharses";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { useRouter } from "next/navigation";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { getUser } from "../services/axiosAPIServices";
 
 const infoData = {
@@ -52,14 +52,20 @@ const infoPerfil = () => {
   const router = useRouter();
 
   const handleSignOut = async () => {
+
     await supabase.auth.signOut();
     router.push('/login');
   }
 
+  const store = () =>{
+    router.push('/tienda');
+  }
+
+  const [user, setUser] = useState(null)
   useEffect(() => {
     const getUserData = async () => {
       const user = await getUser();
-      console.log(user.data);
+      setUser(user.data)
     };
 
     getUserData();
@@ -70,9 +76,9 @@ const infoPerfil = () => {
 
       <div style={{ width: '45.625em', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', borderBottomWidth: 1, borderColor: '#000' }}>
         <h1 className="titulo" style={{ fontSize: '2.25em', marginBottom: '1.5rem', marginTop: '2.5625rem', fontWeight: 'bold' }}>Tu perfil</h1>
-        <img style={{ width: 91, height: 91, backgroundColor: '#d9d9d9', borderRadius: 100, marginBottom: '1.3125em' }} src={infoData.image} alt="Cliente" />
-        <h1 className="texto-normal-semibold" style={{ fontSize: '1.75em', marginBottom: '1.25rem' }}>{infoData.name}</h1>
-        <h1 className="texto-parrafo" style={{ fontSize: '1.125em', marginBottom: '1.375rem' }}>{infoData.email}</h1>
+        <img style={{ width: 91, height: 91, backgroundColor: '#d9d9d9', borderRadius: 100, marginBottom: '1.3125em' }} src={user? user.image : infoData.image} alt={infoData.image} />
+        <h1 className="texto-normal-semibold" style={{ fontSize: '1.75em', marginBottom: '1.25rem' }}>{user? user.name : 'User'}</h1>
+        <h1 className="texto-parrafo" style={{ fontSize: '1.125em', marginBottom: '1.375rem' }}>{user? user.email : 'ejemplo@gmail.com'}</h1>
       </div>
 
       <div style={{ width: '45.625em', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', borderBottomWidth: 1, borderColor: '#000' }}>
@@ -83,19 +89,10 @@ const infoPerfil = () => {
 
             <div style={{ display: 'flex', marginBottom: '1em', width: '41.5em' }}>
               <div style={{ display: 'flex', flex: 1 }}>
-                <h1 className="texto-normal-semibold" style={{ fontSize: '1em' }}>Fecha de Nacimiento</h1>
-              </div>
-              <div style={{ display: 'flex', flex: 1, justifyContent: 'flex-end' }}>
-                <h1 className="texto-parrafo" style={{ fontSize: '1em', display: 'flex' }}>{infoData.birthDay} de {infoData.birthMonth} de {infoData.birthYear}</h1>
-              </div>
-            </div>
-
-            <div style={{ display: 'flex', marginBottom: '1em', width: '41.5em' }}>
-              <div style={{ display: 'flex', flex: 1 }}>
                 <h1 className="texto-normal-semibold" style={{ fontSize: '1em' }}>Teléfono</h1>
               </div>
               <div style={{ display: 'flex', flex: 1, justifyContent: 'flex-end' }}>
-                <h1 className="texto-parrafo" style={{ fontSize: '1em', display: 'flex' }}>{infoData.phone}</h1>
+                <h1 className="texto-parrafo" style={{ fontSize: '1em', display: 'flex' }}>{user? user.phone : '777777'}</h1>
               </div>
             </div>
 
@@ -104,16 +101,7 @@ const infoPerfil = () => {
                 <h1 className="texto-normal-semibold" style={{ fontSize: '1em' }}>Dirección</h1>
               </div>
               <div style={{ display: 'flex', flex: 1, justifyContent: 'flex-end', paddingLeft: '13.75rem' }}>
-                <h1 className="texto-parrafo" style={{ fontSize: '1em', display: 'flex', justifyContent: 'right' }}>{infoData.address}</h1>
-              </div>
-            </div>
-
-            <div style={{ display: 'flex', marginBottom: '1em', width: '41.5em' }}>
-              <div style={{ display: 'flex', flex: 1 }}>
-                <h1 className="texto-normal-semibold" style={{ fontSize: '1em' }}>Contraseña</h1>
-              </div>
-              <div style={{ display: 'flex', flex: 1, justifyContent: 'flex-end' }}>
-                <h1 className="texto-parrafo" style={{ fontSize: '1em', display: 'flex' }}>{infoData.password}</h1>
+                <h1 className="texto-parrafo" style={{ fontSize: '1em', display: 'flex', justifyContent: 'right', textAlign:"right" }}>{user? user.city+"-"+user.district+", Z."+user.zone+", "+user.address : 'LP-S, Z. S, Los Rosales, Achumani, Calle 5 Nro. 2475'}</h1>
               </div>
             </div>
 
@@ -154,6 +142,11 @@ const infoPerfil = () => {
         onClick={handleSignOut}
         className="boton-advertencia w-175 " style={{ marginBottom: '2.25rem', marginTop: '9.1875em' }}>
         Cerrar Sesion
+      </button>
+      <button
+        onClick={store}
+        className="boton-primario w-175 " style={{ marginBottom: '2.25rem' }}>
+        Volver a Tienda
       </button>
     </div>
   )

@@ -6,7 +6,8 @@ import { Inter } from 'next/font/google'
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import Link from "next/link";
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useState, useEffect } from 'react';
+import { updateUser, getUser } from "@/app/services/axiosAPIServices";
 import { usePathname } from 'next/navigation';
 
 config.autoAddCss = false;
@@ -46,6 +47,16 @@ export default function RootLayout({ children }) {
   const [selectedCategory, setSelectedCategory] = useState("Todos");
 
   const path = usePathname();
+
+  const [user, setUser] = useState(null)
+  useEffect(() => {
+    const getUserData = async () => {
+      const user = await getUser();
+      setUser(user.data)
+    };
+
+    getUserData();
+  },[])
   
   return (
     <html lang="en">
@@ -58,7 +69,7 @@ export default function RootLayout({ children }) {
             {
               path != "/login" &&
               <Link href={"/profile"} className="flex p-3 gap-2 flex-nowrap" style={{ maxWidth:"45%", overflow:"hidden", textOverflow:"ellipsis",marginLeft:'12em'}}>
-                <img style={{ width:"2.5em", height: "2.5em", backgroundColor: '#d9d9d9', borderRadius: 100,borderWidth:3, borderColor:"var(--primary-100)",}} src="\tame-impala.jpg" alt="Cliente" />
+                <img style={{ width:"2.5em", height: "2.5em", backgroundColor: '#d9d9d9', borderRadius: 100,borderWidth:3, borderColor:"var(--primary-100)",}} src={user? user.image : "\tame-impala.jpg"} alt="Cliente" />
                 
               </Link>
             }

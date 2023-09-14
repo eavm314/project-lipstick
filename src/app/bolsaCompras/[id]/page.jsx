@@ -75,11 +75,6 @@ const dataPrueba = {
         );
         setProductosComprados(listaCompras);
         setListaBolsaCompras([]);
-        const sendCompra = async () =>{
-            const response = await createCompra(listaCompras);
-            console.log(response)
-        }
-        sendCompra();
     }
     const setCantidadProducto = (id, cantidad) =>{
         const aux = getProductById(id);
