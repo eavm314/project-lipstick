@@ -46,7 +46,7 @@ export const ViewItem = ({product}) => {
           </div>
           <p className="texto-precio-producto-pagina-individual" style={{ fontSize: "1.5em"}}>$ {product?.precio?.toFixed(2)}</p>
           <p className="texto-cuerpo-pagina-individual" style={{ fontSize: em, maxWidth: "26.5em" }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-          <Stars numStar={Math.floor(Math.random() * 5) + 1} />
+          <Stars numStar={product ? product.calificacion : Math.floor(Math.random() * 5) + 1} />
           <div className="flex flex-col w-1/2 content-center mx-auto">
             
             <button

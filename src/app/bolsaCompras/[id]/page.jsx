@@ -15,8 +15,7 @@ import { listaUsuarios } from "@/data/listaUsuarios";
 import { useBolsaComprasContext, useProductosCompradosContext } from "../../layout";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleLeft, faAngleRight} from "@fortawesome/free-solid-svg-icons";
-import { createCompra } from "@/app/services/axiosAPIServices";
-
+import { getProducts } from "@/app/services/axiosAPIServices";
 
 const dataPrueba = {
     imagen: "",
@@ -36,14 +35,11 @@ const dataPrueba = {
         const data = listaUsuarios.filter((user)=> user.id==id)[0];
         return data
     }
-    const getProducts = (idList) => {
-      const data = listaProductos.filter((p) => idList.includes(p.id));
-      return data; //getProducts(user.productosCarrito)
-    }
     const [user, setUser] = useState(getUser(params.id))
     const [products, setProducts] = useState(listaBolsaCompras.map((product) =>{ const newProduct = { product: product, cantidad: 1}; return newProduct}));
     const [cantidadItems, setCantidadItems] = useState(listaBolsaCompras.length);
     const [totalProducto, setTotalProducto] = useState([]);
+    const [productosTienda, setProductosTienda] = useState(null);
     useEffect(() => {
         setTotalProducto(products.map(product => {
             const productIdPrecio = {
@@ -52,6 +48,11 @@ const dataPrueba = {
             }
             return productIdPrecio
         }));
+        const productosTienda = async ()  =>{
+            const data = await getProducts();
+            setProductosTienda(data.data);
+        }
+        productosTienda();
       }, []);
     const calcTotalProducto = (idProduct, newPrecio) => {
         const newProduct ={ id:idProduct, precio:newPrecio}
@@ -59,7 +60,7 @@ const dataPrueba = {
         setTotalProducto(newTotalProducto)
     }
     const getProductById = (id) =>{
-        const data = listaProductos.filter((product) => product.id === id)[0];
+        const data = productosTienda.filter((product) => product.id === id)[0];
         return data
     }
     const paraResumenCompra = () =>{
