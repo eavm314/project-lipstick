@@ -95,7 +95,7 @@ const BoxTarjeta = (props) => {
                     </div>
                     {(!validNombre || !validApellido) ? <div className="texto-normal font-normal flex flex-row items-center justify-center w-full gap-8" style={{fontSize:"1em", color:"var(--sec-a-300)"}}>Debe llenar ambos campos</div> : <></>}
             </div>
-            <button className="boton-primario flex items-center justify-center" onClick={showModal}>Realizar el Pago</button>
+            <button className="boton-primario flex items-center justify-center" onClick={showModal} id="realizarPago">Realizar el Pago</button>
         </div>
         </form>
         </div>

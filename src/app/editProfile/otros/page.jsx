@@ -6,24 +6,12 @@ import '../../tienda/tienda.css'
 import '../../viewItem/resources/paginaIndividual.css'
 import Dropdown from '../../address/Dropdown'
 import Link from "next/link";
-import { updateUser } from "@/app/services/axiosAPIServices";
+import { updateUser, getUser } from "@/app/services/axiosAPIServices";
 import { appendErrors, useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
 import { textValidator } from "@/data/validatorText";
 
 const FinCompraPage = () => {
-
-  useEffect(() => {
-    const pruebaUser = {
-      address: "hola es un address de nuevo"
-    }
-    const updateUserData = async () => {
-      const user = await updateUser(pruebaUser);
-      console.log(user);
-    }
-
-    updateUserData();
-  }, [])
 
   const optionsCiudad = [
     { label: 'La Paz', value: 'LP' },
@@ -42,11 +30,11 @@ const FinCompraPage = () => {
     { label: 'Max Paredes', value: 'MP' },
     { label: 'Cotahuma', value: 'C' }
   ]
-  const [ciudad, setCiudad] = useState('LP');
+  const [ciudad, setCiudad] = useState(null);
   const [zonas, setZonas] = useState(zonasLaPaz);
-  const [zona, setZona] = useState('S');
+  const [zona, setZona] = useState(null);
   const [distritos, setDistritos] = useState(distritosLaPaz);
-  const [distrito, setDistrito] = useState('S')
+  const [distrito, setDistrito] = useState(null)
 
   const changeCiudad = (event) => {
     setCiudad(event.target.value);
@@ -58,13 +46,41 @@ const FinCompraPage = () => {
     setDistrito(event.target.value);
   };
 
-  const { register, formState: { errors }, handleSubmit } = useForm();
+  const { register, formState: { errors }, handleSubmit, getValues} = useForm();
 
   const router = useRouter()
   const onSubmit = (data) => {
-    console.log(data);
+    const updatedUser ={
+      name: data.updateNombre+" "+data.updateApellido,
+      address: data.updateDireccion,
+      phone: data.updateTelefono,
+      city: ciudad,
+      district: distrito,
+      zone: zona
+    }
+    console.log(updatedUser)
+    const updateUserData = async () => {
+      const user = await updateUser(updatedUser);
+      console.log(user);
+    }
+    updateUserData();
     router.push('/profile')
   };
+
+  const [user, setUser] = useState([])
+
+  useEffect(() => {
+    const getUserData = async () => {
+      const user = await getUser();
+      setUser(user.data)
+      setCiudad(user.data.city);
+      setZona(user.data.zone);
+      setDistrito(user.data.district)
+    };
+
+    getUserData();
+  },[])
+
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="w-full items-center justify-center text-center px-56 py-12 flex flex-col" style={{ backgroundColor: "var(--primary--100)" }}>
@@ -123,14 +139,14 @@ const FinCompraPage = () => {
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: "2em", width: "100%" }}>
 
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', width: "50%", gap: "1.75em" }}>
-              <Dropdown label="Ciudad" options={optionsCiudad} value={ciudad} onChange={changeCiudad} />
+              {ciudad? <Dropdown label="Ciudad" options={optionsCiudad} value={ciudad} onChange={changeCiudad} />: <></>}
 
-              <Dropdown label="Distrito" options={distritos} value={distrito} onChange={changeDistrito} />
+              {distrito? <Dropdown label="Distrito" options={distritos} value={distrito} onChange={changeDistrito} />: <></>}
             </div>
 
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', width: "50%", gap: "1.75em" }}>
 
-              <Dropdown label="Zona" options={zonas} value={zona} onChange={changeZona} />
+              {zona? <Dropdown label="Zona" options={zonas} value={zona} onChange={changeZona} /> : <></>}
 
               <div style={{ display: "flex", width: "100%", flexDirection: "column", gap: "0.75em" }}>
                 <label className="texto-normal" style={{ fontSize: "1.25em" }} >Teléfono</label>
@@ -141,10 +157,12 @@ const FinCompraPage = () => {
                   placeholder="76689451"
                   {...register('updateTelefono', {
                     required: true,
-                    maxLength: 8
+                    maxLength: 8,
+                    minLength: 6
                   })} />
                 {errors.updateTelefono?.type === 'required' && <h1 style={{ fontWeight: 500, color: 'red' }}>*campo obligatorio</h1>}
                 {errors.updateTelefono?.type === 'maxLength' && <h1 style={{ fontWeight: 500, color: 'red' }}>8 caracteres como máximo permitido</h1>}
+                {errors.updateTelefono?.type === 'minLength' && <h1 style={{ fontWeight: 500, color: 'red' }}>6 caracteres como mínimo</h1>}
               </div>
             </div>
           </div>

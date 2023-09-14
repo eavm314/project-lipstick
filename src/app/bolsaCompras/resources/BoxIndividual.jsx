@@ -33,6 +33,7 @@ const BoxIndividual = (props) =>{
         const newList = listaBolsaCompras.filter((producto) => producto.id !== product.product.id);
         const otherNewList = products.filter((producto) => producto.product.id !== product.product.id);
         setListaBolsaCompras(newList);
+        setCantidadProducto(product.product.id, 0)
         setProducts(otherNewList);
         calcTotalProducto(product.product.id, 0);
         setCantidadItems(cantidadItems-1);
@@ -41,21 +42,21 @@ const BoxIndividual = (props) =>{
         <div className={"box-producto-individual"} style={{paddingRight:"1em"}}>
                 <div className="p-4 flex w-3/6 gap-4 flex-wrap flex-row items-center justify-center" style={{backgroundColor:"var(--gris-200)"}}>
                     <div className="imagen-box-producto">
-                        <img src={product.product.imagen} alt="" />
+                        <img src={product.product?.imagen} alt="" />
                     </div>
                     <div className="flex flex-col gap-5 w-3/4">
                         <div className={"texto-normal"+"flex flex-wrap"}
                             style={{fontSize:"1em", fontWeight:"var(--weight-medium)"}}>
-                            {product.product.nombreLargo}
+                            {product.product?.nombreLargo}
                         </div>
                         <div className="texto-tags-producto-tienda" style={{fontSize:"1em"}}>
-                            ${product.product.precio?.toFixed(2)}
+                            ${product.product?.precio?.toFixed(2)}
                         </div>
                     </div>
                 </div>
                 <BoxCantidad key={0} productId={product.product.id} cantidad={product.cantidad} setCantidadProducto={setCantidadProducto} cantidadView={cantidad} setCantidadView={setCantidad}/>
                 <div className={"texto-normal"+" font-normal flex"} style={{fontSize:"1.25em", width:"12.5%", justifyContent:"right"}}>${totalProducto().toFixed(2)}</div>
-                <IconContext.Provider value={{ className:"icon-bolsa-compras"}}><BsTrash3Fill style={{fontSize:"1.25em"}} onClick={eliminarProducto}/></IconContext.Provider>
+                <IconContext.Provider value={{ className:"icon-bolsa-compras"}}><BsTrash3Fill style={{fontSize:"1.25em"}} onClick={eliminarProducto} id="eliminarProducto"/></IconContext.Provider>
                 
         </div>
     );

@@ -57,7 +57,7 @@ export default function ItemPage({ params }) {
         </div>
       </div>
     <div style={{ flex: 1, backgroundColor: "var(--primary-100)", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: 'center', padding: "4em", gap: "2.5em" }}>
-      <ViewItem product={product} />
+      <ViewItem product={product} id="viewItem"/>
       <div>
         <div className="conjunto-productos">
           {recomendados?.map((producto, index) =>

@@ -9,6 +9,7 @@ import {
 import '../globals.css'
 import './qr.css'
 import Link from "next/link";
+import {useProductosCompradosContext } from "../layout";
 
 const BoxQR = (props) =>{
    const {showModal} = props
@@ -28,13 +29,23 @@ const BoxQR = (props) =>{
     setClicked(!clicked);
   }
 
+  const {productosComprados,setProductosComprados} = useProductosCompradosContext();
+  const click = () =>{
+    const sendCompra = async () =>{
+      const response = await createCompra(productosComprados);
+      console.log(response)
+    }
+    sendCompra();
+    showModal();
+  }
+
     return(
         <div className="box-con-botones" id="principal">
             <div className="box-imagen-texto">
               <div className="box-texto">
                 {instrucciones.map((instruccion, index) => <p className="texto-parrafo" key={index}>{index + 1}. {instruccion} </p>)}
               </div>
-              <button className="imagen-qr" onClick={showModal}>
+              <button className="imagen-qr" onClick={click} id="realizarPago">
                 <img src={qr} alt="" id="qr" />
               </button>
             </div>
