@@ -5,6 +5,7 @@ import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { getUser } from "../services/axiosAPIServices";
+import { useBolsaComprasContext } from "../layout";
 
 const infoData = {
   name: "Dylan Jitton",
@@ -47,12 +48,13 @@ const infoData = {
 
 
 const infoPerfil = () => {
+  const {listaBolsaCompras, setListaBolsaCompras} = useBolsaComprasContext()
   const supabase = createClientComponentClient();
 
   const router = useRouter();
 
   const handleSignOut = async () => {
-
+    setListaBolsaCompras([]);
     await supabase.auth.signOut();
     router.push('/login');
   }
