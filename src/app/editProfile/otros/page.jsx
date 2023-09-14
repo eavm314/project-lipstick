@@ -73,9 +73,16 @@ const FinCompraPage = () => {
     const getUserData = async () => {
       const user = await getUser();
       setUser(user.data)
-      setCiudad(user.data.city);
-      setZona(user.data.zone);
-      setDistrito(user.data.district)
+      if(user.data.city===null && user.data.zone===null && user.data.district){
+        setCiudad('LP');
+        setZona('S');
+        setDistrito('S')
+      } else{
+        setCiudad(user.data.city);
+        setZona(user.data.zone);
+        setDistrito(user.data.district)
+      }
+      
     };
 
     getUserData();
