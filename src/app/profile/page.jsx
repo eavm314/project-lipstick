@@ -77,7 +77,7 @@ const infoPerfil = () => {
 
     getUserData();
   },[])
-  console.log(compra);
+  console.log(compras);
 
   return (
     <div style={{ backgroundColor: '#f9f8f7', display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column' }}>
@@ -134,7 +134,7 @@ const infoPerfil = () => {
             compras? compras.map((paquete, index)=>{
               return (
                 <HistorialPucharses
-                  code={'#'+paquete.id.slice(0,6)}
+                  code={paquete.id.slice(0,6)}
                   total={paquete.total_price}
                   productos={paquete.producto_comprado}
                   key={index}

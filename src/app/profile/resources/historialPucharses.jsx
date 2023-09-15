@@ -23,16 +23,16 @@ const HistorialPucharses = (props) => {
 
       <div style={{ width: "100%", margin: '4.25em', marginTop: '1.375em', marginBottom: '1.375em', display: 'flex', flexDirection: 'column', marginLeft: '2em' }}>
         
-              <div className="items-center justify-center text-center w-full flex flex-col gap-5" style={{borderBottomWidth: 1, borderColor: '#000', paddingBottom:"1.75em"}}>
+              <div className="items-center justify-center w-full flex flex-col gap-5" style={{borderBottomWidth: 1, borderColor: '#000', paddingBottom:"1.75em"}}>
                 {purchasesHistorial.productos.map(paquete => 
-                    <div className="flex flex-row w-2/3 items-center justify-center gap-4">
-                        <div className="texto-normal font-medium text-left w-2/4" style={{fontSize:"1.25em"}}>
+                    <div className="flex flex-row w-full items-center gap-2" style={{padding:"0 3.5em 0 0"}}>
+                        <div className="flex texto-normal font-normal text-left w-2/4 justify-start" style={{fontSize:"1em"}}>
                             {paquete.producto.nombreLargo}
                         </div>
-                        <div className="texto-normal font-normal text-center w-1/4" style={{fontSize:"1.25em"}}>
+                        <div className="flex texto-normal font-normal text-right w-1/4 justify-end" style={{fontSize:"1.25em"}}>
                             {paquete.cantidad}u
                         </div>
-                        <div className="texto-normal font-normal text-right w-1/4" style={{fontSize:"1.25em"}}>
+                        <div className="flex texto-normal font-normal text-right w-1/4 justify-end" style={{fontSize:"1em"}}>
                             ${paquete.producto.precio*paquete.cantidad}
                         </div>
                     </div>
