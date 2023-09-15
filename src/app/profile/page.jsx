@@ -66,27 +66,17 @@ const infoPerfil = () => {
   }
 
   const [user, setUser] = useState(null)
+  const [compras, setCompras] = useState(null)
   useEffect(() => {
     const getUserData = async () => {
       const user = await getUser();
       setUser(user.data)
+      const compras = await getCompra();
+      setCompras(compras.data)
     };
 
     getUserData();
   },[])
-
-
-  const [compra, setCompra] = useState([]);
-  useEffect(() => {
-    
-    const getCompras = async() =>{
-      const compra = await getCompra();
-      console.log(compra)
-      setCompra(compra.data);
-      
-    }
-    getCompras();
-  }, []);
   console.log(compra);
 
   return (
@@ -119,7 +109,7 @@ const infoPerfil = () => {
                 <h1 className="texto-normal-semibold" style={{ fontSize: '1em' }}>Dirección</h1>
               </div>
               <div style={{ display: 'flex', flex: 1, justifyContent: 'flex-end', paddingLeft: '13.75rem' }}>
-                <h1 className="texto-parrafo" style={{ fontSize: '1em', display: 'flex', justifyContent: 'right', textAlign:"right" }}>{user? user.city+"-"+user.district+", Z."+user.zone+", "+user.address : 'LP-S, Z. S, Los Rosales, Achumani, Calle 5 Nro. 2475'}</h1>
+                <h1 className="texto-parrafo" style={{ fontSize: '1em', display: 'flex', justifyContent: 'right', textAlign:"right" }}>{user? (user.city ? user.city : 'LP')+"-"+(user.district ? user.district : 'S')+", Z."+(user.zone ? user.zone : 'S')+", "+(user.address ? user.address : 'N/A') : 'LP-S, Z. S, Los Rosales, Achumani, Calle 5 Nro. 2475'}</h1>
               </div>
             </div>
 
@@ -141,11 +131,12 @@ const infoPerfil = () => {
         <div style={{ width: '45.625em', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', justifyContent: 'flex-start' }}>
           <h1 className="titulo" style={{ fontSize: '1.5em', marginBottom: '0.5rem', marginTop: '1rem', marginLeft: '0.375em', fontWeight: 'normal' }}>Historial de Compras</h1>
           {
-            compra? compra.map((item, index)=>{
+            compras? compras.map((paquete, index)=>{
               return (
                 <HistorialPucharses
-                  code={item.id}
-                  total={item.total_price}
+                  code={'#'+paquete.id.slice(0,6)}
+                  total={paquete.total_price}
+                  productos={paquete.producto_comprado}
                   key={index}
                 />)
             }):<div className="texto-normal w-full text-4xl py-16 px-90 text-slate-400 text-center">No se ha realizado Niguna Compra</div>
