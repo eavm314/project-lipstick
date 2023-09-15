@@ -81,7 +81,7 @@ const infoPerfil = () => {
     
     const getCompras = async() =>{
       const compra = await getCompra();
-     
+      console.log(compra)
       setCompra(compra.data);
       
     }

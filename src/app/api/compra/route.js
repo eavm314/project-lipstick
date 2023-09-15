@@ -27,6 +27,7 @@ export async function GET() {
     
     try {
         const compra = await getCompras();
+        // console.log(compra)
         return NextResponse.json({
             message: "data retrieved successfully",
             status: 200,
