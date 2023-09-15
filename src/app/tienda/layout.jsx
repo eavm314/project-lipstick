@@ -26,11 +26,6 @@ export default function NavBarLayout({ children }) {
   return (
     <div>
       <div className="navigation-bar">
-        <Link href={"/"}
-        //TODO: LLEVAR A PAGINA DE INICIO
-        >
-          <p className={"texto-navigation-bar"}>Inicio</p>
-        </Link>
         {
           categorias.map((categoria, index) =>
             <p
