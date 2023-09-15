@@ -16,8 +16,12 @@ export const ViewItem = ({product}) => {
   const {listaBolsaCompras, setListaBolsaCompras} = useBolsaComprasContext()
 
   const addProduct = () =>{
-    if(listaBolsaCompras.filter((producto) => producto.id === product.id).length===0){
-      const newList = [...listaBolsaCompras, product]
+    if(listaBolsaCompras.filter((producto) => producto.product.id === product.id).length===0){
+      const paquete = {
+        product: product,
+        cantidad: 1
+      }
+      const newList = [...listaBolsaCompras, paquete]
       setListaBolsaCompras(newList)
     }
   }

@@ -36,7 +36,7 @@ const dataPrueba = {
         return data
     }
     const [user, setUser] = useState(getUser(params.id))
-    const [products, setProducts] = useState(listaBolsaCompras.map((product) =>{ const newProduct = { product: product, cantidad: 1}; return newProduct}));
+    const [products, setProducts] = useState(listaBolsaCompras);
     const [cantidadItems, setCantidadItems] = useState(listaBolsaCompras.length);
     const [totalProducto, setTotalProducto] = useState([]);
     const [productosTienda, setProductosTienda] = useState(null);
@@ -44,7 +44,7 @@ const dataPrueba = {
         setTotalProducto(products.map(product => {
             const productIdPrecio = {
                 id:product.product.id,
-                precio:product.product.precio
+                precio:product.product.precio*product.cantidad
             }
             return productIdPrecio
         }));
@@ -76,6 +76,7 @@ const dataPrueba = {
         );
         setProductosComprados(listaCompras);
         setListaBolsaCompras([]);
+        console.log(listaCompras)
     }
     const setCantidadProducto = (id, cantidad) =>{
         const aux = getProductById(id);
@@ -85,6 +86,7 @@ const dataPrueba = {
         }
         const newProducts = products.map((product) => product.product.id === id ? newProduct : product)
         setProducts(newProducts)
+        setListaBolsaCompras(newProducts.filter((product) => product.cantidad!==0));
     }
     return (
       <div style={{ flex: 1, backgroundColor: "var(--sec-b-100)", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: 'center', padding: "3.5% 20%"}}>

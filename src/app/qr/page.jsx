@@ -15,8 +15,11 @@ import BoxTarjeta from "./BoxTarjeta";
 import { useMetodoPagoContext } from "../layout";
 import { useRouter } from "next/navigation";
 import Modal from 'react-modal';
+import { createCompra } from "@/app/services/axiosAPIServices";
+import { useProductosCompradosContext } from "../layout";
 
 const QRPage = () => {
+  const {productosComprados} = useProductosCompradosContext();
   const { metodoPago, setMetodoPago } = useMetodoPagoContext();
   const [imageIndex, setImageIndex] = useState(2);
   const em = 16;
@@ -68,6 +71,11 @@ const QRPage = () => {
     const goToTienda = () => {
       router.push('/tienda')
     }
+    const enviarCompra = async () =>{
+      const data = await createCompra(productosComprados)
+      console.log(data)
+    }
+    enviarCompra()
     setTimeout(goToTienda, 1500);
 }
 
