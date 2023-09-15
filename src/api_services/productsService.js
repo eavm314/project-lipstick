@@ -3,6 +3,7 @@ import { cookies } from "next/headers";
 
 const tableName = 'producto';
 
+
 export const getProducts = async () => {
     const supabase = createServerComponentClient({cookies})
 
@@ -18,3 +19,9 @@ export const getProductById = async (id) => {
     
     return data[0];
 }
+
+
+
+
+
+

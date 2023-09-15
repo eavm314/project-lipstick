@@ -6,6 +6,8 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { getUser } from "../services/axiosAPIServices";
 import { useBolsaComprasContext } from "../layout";
+import { getCompra } from "../services/axiosAPIServices";
+
 
 const infoData = {
   name: "Dylan Jitton",
@@ -73,6 +75,20 @@ const infoPerfil = () => {
     getUserData();
   },[])
 
+
+  const [compra, setCompra] = useState([]);
+  useEffect(() => {
+    
+    const getCompras = async() =>{
+      const compra = await getCompra();
+     
+      setCompra(compra.data);
+      
+    }
+    getCompras();
+  }, []);
+  console.log(compra);
+
   return (
     <div style={{ backgroundColor: '#f9f8f7', display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column' }}>
 
@@ -125,7 +141,16 @@ const infoPerfil = () => {
         <div style={{ width: '45.625em', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', justifyContent: 'flex-start' }}>
           <h1 className="titulo" style={{ fontSize: '1.5em', marginBottom: '0.5rem', marginTop: '1rem', marginLeft: '0.375em', fontWeight: 'normal' }}>Historial de Compras</h1>
           {
-            infoData.pucharsesHistorial.length!==0?
+            compra? compra.map((item, index)=>{
+              return (
+                <HistorialPucharses
+                  code={item.id}
+                  total={item.total_price}
+                  key={index}
+                />)
+            }):<div className="texto-normal w-full text-4xl py-16 px-90 text-slate-400 text-center">No se ha realizado Niguna Compra</div>
+
+            /*infoData.pucharsesHistorial.length!==0?
               infoData.pucharsesHistorial.map((item,index) => {
               return (
                 <HistorialPucharses
@@ -134,7 +159,7 @@ const infoPerfil = () => {
                   key={index}
                 />)
               }):<div className="texto-normal w-full text-4xl py-16 px-90 text-slate-400 text-center">No se ha realizado Niguna Compra</div>
-            
+            */
             }
 
         </div>
@@ -151,7 +176,9 @@ const infoPerfil = () => {
         Volver a Tienda
       </button>
     </div>
+    
   )
+  
 }
 
 export default infoPerfil
