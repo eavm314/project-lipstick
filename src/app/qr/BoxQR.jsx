@@ -32,11 +32,6 @@ const BoxQR = (props) =>{
 
   const {productosComprados,setProductosComprados} = useProductosCompradosContext();
   const click = (e) =>{
-    const sendCompra = async () =>{
-      const response = await createCompra(productosComprados);
-      console.log(response)
-    }
-    sendCompra();
     showModal(e);
   }
 
