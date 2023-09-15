@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../../globals.css"
 import '../../tienda/tienda.css'
 import './bolsaCompras.css'
@@ -24,6 +24,11 @@ const BoxCantidad = (props) =>{
             setCantidadProducto(productId,cantidadView-1)
         }
     }
+
+    useEffect(() => {
+        setCantidadView(cantidad);
+    },[cantidad]);
+
     return(
         <div className={"box-cantidad"}>
                 <FaMinus className="icon-bolsa-compras" style={{fontSize:(1.5*em)}} onClick={disminuir} id="less"/>
