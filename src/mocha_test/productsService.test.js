@@ -1,31 +1,57 @@
-import { getProductById } from "../api_services/productsService.js";
-import chai from "chai"
+import { createClient } from '@supabase/supabase-js';
+import { expect } from 'chai';
 
-const expect = chai.expect;
+const NEXT_PUBLIC_SUPABASE_URL = "https://wlcwonwprftismlrkejl.supabase.co"
+const NEXT_PUBLIC_SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndsY3dvbndwcmZ0aXNtbHJrZWpsIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTI1ODkyNTQsImV4cCI6MjAwODE2NTI1NH0.Y0DVWsZF8xCmH53A1QcPQFLIb_ihE6wVJ9F9YtbGh-A"
 
-describe("getProductByIdTest", () => {
+const supabase = createClient(NEXT_PUBLIC_SUPABASE_URL, NEXT_PUBLIC_SUPABASE_ANON_KEY);
 
-    it("should fetch a product from the database", async () => {
-        const id = 5;
+describe('Unit Test: Supabase', () => {
+    const testData = {
+        id: 50,
+        nombre: 'Producto prueba',
+        precio: 200,
+        cantidad: 10,
+        calificacion: 5,
+        imagen: "example"
+    };
 
-        const product = await getProductById(id);
+    it('Debe insertar un nuevo producto en supabase', async () => {
+        const { data, error } = await supabase
+            .from('producto')
+            .insert(testData);
 
-        expect(product).to.have.property("id");
-        expect(product.id).eq(id);
+        console.log(error);
+        expect(error).to.be.null;
+    })
 
-        expect(product).to.have.property("nombre");
-        expect(product.nombre).to.be.a("string");
+    it('Verifica que el nuevo producto se encuentra en supabase', async () => {
 
-        expect(product).to.have.property("nombreLargo");
-        expect(product).to.have.property("descripcion");
-        expect(product).to.have.property("categoria");
+        const { data, error } = await supabase
+            .from('producto')
+            .select('id, nombre, precio, cantidad, calificacion, imagen')
+            .eq('id', testData.id);
 
-        expect(product).to.have.property("precio");
-        expect(product.precio).to.be.a("number");
+        expect(error).to.be.null;
 
-        expect(product).to.have.property("tags");
-        expect(product.tags).to.be.an("array");
-
+        expect(data).to.deep.equal([testData]);
     });
 
+    it('Verifica que el producto se ha borrado de supabase', async () => {
+
+        const { data, error } = await supabase
+            .from('producto')
+            .delete()
+            .eq('id', testData.id)
+            .select();
+
+        expect(error).to.be.null;
+
+        const { data: newData } = await supabase
+            .from('producto')
+            .select('id, nombre, precio, cantidad, calificacion, imagen')
+            .eq('id', testData.id);
+        
+        expect(newData).to.deep.equal([]);
+    });
 });

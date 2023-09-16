@@ -8,7 +8,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "mocha": "mocha -r dotenv/config src/mocha_test/**/*.test.js dotenv_config_path=./.env.local --exit"
+    "mocha": "mocha src/mocha_test/**/*.test.js --exit"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.4.2",
