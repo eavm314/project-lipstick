@@ -14,15 +14,15 @@ export async function GET(request) {
         await supabase.auth.exchangeCodeForSession(code)
 
         const {data: {user}} = await supabase.auth.getUser();
-        // console.log(user)
-        const userInfo = {
+        console.log(user)
+       /* const userInfo = {
             id: user.id,
             email: user.email,
             name: user.user_metadata.name,
             image: user.user_metadata.picture,
         };
 
-        const {data, error} = await supabase.from("user").insert(userInfo);
+        const {data, error} = await supabase.from("user").insert(userInfo);*/
     }
 
     // URL to redirect to after sign in process completes

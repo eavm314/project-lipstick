@@ -1,27 +1,20 @@
 "use client"
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import React from "react";
-import Image from 'next/image'
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faMagnifyingGlass,
-  faCircleStop
-} from "@fortawesome/free-solid-svg-icons";
 import '../globals.css'
 import './qr.css'
-import Link from "next/link";
 import Dropdown from "../address/Dropdown";
-import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
-import { useRouter } from "next/navigation";
-import { appendErrors, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { tarjetaValidator, textValidator, ccvValidator } from '@/data/validatorText';
+import PropTypes from 'prop-types';
+
 
 const BoxTarjeta = (props) => {
     
     const { register, formState: { errors }, handleSubmit } = useForm();
-    const {numTarjeta, setNumTarjeta, validNumTarjeta, setValidNumTarjeta, setCodigoCCV,
-         validCCV, setNombre, validNombre, setApellido, validApellido, evaluate, showModal} = props;
+    const {/*numTarjeta, setNumTarjeta, validNumTarjeta, setValidNumTarjeta, setCodigoCCV,
+         validCCV, setNombre,*/ validNombre, /*setApellido,*/ validApellido,/* evaluate,*/ showModal} = props;
     const opcionesTarjeta = [
         {label: "Crédito", value:"cred"},
         {label: "Débito", value:"deb"}
@@ -30,7 +23,7 @@ const BoxTarjeta = (props) => {
     const changeTipoTarjeta = (event) => {
         setTipoTarjeta(event.target.value);
     };
-    const router = useRouter()
+    //const router = useRouter()
   const onSubmit = (data, e) => {
     console.log(data);
     showModal(e);
@@ -147,5 +140,14 @@ const BoxTarjeta = (props) => {
         </div>
     )
 }
+
+
+
+BoxTarjeta.propTypes = {
+    validNombre: PropTypes.bool.isRequired,
+    validApellido: PropTypes.bool.isRequired,
+    showModal: PropTypes.func.isRequired,
+  };
+
 
 export default BoxTarjeta;

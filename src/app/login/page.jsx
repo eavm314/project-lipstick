@@ -1,8 +1,5 @@
 "use client";
-import React, { useState } from "react";
-import Link from "next/link";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import React from "react";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 
 export default function Login() {

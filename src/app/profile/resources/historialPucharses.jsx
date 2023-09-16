@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const HistorialPucharses = (props) => {
 
@@ -24,8 +25,8 @@ const HistorialPucharses = (props) => {
       <div style={{ width: "100%", margin: '4.25em', marginTop: '1.375em', marginBottom: '1.375em', display: 'flex', flexDirection: 'column', marginLeft: '2em' }}>
         
               <div className="items-center justify-center w-full flex flex-col gap-5" style={{borderBottomWidth: 1, borderColor: '#000', paddingBottom:"1.75em"}}>
-                {purchasesHistorial.productos.map(paquete => 
-                    <div className="flex flex-row w-full items-center gap-2" style={{padding:"0 3.5em 0 0"}}>
+                {purchasesHistorial.productos.map((paquete, index) => 
+                    <div key={index} className="flex flex-row w-full items-center gap-2" style={{padding:"0 3.5em 0 0"}}>
                         <div className="flex texto-normal font-normal text-left w-2/4 justify-start" style={{fontSize:"1em"}}>
                             {paquete.producto.nombreLargo}
                         </div>
@@ -54,5 +55,21 @@ const HistorialPucharses = (props) => {
     </div>
   )
 }
+
+
+HistorialPucharses.propTypes = {
+  code: PropTypes.string.isRequired, // 'code' debe ser una cadena y es obligatorio.
+  total: PropTypes.number.isRequired, // 'total' debe ser un número y es obligatorio.
+  productos: PropTypes.arrayOf(
+    PropTypes.shape({
+      producto: PropTypes.shape({
+        nombreLargo: PropTypes.string.isRequired, // 'nombreLargo' debe ser una cadena y es obligatorio.
+        precio: PropTypes.number.isRequired, // 'precio' debe ser un número y es obligatorio.
+      }).isRequired,
+      cantidad: PropTypes.number.isRequired, // 'cantidad' debe ser un número y es obligatorio.
+    })
+  ).isRequired,
+};
+
 
 export default HistorialPucharses

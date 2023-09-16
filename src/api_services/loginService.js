@@ -32,7 +32,7 @@ export const signIn = async (email, password) => {
 export const signInGoogle = async () => {
     console.log("sign in google");
     // console.log(supabase);
-
+    const supabase = createServerComponentClient({cookies})
     const { data, error } = await supabase.auth.signInWithOAuth({
         provider: 'google',
     });

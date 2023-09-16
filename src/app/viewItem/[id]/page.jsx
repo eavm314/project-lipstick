@@ -1,36 +1,27 @@
 "use client"
+import React from 'react';
 import { useEffect, useState } from "react";
 import { ViewItem } from "../resources/ViewItem";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { BotonProducto } from "../../tienda/ComponentesTienda";
-import { faAngleLeft, faAngleRight, faXmark } from "@fortawesome/free-solid-svg-icons";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import { config } from "@fortawesome/fontawesome-svg-core";
-import { listaProductos } from "@/data/listaProductos";
 import Link from "next/link";
 import {BsBag} from "react-icons/bs";
-import {FaRegHeart} from "react-icons/fa";
 import { IconContext } from 'react-icons';
 import { getProductById, getProducts } from "@/app/services/axiosAPIServices";
+import PropTypes from 'prop-types';
 
 config.autoAddCss = false;
 
-const dataPrueba = {
-  imagen: "lipstickPrueba",
-  categoria: "Labios",
-  tags: ["lipstick", "especial"],
-  nombre: "Ruby Lips",
-  precio: 70.00,
-  textoBoton: "Comprar"
-}
 
-const em = 16;
+
+//const em = 16;
 
 export default function ItemPage({ params }) {
 
   const [product, setProduct] = useState([]);
   const [recomendados, setRecomendados] = useState([]);
-  const [products, setProducts] = useState([]);
+  const [ setProducts] = useState([]);
 
   useEffect(() => {
     const getProductsTienda = async(id) =>{
@@ -72,3 +63,7 @@ export default function ItemPage({ params }) {
     </>
   )
 }
+
+ItemPage.propTypes = {
+  params: PropTypes.object.isRequired, // Asegúrate de ajustar el tipo de datos según tus necesidades
+};

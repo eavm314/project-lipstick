@@ -1,10 +1,12 @@
 import "../globals.css"
 import './tienda.css'
-import { IconContext } from 'react-icons';
+
+import React from 'react';
+import PropTypes from 'prop-types';
 import {BsBagPlus} from "react-icons/bs";
 import Link from "next/link";
 import { useBolsaComprasContext } from "../layout";
-const em = 16;
+//const em = 16;
 
 export const BotonProducto = ({ id,imagen, categoria, tags, nombre, nombreLargo, precio, textoBoton }) => {
 
@@ -64,3 +66,15 @@ export const BotonProducto = ({ id,imagen, categoria, tags, nombre, nombreLargo,
     </div>
   )
 }
+
+// Define las PropTypes para el componente
+BotonProducto.propTypes = {
+  id: PropTypes.string.isRequired,
+  imagen: PropTypes.string.isRequired,
+  categoria: PropTypes.string.isRequired,
+  tags: PropTypes.arrayOf(PropTypes.string).isRequired,
+  nombre: PropTypes.string.isRequired,
+  nombreLargo: PropTypes.string.isRequired,
+  precio: PropTypes.number.isRequired,
+  textoBoton: PropTypes.string.isRequired,
+};

@@ -1,5 +1,4 @@
 import { signIn, signInGoogle } from "@/api_services/loginService";
-import { redirect } from "next/navigation";
 import { NextResponse } from "next/server"
 
 export async function GET() {
@@ -24,7 +23,7 @@ export async function GET() {
 
 export async function POST(request) {
     const body = await request.json();
-    const name = body.name;
+    //const name = body.name;
     try {
         const {data, error} = await signIn(body.email, body.password)
 

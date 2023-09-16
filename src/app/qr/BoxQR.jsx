@@ -1,16 +1,11 @@
 "use client"
-import { useEffect, useState } from "react";
-import Image from 'next/image'
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faMagnifyingGlass,
-  faCircleStop
-} from "@fortawesome/free-solid-svg-icons";
+import React from 'react';
+import { useState } from "react";
 import '../globals.css'
 import './qr.css'
-import Link from "next/link";
-import {useProductosCompradosContext } from "../layout";
-import { createCompra } from "@/app/services/axiosAPIServices";
+import PropTypes from 'prop-types';
+
+
 
 const BoxQR = (props) =>{
    const {showModal} = props
@@ -30,7 +25,7 @@ const BoxQR = (props) =>{
     setClicked(!clicked);
   }
 
-  const {productosComprados,setProductosComprados} = useProductosCompradosContext();
+ // const {productosComprados,setProductosComprados} = useProductosCompradosContext();
   const click = (e) =>{
     showModal(e);
   }
@@ -54,5 +49,11 @@ const BoxQR = (props) =>{
         </div>
     )
 }
+
+
+
+BoxQR.propTypes = {
+  showModal: PropTypes.func.isRequired,
+};
 
 export default BoxQR;

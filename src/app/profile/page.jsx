@@ -1,11 +1,11 @@
 "use client"
+import React from 'react';
 import Link from "next/link";
 import HistorialPucharses from "./resources/historialPucharses";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { getUser } from "../services/axiosAPIServices";
-import { useBolsaComprasContext } from "../layout";
 import { getCompra } from "../services/axiosAPIServices";
 
 
@@ -50,13 +50,13 @@ const infoData = {
 
 
 const infoPerfil = () => {
-  const {listaBolsaCompras, setListaBolsaCompras} = useBolsaComprasContext()
+ // const { setListaBolsaCompras} = useBolsaComprasContext()
   const supabase = createClientComponentClient();
 
   const router = useRouter();
 
   const handleSignOut = async () => {
-    setListaBolsaCompras([]);
+    //setListaBolsaCompras([]);
     await supabase.auth.signOut();
     router.push('/login');
   }

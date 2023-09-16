@@ -1,5 +1,4 @@
 import { createMiddlewareClient } from '@supabase/auth-helpers-nextjs'
-import { redirect } from 'next/dist/server/api-utils';
 import { NextResponse } from 'next/server'
 
 export const config = {
