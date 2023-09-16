@@ -1,6 +1,5 @@
 "use client"
 import React from "react";
-import {useState, useEffect} from 'react';
 import "../globals.css"
 import '../tienda/tienda.css'
 import '..//viewItem/resources/paginaIndividual.css'
@@ -20,8 +19,8 @@ const FinCompraPage = () =>{
                     Productos
                 </div>
                 <div className="items-center justify-center text-center w-full flex flex-col gap-5" style={{borderBottomWidth: 1, borderColor: '#000', paddingBottom:"1.75em"}}>
-                {productosComprados.map(paquete => 
-                    <div className="flex flex-row w-2/3 items-center justify-center gap-4">
+                {productosComprados.map((paquete, index) => 
+                    <div key={index} className="flex flex-row w-2/3 items-center justify-center gap-4">
                         <div className="texto-normal font-medium text-left w-2/4" style={{fontSize:"1.25em"}}>
                             {paquete.product.nombre}
                         </div>

@@ -1,10 +1,8 @@
 "use client"
 import React from "react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
-import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { appendErrors, useForm } from "react-hook-form";
+import {  useForm } from "react-hook-form";
 import { faEyeSlash } from "@fortawesome/free-regular-svg-icons";
 import { faEye } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -40,7 +38,7 @@ const Login2 = () => {
 
           <div style={{ display: 'flex', flexDirection: 'column' ,marginBottom: "1.25em"}}>
             <h1 className="texto-normal-semibold" style={{ fontSize: "1.25em", marginBottom: "0.6875em", fontWeight: '500' }}>Nombre Completo*</h1>
-            <input type='text' style={{ display: 'flex', fontSize: "1.125em", borderWidth: 1, borderColor: '#000', backgroundColor: '#f9f8f7', width: '100%', height: 55, padding: "0.75em",  width: "30.5rem" }}
+            <input type='text' style={{ display: 'flex', fontSize: "1.125em", borderWidth: 1, borderColor: '#000', backgroundColor: '#f9f8f7', height: 55, padding: "0.75em",  width: "30.5rem" }}
               placeholder="Ej: Diego Andres Garcia Peralta"
               //name="Nombre Completo"
               className="texto-parrafo"
@@ -54,7 +52,7 @@ const Login2 = () => {
 
           <div style={{ display: 'flex', flexDirection: 'column',marginBottom: "1.25em" }}>
             <h1 className="texto-normal-semibold" style={{ fontSize: "1.25em", marginBottom: "0.6875em", fontWeight: '500' }}>Correo Electrónico*</h1>
-            <input type='email' style={{ display: 'flex', fontSize: "1.125em", borderWidth: 1, borderColor: '#000', backgroundColor: '#f9f8f7', width: '100%', height: 55, padding: "0.75em", width: "30.5rem" }}
+            <input type='email' style={{ display: 'flex', fontSize: "1.125em", borderWidth: 1, borderColor: '#000', backgroundColor: '#f9f8f7', height: 55, padding: "0.75em", width: "30.5rem" }}
               placeholder="Ej.: daniel9000@gmail.com"
               //name="Correo electrónico"
               className="texto-parrafo"
@@ -70,7 +68,7 @@ const Login2 = () => {
 
           <div style={{ display: 'flex', flexDirection: 'column',marginBottom: "1.25em" }}>
             <h1 className="texto-normal-semibold" style={{ fontSize: "1.25em", marginBottom: "0.6875em", fontWeight: '500' }}>Fecha de Nacimiento*</h1>
-            <input type='date' style={{ display: 'flex', fontSize: "1.125em", borderWidth: 1, borderColor: '#000', backgroundColor: '#f9f8f7', width: '100%', height: 55, padding: "0.75em", width: "30.5rem" }}
+            <input type='date' style={{ display: 'flex', fontSize: "1.125em", borderWidth: 1, borderColor: '#000', backgroundColor: '#f9f8f7', height: 55, padding: "0.75em", width: "30.5rem" }}
               placeholder="Dia"
               //name="Dia"
               className="texto-parrafo"

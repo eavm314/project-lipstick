@@ -1,41 +1,32 @@
 "use client"
 import React from "react";
-import {createContext, useState, useEffect} from 'react';
+import { useState, useEffect} from 'react';
 import "../../globals.css"
 import '../../tienda/tienda.css'
 import '../resources/bolsaCompras.css'
 import '../../tienda/tienda.css'
 import '../../viewItem/resources/paginaIndividual.css'
-import { IconContext } from 'react-icons';
 import {FaXmark} from "react-icons/fa6";
 import Link from "next/link";
 import BoxIndividual from "../resources/BoxIndividual";
-import { listaProductos } from "@/data/listaProductos";
-import { listaUsuarios } from "@/data/listaUsuarios";
 import { useBolsaComprasContext, useProductosCompradosContext } from "../../layout";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAngleLeft, faAngleRight} from "@fortawesome/free-solid-svg-icons";
 import { getProducts } from "@/app/services/axiosAPIServices";
+import PropTypes from "prop-types";
 
-const dataPrueba = {
-    imagen: "",
-    categoria: "",
-    nombreLargo: "No tienes nada en tu carrito por el momento, vuelve a la tienda <3",
-    precio: 0.00
-  }
+
   
-  const em = 16;
+//  const em = 16;
   
-  export default function ItemPage({ params }) {
+  export default function ItemPage( ) {
 
     const {listaBolsaCompras, setListaBolsaCompras} = useBolsaComprasContext();
-    const {productosComprados,setProductosComprados} = useProductosCompradosContext();
+    const {setProductosComprados} = useProductosCompradosContext();
 
-    const getUser = (id) =>{
+    /*const getUser = (id) =>{
         const data = listaUsuarios.filter((user)=> user.id==id)[0];
         return data
-    }
-    const [user, setUser] = useState(getUser(params.id))
+    }*/
+    //const [user, setUser] = useState(getUser(params.id))
     const [products, setProducts] = useState(listaBolsaCompras);
     const [cantidadItems, setCantidadItems] = useState(listaBolsaCompras.length);
     const [totalProducto, setTotalProducto] = useState([]);
@@ -126,4 +117,10 @@ const dataPrueba = {
       </div>
   
     )
+
+    
   }
+
+  ItemPage.propTypes = {
+    params: PropTypes.object.isRequired, // Cambia "object" al tipo correcto si es diferente
+  };

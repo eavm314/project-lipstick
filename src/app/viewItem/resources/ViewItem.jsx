@@ -1,13 +1,13 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAngleLeft, faAngleRight, faXmark } from "@fortawesome/free-solid-svg-icons";
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import Stars from "./stars";
 import "../../globals.css"
 import "../resources/paginaIndividual.css"
 import Link from "next/link";
-import { IconContext } from 'react-icons';
 import {BsBagPlus} from "react-icons/bs";
 import { useBolsaComprasContext } from "../../layout";
+import PropTypes from 'prop-types';
 
 const em = 16;
 
@@ -44,7 +44,7 @@ export const ViewItem = ({product}) => {
         <div className="box-datos">
           <p className="tituloItemIndividual" style={{ fontSize: "2em" }}>{product?.nombre}</p>
           <div style={{ display: "flex", gap: "0.75em" }}>
-            {product?.tags?.map((tag, index) => <div className="box-tags">
+            {product?.tags?.map((tag, index) => <div key = {index} className="box-tags">
               <p className="texto-tags-pagina-individual" style={{ fontSize: "em" }} key={index}>{tag}</p>
             </div>)}
           </div>
@@ -69,3 +69,14 @@ export const ViewItem = ({product}) => {
     </div>
   )
 }
+
+ViewItem.propTypes = {
+  product: PropTypes.shape({
+    imagen: PropTypes.string.isRequired,
+    nombre: PropTypes.string.isRequired,
+    tags: PropTypes.arrayOf(PropTypes.string),
+    precio: PropTypes.number.isRequired,
+    calificacion: PropTypes.number.isRequired,
+    id: PropTypes.number.isRequired,
+  }).isRequired,
+};

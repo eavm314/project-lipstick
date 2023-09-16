@@ -1,8 +1,7 @@
 "use-client"
 import React from 'react'
 import { useEffect, useState } from "react";
-import { appendErrors, useForm } from "react-hook-form";
-import Link from "next/link";
+import { useForm } from "react-hook-form"
 import { useRouter } from "next/navigation";
 import { textValidator } from '@/data/validatorText';
 import { getUser } from "@/app/services/axiosAPIServices";
@@ -34,9 +33,9 @@ const Facturacion = () => {
     {label: 'Cotahuma', value: 'C'}
   ]
   const [ciudad, setCiudad] = useState(null);
-  const [zonas, setZonas] = useState(zonasLaPaz);
+  const [zonas] = useState(zonasLaPaz);
   const [zona, setZona] = useState(null);
-  const [distritos, setDistritos] = useState(distritosLaPaz);
+  const [distritos] = useState(distritosLaPaz);
   const [distrito, setDistrito] = useState(null)
 
   const changeCiudad = (event) => {

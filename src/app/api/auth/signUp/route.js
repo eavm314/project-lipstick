@@ -3,7 +3,7 @@ import { NextResponse } from "next/server"
 
 export async function POST(request) {
     const body = await request.json();
-    const name = body.name;
+    //const name = body.name;
     try {
         const {data, error} = await signUp(body.email, body.password)
 

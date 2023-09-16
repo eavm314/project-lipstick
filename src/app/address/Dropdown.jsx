@@ -1,5 +1,8 @@
 import '../qr/qr.css'
 import '../globals.css'
+import React from "react";
+import PropTypes from 'prop-types';
+
 
 const Dropdown = ({ label, value, options, onChange }) => {
 
@@ -26,5 +29,19 @@ const Dropdown = ({ label, value, options, onChange }) => {
     );
    
    }
+
+
+   
+   Dropdown.propTypes = {
+    label: PropTypes.string.isRequired,
+    value: PropTypes.any.isRequired,
+    options: PropTypes.arrayOf(
+      PropTypes.shape({
+        value: PropTypes.any.isRequired,
+        label: PropTypes.string.isRequired,
+      })
+    ).isRequired,
+    onChange: PropTypes.func.isRequired,
+  };
 
    export default Dropdown;

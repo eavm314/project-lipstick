@@ -1,15 +1,8 @@
 "use client"
-import { useCallback, useEffect, useState } from "react";
+import { useState } from "react";
 import React from "react";
-import Image from 'next/image'
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faMagnifyingGlass,
-  faCircleStop
-} from "@fortawesome/free-solid-svg-icons";
 import '../globals.css'
 import './qr.css'
-import Link from "next/link";
 import BoxQR from "./BoxQR";
 import BoxTarjeta from "./BoxTarjeta";
 import { useMetodoPagoContext } from "../layout";
@@ -21,11 +14,11 @@ import { useProductosCompradosContext } from "../layout";
 const QRPage = () => {
   const {productosComprados} = useProductosCompradosContext();
   const { metodoPago, setMetodoPago } = useMetodoPagoContext();
-  const [imageIndex, setImageIndex] = useState(2);
-  const em = 16;
+  //const [imageIndex, setImageIndex] = useState(2);
+  /*const em = 16;
   var index = 1;
 
-  const [selectedMethod, setSelectedMethod] = useState(metodoPago);
+  const [selectedMethod, setSelectedMethod] = useState(metodoPago);*/
 
   const cambiarMethod = (num) => {
     setMetodoPago(num)

@@ -1,4 +1,4 @@
-import { getProductoCompradoById } from "@/api_services/compraService";
+/*import { getProductoCompradoById } from "@/api_services/compraService";
 import { NextResponse } from "next/server"
 
 export async function GET(request, {params}) {
@@ -19,4 +19,4 @@ export async function GET(request, {params}) {
         })
     }
 
-}
+}*/

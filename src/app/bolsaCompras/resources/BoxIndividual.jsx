@@ -8,16 +8,21 @@ import '../../tienda/tienda.css'
 import '../../viewItem/resources/paginaIndividual.css'
 import { IconContext } from 'react-icons';
 import {BsTrash3Fill} from "react-icons/bs";
-import Link from "next/link";
 import BoxCantidad from "./BoxCantidad";
 import { useBolsaComprasContext } from "../../layout";
-const em = 16;
+import PropTypes from "prop-types";
+
+
 
 const total=0;
 
 export const getTotal = () =>{
     return total
 }
+
+
+
+
 
 const BoxIndividual = (props) =>{
     const {listaBolsaCompras, setListaBolsaCompras} = useBolsaComprasContext()
@@ -62,5 +67,26 @@ const BoxIndividual = (props) =>{
     );
 
 }
+
+
+BoxIndividual.propTypes = {
+    product: PropTypes.shape({
+      product: PropTypes.shape({
+        id: PropTypes.number.isRequired, // Agrega PropTypes para 'id' si es un número
+        imagen: PropTypes.string.isRequired,
+        nombreLargo: PropTypes.string.isRequired,
+        precio: PropTypes.number.isRequired,
+      }).isRequired,
+      cantidad: PropTypes.number.isRequired,
+    }).isRequired,
+    calcTotalProducto: PropTypes.func.isRequired,
+    products: PropTypes.array.isRequired,
+    setProducts: PropTypes.func.isRequired,
+    cantidadItems: PropTypes.number.isRequired,
+    setCantidadItems: PropTypes.func.isRequired,
+    setCantidadProducto: PropTypes.func.isRequired,
+  };
+
+
 
 export default BoxIndividual;

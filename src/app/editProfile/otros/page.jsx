@@ -7,7 +7,7 @@ import '../../viewItem/resources/paginaIndividual.css'
 import Dropdown from '../../address/Dropdown'
 import Link from "next/link";
 import { updateUser, getUser } from "@/app/services/axiosAPIServices";
-import { appendErrors, useForm } from "react-hook-form";
+import {  useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
 import { textValidator } from "@/data/validatorText";
 
@@ -31,9 +31,9 @@ const FinCompraPage = () => {
     { label: 'Cotahuma', value: 'C' }
   ]
   const [ciudad, setCiudad] = useState(null);
-  const [zonas, setZonas] = useState(zonasLaPaz);
+  const [zonas] = useState(zonasLaPaz);
   const [zona, setZona] = useState(null);
-  const [distritos, setDistritos] = useState(distritosLaPaz);
+  const [distritos] = useState(distritosLaPaz);
   const [distrito, setDistrito] = useState(null)
 
   const changeCiudad = (event) => {
@@ -46,7 +46,7 @@ const FinCompraPage = () => {
     setDistrito(event.target.value);
   };
 
-  const { register, formState: { errors }, handleSubmit, getValues} = useForm();
+  const { register, formState: { errors }, handleSubmit} = useForm();
 
   const router = useRouter()
   const onSubmit = (data) => {
@@ -67,7 +67,7 @@ const FinCompraPage = () => {
     router.push('/profile')
   };
 
-  const [user, setUser] = useState([])
+  const [ setUser] = useState([])
 
   useEffect(() => {
     const getUserData = async () => {

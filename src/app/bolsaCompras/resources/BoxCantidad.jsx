@@ -4,10 +4,9 @@ import '../../tienda/tienda.css'
 import './bolsaCompras.css'
 import '../../tienda/tienda.css'
 import '../../viewItem/resources/paginaIndividual.css'
-import { IconContext } from 'react-icons';
-import {BsTrash3Fill} from "react-icons/bs";
 import {FaPlus, FaMinus} from "react-icons/fa";
-import Link from "next/link";
+import PropTypes from "prop-types";
+
 const em = 16;
 
 const BoxCantidad = (props) =>{
@@ -38,5 +37,13 @@ const BoxCantidad = (props) =>{
     );
 
 }
+
+BoxCantidad.propTypes = {
+    productId: PropTypes.any.isRequired,
+    cantidad: PropTypes.number.isRequired,
+    setCantidadProducto: PropTypes.func.isRequired,
+    cantidadView: PropTypes.number.isRequired,
+    setCantidadView: PropTypes.func.isRequired,
+  };
 
 export default BoxCantidad;
