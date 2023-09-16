@@ -1,5 +1,5 @@
-import '../qr/qr.css'
-import '../globals.css'
+//import '../qr/qr.css'
+//import '../globals.css'
 
 const Dropdown = ({ label, value, options, onChange }) => {
 
