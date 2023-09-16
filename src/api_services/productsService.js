@@ -1,8 +1,7 @@
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
-import { cookies } from "next/headers";
+import { cookies } from "next/headers.js";
 
 const tableName = 'producto';
-
 
 export const getProducts = async () => {
     const supabase = createServerComponentClient({cookies})
