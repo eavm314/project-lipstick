@@ -2,13 +2,13 @@
   "name": "project-lipstick",
   "version": "0.1.0",
   "private": true,
-  "type": "module",
+  
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "mocha": "mocha src/mocha_test/**/*.test.js --exit"
+    "mocha": "mocha src/mocha_test/**/*.test.mjs --exit"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.4.2",
