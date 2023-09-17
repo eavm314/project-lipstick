@@ -5,7 +5,6 @@ import React from "react";
 import '../qr/qr.css'
 import '../globals.css'
 import Dropdown from "./Dropdown";
-import { userAgent } from "next/server";
 
 export default function CreateAccountPage() {
   const optionsCiudad = [
@@ -26,9 +25,9 @@ export default function CreateAccountPage() {
     {label: 'Cotahuma', value: 'C'}
   ]
   const [ciudad, setCiudad] = useState('LP');
-  const [zonas, setZonas] = useState(zonasLaPaz);
+  const [zonas] = useState(zonasLaPaz);
   const [zona, setZona] = useState('S');
-  const [distritos, setDistritos] = useState(distritosLaPaz);
+  const [distritos] = useState(distritosLaPaz);
   const [distrito, setDistrito] = useState('S')
 
   const changeCiudad = (event) => {
@@ -101,4 +100,4 @@ export default function CreateAccountPage() {
 
     </div >
   )
-};
+}

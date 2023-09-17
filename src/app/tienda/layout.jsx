@@ -1,13 +1,14 @@
 "use client"
 import '../globals.css'
 //implementar font awesome icons
+import React from 'react';
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import { createContext, useContext, useState } from 'react';
 import {BsBag} from "react-icons/bs";
-import {FaRegHeart} from "react-icons/fa";
 import { IconContext } from 'react-icons';
 import Link from "next/link";
+import PropTypes from "prop-types";
 
 config.autoAddCss = false;
 
@@ -20,17 +21,17 @@ export const useProductContext = () => {
 const categorias = ["Todos", "Skin Care", "Labios", "Cabello", "Ojos", "Accesorios", "Piel"];
 const filtrosLabios = [" "]
 
+NavBarLayout.propTypes = {
+  children: PropTypes.node, // PropTypes para la prop 'children'
+};
+
+
 export default function NavBarLayout({ children }) {
   const [selectedCategory, setSelectedCategory] = useState("Todos");
   const [selectedFilter, setSelectedFilter] = useState();
   return (
     <div>
       <div className="navigation-bar">
-        <Link href={"/"}
-        //TODO: LLEVAR A PAGINA DE INICIO
-        >
-          <p className={"texto-navigation-bar"}>Inicio</p>
-        </Link>
         {
           categorias.map((categoria, index) =>
             <p

@@ -1,26 +1,17 @@
 "use client"
+import React from 'react';
 import { useEffect, useState } from "react";
-
 import '../globals.css'
 import './tienda.css'
 import { BotonProducto } from "./ComponentesTienda";
-import Link from "next/link";
-import { listaProductos } from "@/data/listaProductos";
 import { useProductContext } from "./layout";
 import { getProducts } from "../services/axiosAPIServices";
 // import {getProducts} from "../../api_services/productsService";
 
 // import supabase from '../../utils/SupabaseAPI'
 
-const dataPrueba = {
-  imagen: "lipstickPrueba",
-  categoria: "Labios",
-  tags: ["lipstick", "especial"],
-  nombre: "Ruby Lips",
-  precio: "70.00",
-  textoBoton: "Añadir"
-}
-const em = 16;
+
+//const em = 16;
 
 const TiendaPage = () => {
   const { selectedCategory } = useProductContext();
@@ -50,7 +41,7 @@ const TiendaPage = () => {
           .map((product, index) =>
               <BotonProducto
                 key={index}
-                id={product.id}
+                idProd={product.id}
                 imagen={product.imagen}
                 categoria={product.categoria}
                 tags={product.tags}

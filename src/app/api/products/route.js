@@ -1,10 +1,9 @@
 import { getProducts } from "@/api_services/productsService";
 import { NextResponse } from "next/server"
 
-export async function GET() {
-    
+export async function GET(req) {
     try {
-        const products = await getProducts();
+        const products = await getProducts(req);
         return NextResponse.json({
             message: "data retrieved successfully",
             status: 200,

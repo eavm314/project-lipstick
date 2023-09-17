@@ -5,11 +5,13 @@ import { faStar as solidStar } from "@fortawesome/free-solid-svg-icons";
 
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import { config } from "@fortawesome/fontawesome-svg-core";
+import PropTypes from 'prop-types';
+
 
 config.autoAddCss = false;
 
 export default function Stars({ numStar }) {
-  const em=16
+  //const em=16
   return (
     <div className="flex">
       <FontAwesomeIcon icon={numStar >= 1 ? solidStar : regStar} color="#000000"/>
@@ -21,3 +23,8 @@ export default function Stars({ numStar }) {
   )
 
 }
+
+
+Stars.propTypes = {
+  numStar: PropTypes.number,
+};

@@ -1,6 +1,5 @@
 "use client"
 import React from "react";
-import {useState, useEffect} from 'react';
 import "../../globals.css"
 import '../../tienda/tienda.css'
 import '../../viewItem/resources/paginaIndividual.css'

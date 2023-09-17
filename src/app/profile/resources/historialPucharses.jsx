@@ -1,13 +1,16 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const HistorialPucharses = (props) => {
 
   const purchasesHistorial = {
     code: props.code,
-    pucharses: props.list
+    total: props.total,
+    productos: props.productos
   }
+  //console.log(purchasesHistorial);
 
-  const total = purchasesHistorial.pucharses.reduce((totalAcc,priceItem)=> totalAcc+priceItem.precio,0)
+  //const total = purchasesHistorial.pucharses.reduce((totalAcc,priceItem)=> totalAcc+priceItem.precio,0)
   
   return (
     <div style={{ width: '42.5625em', margin: '1.5em', marginTop: '1em', borderBottomWidth: 1, borderBottomColor: '#000' }}>
@@ -20,45 +23,53 @@ const HistorialPucharses = (props) => {
       </div>
 
       <div style={{ width: "100%", margin: '4.25em', marginTop: '1.375em', marginBottom: '1.375em', display: 'flex', flexDirection: 'column', marginLeft: '2em' }}>
-        {
-          purchasesHistorial.pucharses.map((item,index) => {
-            return (
-              <div style={{ minWidth: '32.75em', flexDirection: 'row', display: 'flex' }} key={index}>
-                <div style={{ display: 'flex', flex: 3, paddingBottom: '0.75em', paddingTop: '0.75em', flexDirection: 'row' }}>
-                  <h1
-                    className="texto-parrafo"
-                    style={{ fontSize: "1em", fontWeight: 'bold', marginLeft: 0, width: "100%" }}> {item.nameItem}
-                  </h1>
-
+        
+              <div className="items-center justify-center w-full flex flex-col gap-5" style={{borderBottomWidth: 1, borderColor: '#000', paddingBottom:"1.75em"}}>
+                {purchasesHistorial.productos.map((paquete, index) => 
+                    <div key={index} className="flex flex-row w-full items-center gap-2" style={{padding:"0 3.5em 0 0"}}>
+                        <div className="flex texto-normal font-normal text-left w-2/4 justify-start" style={{fontSize:"1em"}}>
+                            {paquete.producto.nombreLargo}
+                        </div>
+                        <div className="flex texto-normal font-normal text-right w-1/4 justify-end" style={{fontSize:"1.25em"}}>
+                            {paquete.cantidad}u
+                        </div>
+                        <div className="flex texto-normal font-normal text-right w-1/4 justify-end" style={{fontSize:"1em"}}>
+                            ${paquete.producto.precio*paquete.cantidad}
+                        </div>
+                    </div>
+                    )}
                 </div>
 
-                <div style={{ display: 'flex', flex: 3, flexDirection: 'row-reverse', width: "50%", padding: '1em' }}>
-                  <h1
-                    className="texto-parrafo"
-                    style={{ fontSize: "1.25em", width: '30%' }}> ${item.precio}
-                  </h1>
-                  <h1
-                    className="texto-parrafo"
-                    style={{ fontSize: "1.25em", fontWeight: 'bold', marginLeft: '1em', width: '50%' }}> {item.cant} U.
-                  </h1>
-                </div>
-              </div>
-            )
-          })
-        }
         <div style={{ width: '42.5625em', display: 'flex', flexDirection: 'row-reverse', alignItems: 'center' }}>
           <h1
             className="texto-parrafo"
-            style={{ fontSize: "1.5em", fontWeight: 'bold', marginLeft: '1em', width: '18%' }}> ${total}
+            style={{ fontSize: "1.5em", fontWeight: 'bold', marginLeft: '1em', width: '18%' }}> ${purchasesHistorial.total}
           </h1>
           <h1
             className="texto-parrafo"
             style={{ fontSize: "1.75em", fontWeight: 'bold', marginLeft: '1em', width: '21%' }}> Total:
           </h1>
         </div>
+      
       </div>
     </div>
   )
 }
+
+
+HistorialPucharses.propTypes = {
+  code: PropTypes.string.isRequired, // 'code' debe ser una cadena y es obligatorio.
+  total: PropTypes.number.isRequired, // 'total' debe ser un número y es obligatorio.
+  productos: PropTypes.arrayOf(
+    PropTypes.shape({
+      producto: PropTypes.shape({
+        nombreLargo: PropTypes.string.isRequired, // 'nombreLargo' debe ser una cadena y es obligatorio.
+        precio: PropTypes.number.isRequired, // 'precio' debe ser un número y es obligatorio.
+      }).isRequired,
+      cantidad: PropTypes.number.isRequired, // 'cantidad' debe ser un número y es obligatorio.
+    })
+  ).isRequired,
+};
+
 
 export default HistorialPucharses

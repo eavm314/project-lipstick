@@ -1,27 +1,52 @@
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
-import { cookies } from "next/headers";
 
-const tableProducto = 'producto_comprado';
+const tableProducto = 'producto';
 const tableCompra = 'compra';
+const tableProductoComprado = 'producto_comprado';
 
-export const createCompra = async (compra) => {
-    const supabase = createServerComponentClient({cookies})
-    const {data: {user}} = await supabase.auth.getUser();
-    const total = compra.reduce((accumulator, product) => {return accumulator+= product.precio},0)
-    const {data, error } = await supabase.from(tableCompra).insert({total_price: total, user_id: user.id}).select()
+export const createCompra = async (compra, req) => {
+    const supabase = createServerComponentClient({ cookies: () => req.cookies });
+    const { data: { user } } = await supabase.auth.getUser();
+    const total = compra.reduce((accumulator, paquete) => { return accumulator += (paquete.product.precio * paquete.cantidad) }, 0);
 
-    insertProducts(compra, data.id)
+    const newCompra = { total_price: total, user_id: user.id };
+    const { data } = await supabase.from(tableCompra).insert(newCompra).select().limit(1).single();
+
+    // console.log(data);
+    // console.log("error: ", error);
+
+    insertProducts(compra, data.id, req)
+
 }
 
-const insertProducts = async (productos, idCompra) => {
-    const supabase = createServerComponentClient({cookies})
-    const productosEnCompra = productos.map((product) => {const newProduct = {producto_id: product.id, compra_id: idCompra, cantidad: product.cantidad}; return newProduct})
-    const { error } = await supabase.from(tableProducto).insert(productosEnCompra)
+const insertProducts = async (compra, idCompra, req) => {
+    const supabase = createServerComponentClient({ cookies: () => req.cookies })
+    const productosEnCompra = compra.map((paquete) => { const newProduct = { producto_id: paquete.product.id, compra_id: idCompra, cantidad: paquete.cantidad }; return newProduct })
+    await supabase.from(tableProductoComprado).insert(productosEnCompra)
+    // console.log("error prod_comprado: ", error);
+
 }
 
-export const getCompras = async () =>{
-    const supabase = createServerComponentClient({cookies})
-    const {data: {user}} = await supabase.auth.getUser();
-    const {data, error} = await supabase.from(tableCompra).select(`compra_id, ${tableProducto} (producto_id, cantidad, producto (nombreLargo, precio))`).eq('user_id', user.id);
+
+
+export const getCompraById = async (idCompra, req) => {
+    const supabase = createServerComponentClient({ cookies: () => req.cookies })
+
+    const { data } = await supabase.from(tableCompra).select('*').eq('id', idCompra).limit(1).single();
+
+    return data;
 }
 
+
+export const getCompras = async (req) => {
+    const supabase = createServerComponentClient({ cookies: () => req.cookies })
+    //const {data: {user}} = await supabase.auth.getUser();
+    let { data: compra } = await supabase
+        .from(tableCompra)
+        .select(`id, user_id, total_price, 
+                                        ${tableProductoComprado} (cantidad, producto_id,  
+                                        ${tableProducto} (nombreLargo, precio))`);
+
+    // console.log(compra)
+    return compra;
+}
