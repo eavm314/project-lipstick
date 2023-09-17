@@ -22,7 +22,7 @@ test ('Datos de producto aparecen correctamente',()=>{
        }
    const { getByPlaceholderText, getByText, getByTestId} = render(<BotonProductoSinContext
      key={1}
-     id={product.id}
+     id={product.id.toString()}
      imagen={product.imagen}
      categoria={product.categoria}
      tags={product.tags}

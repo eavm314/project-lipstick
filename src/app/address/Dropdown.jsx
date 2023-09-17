@@ -1,5 +1,3 @@
-//import '../qr/qr.css'
-//import '../globals.css'
 import '../qr/qr.css'
 import '../globals.css'
 import React from "react";
