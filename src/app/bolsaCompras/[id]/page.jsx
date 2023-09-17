@@ -67,7 +67,7 @@ import PropTypes from "prop-types";
         );
         setProductosComprados(listaCompras);
         setListaBolsaCompras([]);
-        console.log(listaCompras)
+        // console.log(listaCompras)
     }
     const setCantidadProducto = (id, cantidad) =>{
         const aux = getProductById(id);

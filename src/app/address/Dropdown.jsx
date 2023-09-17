@@ -33,15 +33,15 @@ const Dropdown = ({ label, value, options, onChange }) => {
 
    
    Dropdown.propTypes = {
-    label: PropTypes.string.isRequired,
-    value: PropTypes.any.isRequired,
+    label: PropTypes.string,
+    value: PropTypes.any,
     options: PropTypes.arrayOf(
       PropTypes.shape({
-        value: PropTypes.any.isRequired,
-        label: PropTypes.string.isRequired,
+        value: PropTypes.any,
+        label: PropTypes.string,
       })
     ).isRequired,
-    onChange: PropTypes.func.isRequired,
+    onChange: PropTypes.func,
   };
 
    export default Dropdown;

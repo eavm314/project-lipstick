@@ -3,15 +3,14 @@ import React from 'react'
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form"
 import { useRouter } from "next/navigation";
-import { textValidator } from '../../../data/validatorText';
-import { getUser } from "../../../app/services/axiosAPIServices"//from "@/app/services/axiosAPIServices";
 import Dropdown from "../../address/Dropdown";
+import { textValidator } from '@/helpers/validatorText';
 const FacturacionM = () => {
   const { register, formState: { errors }, handleSubmit } = useForm();
 
-  const router = useRouter;
+  const router = useRouter();
   const onSubmit = (data) => {
-    console.log(data);
+    // console.log(data);
     router.push('/qr')
   }
 
