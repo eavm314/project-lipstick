@@ -3,7 +3,7 @@ import { NextResponse } from "next/server"
 
 export async function GET(request, {params}) {
     try {
-        const product = await getCompraById(params.id);
+        const product = await getCompraById(params.id, request);
         return NextResponse.json({
             message: "data retrieved successfully",
             status: 200,

@@ -5,7 +5,7 @@ export async function POST(request) {
     const compra = await request.json();
     // console.log(compra);
     try {
-        await createCompra(compra);
+        await createCompra(compra, request);
         return NextResponse.json({
             message: "compra inserted successfully",
             status: 200,
@@ -23,10 +23,10 @@ export async function POST(request) {
 }
 
 
-export async function GET() {
+export async function GET(req) {
     
     try {
-        const compra = await getCompras();
+        const compra = await getCompras(req);
         // console.log(compra)
         return NextResponse.json({
             message: "data retrieved successfully",

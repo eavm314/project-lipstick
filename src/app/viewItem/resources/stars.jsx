@@ -26,5 +26,5 @@ export default function Stars({ numStar }) {
 
 
 Stars.propTypes = {
-  numStar: PropTypes.number.isRequired,
+  numStar: PropTypes.number,
 };

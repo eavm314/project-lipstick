@@ -35,8 +35,3 @@ export const getCompraById = async (idCompra) =>{
     const compra = await bodoniAPI.get(`/compra/${idCompra}`);
     return compra.data;
 }
-
-export const getProductoCompradoById = async (id) =>{
-    const productoComprado = await bodoniAPI.get(`/producto_comprado/${id}`);
-    return productoComprado.data;
-}

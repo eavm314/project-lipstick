@@ -3,7 +3,7 @@ import React from 'react'
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form"
 import { useRouter } from "next/navigation";
-import { textValidator } from '@/data/validatorText';
+import { textValidator } from '@/helpers/validatorText';
 import { getUser } from "@/app/services/axiosAPIServices";
 import Dropdown from "../../address/Dropdown";
 const Facturacion = () => {

@@ -59,6 +59,7 @@ export default function RootLayout({ children }) {
   useEffect(() => {
     const getUserData = async () => {
       const user = await getUser();
+      // console.log(user)
       setUser(user.data)
     };
 
@@ -76,7 +77,7 @@ export default function RootLayout({ children }) {
             {
               path != "/login" &&
               <Link href={"/profile"} className="flex p-3 gap-2 flex-nowrap" style={{ maxWidth:"45%", overflow:"hidden", textOverflow:"ellipsis",marginLeft:'12em'}}>
-                <img style={{ width:"2.5em", height: "2.5em", backgroundColor: '#d9d9d9', borderRadius: 100,borderWidth:3, borderColor:"var(--primary-100)",}} src={user? user.image : "\tame-impala.jpg"} alt="Cliente" />
+                <img style={{ width:"2.5em", height: "2.5em", backgroundColor: '#d9d9d9', borderRadius: 100,borderWidth:3, borderColor:"var(--primary-100)",}} src={user?.image} alt="Cliente" />
                 
               </Link>
             }

@@ -9,7 +9,7 @@ import Link from "next/link";
 import { updateUser, getUser } from "@/app/services/axiosAPIServices";
 import {  useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
-import { textValidator } from "@/data/validatorText";
+import { textValidator } from "@/helpers/validatorText";
 
 const FinCompraPage = () => {
 

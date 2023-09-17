@@ -19,16 +19,14 @@ config.autoAddCss = false;
 
 export default function ItemPage({ params }) {
 
-  const [product, setProduct] = useState([]);
+  const [product, setProduct] = useState({});
   const [recomendados, setRecomendados] = useState([]);
-  const [ setProducts] = useState([]);
 
   useEffect(() => {
     const getProductsTienda = async(id) =>{
       const products = await getProducts();
       const product = await getProductById(id);
       const recomendados = products.data.filter((p) => p.categoria === product.data.categoria && p.id !== product.data.id).slice(0, 5);
-      setProducts(products.data);
       setProduct(product.data);
       setRecomendados(recomendados);
     }
@@ -54,7 +52,7 @@ export default function ItemPage({ params }) {
           {recomendados?.map((producto, index) =>
 
               <BotonProducto key={index}
-              id={producto.id} imagen={producto.imagen} categoria={producto.categoria}
+              idProd={producto.id} imagen={producto.imagen} categoria={producto.categoria}
                 tags={producto.tags} nombre={producto.nombre} precio={producto.precio} textoBoton={"Añadir"} />
           )}
         </div>

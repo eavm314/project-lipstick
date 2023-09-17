@@ -1,9 +1,9 @@
 import { getUser, updateUser } from "@/api_services/userService";
 import { NextResponse } from "next/server"
 
-export async function GET() {
+export async function GET(req) {
     try {
-        const user = await getUser();
+        const user = await getUser(req);
 
         if (user) {
             return NextResponse.json({
@@ -34,7 +34,7 @@ export async function PUT(request) {
     const newData = await request.json();
     console.log(newData);
     try {
-        const user = await updateUser(newData);
+        const user = await updateUser(newData, request);
         if (user) {
             return NextResponse.json({
                 message: "user updated successfully",

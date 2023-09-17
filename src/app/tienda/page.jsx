@@ -41,7 +41,7 @@ const TiendaPage = () => {
           .map((product, index) =>
               <BotonProducto
                 key={index}
-                id={product.id}
+                idProd={product.id}
                 imagen={product.imagen}
                 categoria={product.categoria}
                 tags={product.tags}

@@ -72,11 +72,11 @@ export const ViewItem = ({product}) => {
 
 ViewItem.propTypes = {
   product: PropTypes.shape({
-    imagen: PropTypes.string.isRequired,
-    nombre: PropTypes.string.isRequired,
+    imagen: PropTypes.string,
+    nombre: PropTypes.string,
     tags: PropTypes.arrayOf(PropTypes.string),
-    precio: PropTypes.number.isRequired,
-    calificacion: PropTypes.number.isRequired,
-    id: PropTypes.number.isRequired,
+    precio: PropTypes.number,
+    calificacion: PropTypes.number,
+    id: PropTypes.number,
   }).isRequired,
 };

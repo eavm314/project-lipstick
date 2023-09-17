@@ -8,13 +8,13 @@ import Link from "next/link";
 import { useBolsaComprasContext } from "../layout";
 //const em = 16;
 
-export const BotonProducto = ({ id,imagen, categoria, tags, nombre, nombreLargo, precio, textoBoton }) => {
+export const BotonProducto = ({ idProd,imagen, categoria, tags, nombre, nombreLargo, precio, textoBoton }) => {
 
   const {listaBolsaCompras, setListaBolsaCompras} = useBolsaComprasContext()
 
   const addProduct = () =>{
     const product = {
-      id: id,
+      id: idProd,
       imagen: imagen,
       nombre: nombre,
       nombreLargo:nombreLargo,
@@ -32,7 +32,7 @@ export const BotonProducto = ({ id,imagen, categoria, tags, nombre, nombreLargo,
 
   return (
     <div className="boton-producto">
-      <Link href={"/viewItem/"+id} id="viewItem">
+      <Link href={"/viewItem/"+idProd} id="viewItem">
       <div className="imagen-producto-tienda">
         <img 
         className="w-full h-full"
@@ -69,12 +69,12 @@ export const BotonProducto = ({ id,imagen, categoria, tags, nombre, nombreLargo,
 
 // Define las PropTypes para el componente
 BotonProducto.propTypes = {
-  id: PropTypes.string.isRequired,
-  imagen: PropTypes.string.isRequired,
-  categoria: PropTypes.string.isRequired,
-  tags: PropTypes.arrayOf(PropTypes.string).isRequired,
-  nombre: PropTypes.string.isRequired,
-  nombreLargo: PropTypes.string.isRequired,
-  precio: PropTypes.number.isRequired,
-  textoBoton: PropTypes.string.isRequired,
+  idProd: PropTypes.number,
+  imagen: PropTypes.string,
+  categoria: PropTypes.string,
+  tags: PropTypes.arrayOf(PropTypes.string),
+  nombre: PropTypes.string,
+  nombreLargo: PropTypes.string,
+  precio: PropTypes.number,
+  textoBoton: PropTypes.string,
 };

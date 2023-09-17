@@ -6,7 +6,7 @@ import './qr.css'
 import Dropdown from "../address/Dropdown";
 import 'reactjs-popup/dist/index.css';
 import { useForm } from "react-hook-form";
-import { tarjetaValidator, textValidator, ccvValidator } from '@/data/validatorText';
+import { tarjetaValidator, textValidator, ccvValidator } from '@/helpers/validatorText';
 import PropTypes from 'prop-types';
 
 
