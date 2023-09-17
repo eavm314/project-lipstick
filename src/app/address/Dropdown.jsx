@@ -4,7 +4,7 @@ import React from "react";
 import PropTypes from 'prop-types';
 
 
-const Dropdown = ({ label, value, options, onChange }) => {
+const Dropdown = ({ label, options, onChange }) => {
 
     return (
    
@@ -14,7 +14,7 @@ const Dropdown = ({ label, value, options, onChange }) => {
         {label}
    
         <select className="texto-parrafo font-normal text-base"
-            style={{ display: "flex", fontsize: "1em", borderWidth: 1, borderColor: '#000', width: "100%", padding: "1em", backgroundColor: 'var(--transicion-50)'}}  value={value} onChange={onChange}>
+            style={{ display: "flex", fontsize: "1em", borderWidth: 1, borderColor: '#000', width: "100%", padding: "1em", backgroundColor: 'var(--transicion-50)'}} onChange={onChange}>
    
           {options.map((option, index) => (
    

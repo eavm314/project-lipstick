@@ -9,9 +9,9 @@ import Dropdown from "../../address/Dropdown";
 const Facturacion = () => {
   const { register, formState: { errors }, handleSubmit } = useForm();
 
-  const router = useRouter;
+  const router = useRouter();
   const onSubmit = (data) => {
-    console.log(data);
+    // console.log(data);
     router.push('/qr')
   }
 
