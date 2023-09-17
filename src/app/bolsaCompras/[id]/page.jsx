@@ -1,56 +1,49 @@
 "use client"
 import React from "react";
-import {createContext, useState, useEffect} from 'react';
+import { useState, useEffect} from 'react';
 import "../../globals.css"
 import '../../tienda/tienda.css'
 import '../resources/bolsaCompras.css'
 import '../../tienda/tienda.css'
 import '../../viewItem/resources/paginaIndividual.css'
-import { IconContext } from 'react-icons';
 import {FaXmark} from "react-icons/fa6";
 import Link from "next/link";
 import BoxIndividual from "../resources/BoxIndividual";
-import { listaProductos } from "@/data/listaProductos";
-import { listaUsuarios } from "@/data/listaUsuarios";
 import { useBolsaComprasContext, useProductosCompradosContext } from "../../layout";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAngleLeft, faAngleRight} from "@fortawesome/free-solid-svg-icons";
+import { getProducts } from "@/app/services/axiosAPIServices";
+import PropTypes from "prop-types";
 
 
-const dataPrueba = {
-    imagen: "",
-    categoria: "",
-    nombreLargo: "No tienes nada en tu carrito por el momento, vuelve a la tienda <3",
-    precio: 0.00
-  }
   
-  const em = 16;
+//  const em = 16;
   
-  export default function ItemPage({ params }) {
+  export default function ItemPage( ) {
 
     const {listaBolsaCompras, setListaBolsaCompras} = useBolsaComprasContext();
-    const {productosComprados,setProductosComprados} = useProductosCompradosContext();
+    const {setProductosComprados} = useProductosCompradosContext();
 
-    const getUser = (id) =>{
+    /*const getUser = (id) =>{
         const data = listaUsuarios.filter((user)=> user.id==id)[0];
         return data
-    }
-    const getProducts = (idList) => {
-      const data = listaProductos.filter((p) => idList.includes(p.id));
-      return data; //getProducts(user.productosCarrito)
-    }
-    const [user, setUser] = useState(getUser(params.id))
-    const [products, setProducts] = useState(listaBolsaCompras.map((product) =>{ const newProduct = { product: product, cantidad: 1}; return newProduct}));
+    }*/
+    //const [user, setUser] = useState(getUser(params.id))
+    const [products, setProducts] = useState(listaBolsaCompras);
     const [cantidadItems, setCantidadItems] = useState(listaBolsaCompras.length);
     const [totalProducto, setTotalProducto] = useState([]);
+    const [productosTienda, setProductosTienda] = useState(null);
     useEffect(() => {
         setTotalProducto(products.map(product => {
             const productIdPrecio = {
                 id:product.product.id,
-                precio:product.product.precio
+                precio:product.product.precio*product.cantidad
             }
             return productIdPrecio
         }));
+        const productosTienda = async ()  =>{
+            const data = await getProducts();
+            setProductosTienda(data.data);
+        }
+        productosTienda();
       }, []);
     const calcTotalProducto = (idProduct, newPrecio) => {
         const newProduct ={ id:idProduct, precio:newPrecio}
@@ -58,21 +51,23 @@ const dataPrueba = {
         setTotalProducto(newTotalProducto)
     }
     const getProductById = (id) =>{
-        const data = listaProductos.filter((product) => product.id === id)[0];
+        const data = productosTienda.filter((product) => product.id === id)[0];
         return data
     }
     const paraResumenCompra = () =>{
         const listaCompras = totalProducto.filter(producto => producto.precio>0).map(producto => 
             {
+                const aux = getProductById(producto.id)
                 const paquete = {
-                    product: getProductById(producto.id),
-                    precio: producto.precio
+                    product: aux,
+                    cantidad: producto.precio/aux.precio
                 }
                 return paquete
             }
         );
         setProductosComprados(listaCompras);
         setListaBolsaCompras([]);
+        // console.log(listaCompras)
     }
     const setCantidadProducto = (id, cantidad) =>{
         const aux = getProductById(id);
@@ -82,6 +77,7 @@ const dataPrueba = {
         }
         const newProducts = products.map((product) => product.product.id === id ? newProduct : product)
         setProducts(newProducts)
+        setListaBolsaCompras(newProducts.filter((product) => product.cantidad!==0));
     }
     return (
       <div style={{ flex: 1, backgroundColor: "var(--sec-b-100)", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: 'center', padding: "3.5% 20%"}}>
@@ -110,7 +106,7 @@ const dataPrueba = {
         <div className="px-8 flex flex-wrap w-full py-4 align-middle">
             <div className="justify-start flex min-w-max max-h-min" style={{width:"50%", paddingBottom:"1.25em"}}>
                 <Link href={"/factura"} className="boton-primario" style={{fontSize:"1.25em", pointerEvents: products.length===0  ? 'none' : ''}}
-                onClick={() => {cantidadItems>0 ? paraResumenCompra() : null}}>Comprar</Link>
+                onClick={() => {cantidadItems>0 ? paraResumenCompra() : null}} id="comprar">Comprar</Link>
             </div>
             <div className={"justify-end flex gap-44 align-text-bottom w-2/4 min-w-max"}>
                 <div className={"texto-normal"} style={{fontSize:"1.75em", fontWeight:"var(--weight-bold)"}}>Total:</div>
@@ -121,4 +117,10 @@ const dataPrueba = {
       </div>
   
     )
+
+    
   }
+
+  ItemPage.propTypes = {
+    params: PropTypes.object.isRequired, // Cambia "object" al tipo correcto si es diferente
+  };

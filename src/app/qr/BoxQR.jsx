@@ -1,14 +1,11 @@
 "use client"
-import { useEffect, useState } from "react";
-import Image from 'next/image'
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faMagnifyingGlass,
-  faCircleStop
-} from "@fortawesome/free-solid-svg-icons";
+import React from 'react';
+import { useState } from "react";
 import '../globals.css'
 import './qr.css'
-import Link from "next/link";
+import PropTypes from 'prop-types';
+
+
 
 const BoxQR = (props) =>{
    const {showModal} = props
@@ -28,13 +25,18 @@ const BoxQR = (props) =>{
     setClicked(!clicked);
   }
 
+ // const {productosComprados,setProductosComprados} = useProductosCompradosContext();
+  const click = (e) =>{
+    showModal(e);
+  }
+
     return(
         <div className="box-con-botones" id="principal">
             <div className="box-imagen-texto">
               <div className="box-texto">
                 {instrucciones.map((instruccion, index) => <p className="texto-parrafo" key={index}>{index + 1}. {instruccion} </p>)}
               </div>
-              <button className="imagen-qr" onClick={showModal}>
+              <button className="imagen-qr" onClick={click} id="realizarPago">
                 <img src={qr} alt="" id="qr" />
               </button>
             </div>
@@ -47,5 +49,11 @@ const BoxQR = (props) =>{
         </div>
     )
 }
+
+
+
+BoxQR.propTypes = {
+  showModal: PropTypes.func.isRequired,
+};
 
 export default BoxQR;

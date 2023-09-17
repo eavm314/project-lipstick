@@ -1,4 +1,6 @@
 "use client"
+import React from 'react';
+
 import { useState } from "react";
 import { Component } from "./Component";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -7,7 +9,6 @@ import {
   faCircleStop
 } from "@fortawesome/free-solid-svg-icons";
 import '../globals.css'
-import BoxIndividual from "../bolsaCompras/resources/BoxIndividual";
 import BoxTarjeta from "../qr/BoxTarjeta";
 
 
@@ -15,7 +16,7 @@ import BoxTarjeta from "../qr/BoxTarjeta";
 
 const ExamplePage = () => {
     const [cont, setCont] = useState(2);
-    const [cantidad, setCantidad] = useState(1);
+    //const [cantidad, setCantidad] = useState(1);
     // let cont = 2;
     const nums = [1,2,3,4,5,6,7,8];
     const data = {
@@ -23,15 +24,7 @@ const ExamplePage = () => {
         precio: 21,
     }
 
-    const dataPrueba = {
-        imagen: "lipstickPrueba.jpg",
-        categoria: "Labios",
-        tags: ["lipstick", "especial"],
-        nombre: "Ruby Lips",
-        nombreLargo: "Labial Sabor  Chocolate Humectante Antigrasa Esika Premium",
-        precio: 70.00,
-        textoBoton: "Añadir"
-      }
+    
     const em = 16;
 
     

@@ -15,6 +15,23 @@ export const getUser = async () => {
     return user.data;
 }
 
+export const updateUser = async (newData) => {
+    const user = await bodoniAPI.put('/user', newData);
+    return user.data
+}
+
 export const createCompra = async (compra) =>{
-    await bodoniAPI.post(`/compra`,compra);
+    const response = await bodoniAPI.post(`/compra`,compra);
+    return response.data;
+}
+
+
+export const getCompra = async () =>{
+    const compra = await bodoniAPI.get(`/compra`);
+    return compra.data;
+}
+
+export const getCompraById = async (idCompra) =>{
+    const compra = await bodoniAPI.get(`/compra/${idCompra}`);
+    return compra.data;
 }

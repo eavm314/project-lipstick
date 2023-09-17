@@ -1,17 +1,38 @@
-import { createCompra} from "@/api_services/compraService";
+import { createCompra, getCompras} from "@/api_services/compraService";
 import { NextResponse } from "next/server"
 
 export async function POST(request) {
     const compra = await request.json();
-    console.log(compra);
+    // console.log(compra);
     try {
-        const {data, error} = await createCompra(compra);
+        await createCompra(compra, request);
         return NextResponse.json({
             message: "compra inserted successfully",
             status: 200,
-            data
         });
     
+        
+    } catch (error) {
+        return NextResponse.json({
+            message: "server error",
+            status: 500,
+            error
+        })
+    }
+
+}
+
+
+export async function GET(req) {
+    
+    try {
+        const compra = await getCompras(req);
+        // console.log(compra)
+        return NextResponse.json({
+            message: "data retrieved successfully",
+            status: 200,
+            data: compra
+        });
         
     } catch (error) {
         return NextResponse.json({
